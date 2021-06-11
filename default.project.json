@@ -1,0 +1,46 @@
+{
+  "name": "Ro-Libs",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": {
+      "libs": {
+        "$path": "src"
+      }
+    },
+    "ServerScriptService": {
+      "Tests": {
+        "$path": "tests/server"
+      }
+    },
+    "StarterPlayer": {
+      "StarterPlayerScripts": {
+        "Client": {
+          "$path": "tests/client"
+        }
+      }
+    },
+    "Workspace": {
+      "$properties": {
+        "FilteringEnabled": true
+      }
+    },
+    "Lighting": {
+      "$properties": {
+        "Ambient": [
+          0,
+          0,
+          0
+        ],
+        "Brightness": 2,
+        "GlobalShadows": true,
+        "Outlines": false,
+        "Technology": "Voxel"
+      }
+    },
+    "SoundService": {
+      "$properties": {
+        "RespectFilteringEnabled": true
+      }
+    }
+  }
+}
