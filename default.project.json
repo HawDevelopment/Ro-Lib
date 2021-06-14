@@ -5,6 +5,12 @@
     "ReplicatedStorage": {
       "libs": {
         "$path": "src"
+      },
+      "TestEz": {
+        "$path": "vendor/testez/src"
+      },
+      "t": {
+        "$path": "vendor/t/lib"
       }
     },
     "ServerScriptService": {
