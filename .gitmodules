@@ -1,0 +1,6 @@
+[submodule "vendor"]
+	path = vendor/testez
+	url = https://github.com/Roblox/testez/
+[submodule "vender/testez"]
+	path = vender/testez
+	url = https://github.com/Roblox/testez/
