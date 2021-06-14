@@ -1,0 +1,3 @@
+return {
+	Factory = script.Factory,
+}
