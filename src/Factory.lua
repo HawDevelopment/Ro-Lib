@@ -79,7 +79,10 @@ function Factory:create(type, ...)
 	if self.__rule then
 		for index, value in ipairs(args) do
 			if self.__rule[index](value) == false then
-				error(("Argument %d in function with type %s, doesnt comply with rules"):format(index, typeof(value)), 3)
+				error(
+					("Argument %d in function with type %s, doesnt comply with rules"):format(index, typeof(value)),
+					3
+				)
 			end
 		end
 	end
@@ -146,7 +149,7 @@ Factory.__index = function(self, index)
 	end
 end
 Factory.__call = function(self, ...)
-	return self:create(...)
+	return self.create(...)
 end
 
 return setmetatable(Factory, {
