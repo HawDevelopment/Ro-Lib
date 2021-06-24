@@ -3,7 +3,7 @@
     HawDevelopment
     23/06/2021
 --]]
-local t = require(game.ReplicatedStorage.t)
+local t = require(script.Parent.t)
 
 ---@class Strategy
 local Strategy = {}

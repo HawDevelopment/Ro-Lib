@@ -8,7 +8,7 @@ return function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 	local Factory = require(ReplicatedStorage.libs.Factory)
-	local t = require(ReplicatedStorage.t)
+	local t = require(ReplicatedStorage.libs.t)
 
 	local factoryEnum = {
 		Developer = 1,

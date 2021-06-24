@@ -4,7 +4,7 @@
     14/06/2021
 --]]
 
-local t = require(game.ReplicatedStorage.t)
+local t = require(script.Parent.t)
 
 ---class @Singleton
 local Singleton = {}
