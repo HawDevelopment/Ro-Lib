@@ -149,6 +149,7 @@
 					<R22>1</R22>
 				</CoordinateFrame>
 				<bool name="CanCollide">true</bool>
+				<bool name="CanQuery">true</bool>
 				<bool name="CanTouch">true</bool>
 				<bool name="CastShadow">true</bool>
 				<int name="CollisionGroupId">0</int>
@@ -242,6 +243,7 @@
 					<R22>1</R22>
 				</CoordinateFrame>
 				<bool name="CanCollide">true</bool>
+				<bool name="CanQuery">true</bool>
 				<bool name="CanTouch">true</bool>
 				<bool name="CastShadow">true</bool>
 				<int name="CollisionGroupId">0</int>
@@ -732,7 +734,7 @@ return function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 	local Factory = require(ReplicatedStorage.libs.Factory)
-	local t = require(ReplicatedStorage.t)
+	local t = require(ReplicatedStorage.libs.t)
 
 	local factoryEnum = {
 		Developer = 1,
@@ -778,8 +780,7 @@ return function()
 			end).to.be.throw()
 
 			expect(function()
-				Factory.new(game, function()
-				end)
+				Factory.new(game, function() end)
 			end).to.be.throw()
 		end)
 
@@ -789,8 +790,7 @@ return function()
 					Developer = 1,
 					CEO = 2,
 				}, {
-					CEO = function()
-					end,
+					CEO = function() end,
 				})
 			end).to.be.throw()
 		end)
@@ -849,10 +849,8 @@ return function()
 
 		it("should comply with Factory bases", function()
 			local baseFactory = Factory.new(factoryEnum, {
-				Developer = function()
-				end,
-				Tester = function()
-				end,
+				Developer = function() end,
+				Tester = function() end,
 			})
 
 			baseFactory.base({
@@ -939,6 +937,7 @@ return function()
 			local base = {
 				Name = Factory.Argument(1),
 				Age = Factory.Argument(2),
+				Iq = 120,
 			}
 
 			factory.base(base)
@@ -1208,6 +1207,145 @@ return function()
 			end).to.never.be.throw()
 
 			expect(ret).to.be.equal("Ticket 1")
+		end)
+	end)
+end
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX7688968804DC4FFD8027422455C2757B">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Observer.spec</string>
+					<string name="ScriptGuid">{F3BD6F80-536E-4A9B-B86F-E027F1A40837}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Observer tests
+    HawDevelopment
+    24/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local lib = require(ReplicatedStorage.libs)
+	---@module Observer
+	local Observer = require(lib.Observer)
+
+	describe("Observer.new", function()
+		it("should create a valid observer", function()
+			local observer
+			expect(function()
+				observer = Observer.new()
+			end).to.never.be.throw()
+
+			expect(observer.__listeners).to.be.a("table")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Observer.new(game)
+			end).to.be.throw()
+
+			expect(function()
+				Observer.new("Yes")
+			end).to.be.throw()
+
+			expect(function()
+				Observer.new(420)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Observer()
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Observer.add", function()
+		---@type Observer
+		local observer
+
+		beforeEach(function()
+			observer = Observer.new()
+		end)
+
+		it("should add handler to listners", function()
+			expect(function()
+				observer.add(function() end)
+			end).to.never.be.throw()
+
+			expect(#observer.__listeners).to.be.equal(1)
+		end)
+
+		it("should return a function", function()
+			local func = observer.add(function() end)
+
+			expect(func).to.be.a("function")
+			expect(#observer.__listeners).to.be.equal(1)
+
+			func()
+
+			expect(#observer.__listeners).to.be.equal(0)
+		end)
+
+		it("should work with types", function()
+			observer.add(function() end, "Hello!")
+
+			expect(#observer.__listeners["Hello!"]).to.be.equal(1)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				observer.add("Yes", 1)
+			end).to.be.throw()
+
+			expect(function()
+				observer.add(10, game)
+			end).to.be.throw()
+
+			expect(function()
+				observer.add({})
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Observer.fire", function()
+		---@type Observer
+		local observer
+
+		beforeEach(function()
+			observer = Observer.new()
+		end)
+
+		it("should fire listners", function()
+			local res = false
+
+			observer.add(function()
+				res = true
+			end)
+			observer.fire()
+
+			expect(res).to.be.equal(true)
+		end)
+
+		it("should fire listners with types", function()
+			local res = false
+
+			observer.add(function()
+				res = true
+			end, "Hello!")
+			observer.fire("Hello!")
+
+			expect(res).to.be.equal(true)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				observer.fire({})
+			end).to.never.be.throw()
 		end)
 	end)
 end
@@ -3302,6 +3440,7 @@ return TestSession
 	Factory = script.Factory,
 	Singleton = script.Singleton,
 	Strategy = script.Strategy,
+	Observer = script.Observer,
 }
 ]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
@@ -3318,11 +3457,9 @@ return TestSession
     HawDevelopment
     11/06/2021
 --]]
-local t = require(game.ReplicatedStorage.t)
+local t = require(script.Parent.t)
 
----alias Factory {__enum: table<string, number>, __factories: table<string, function>, rule: fun(types: Rule[]), create: fun(type: string | number, ...): table, base: fun(base: table<string | number, FactoryArgument>)}
 ---@alias Rule fun(type: any): boolean
-
 ---@class Factory
 local Factory = {}
 
@@ -3330,7 +3467,21 @@ local Factory = {}
 Factory.Type = require(script.Parent.Types)
 
 ---@type fun(num: number): Argument
-Factory.Argument = require(script.Parent.Argument)
+Factory.Argument = function(num)
+	---@class Argument
+	local self = newproxy(true)
+
+	local wrapStr = ("Argument(%d)"):format(num)
+
+	getmetatable(self).__call = function()
+		return num
+	end
+	getmetatable(self).__tostring = function()
+		return wrapStr
+	end
+
+	return self
+end
 
 local function Copy(tab)
 	local newtab = {}
@@ -3408,7 +3559,11 @@ function Factory:create(type, ...)
 	-- Base
 	if self.__base then
 		for index, argument in pairs(self.__base) do
-			class[index] = args[tonumber(argument())]
+			if tostring(argument):match("Argument%(%d-%)") then
+				class[index] = args[tonumber(argument())]
+			else
+				class[index] = argument
+			end
 		end
 	end
 
@@ -3440,10 +3595,6 @@ function Factory:base(base)
 		for index, value in pairs(base) do
 			if not (type(index) == "number" or type(index) == "string") then
 				error(("Index %s in base, isnt of type string or number"):format(index), 3)
-			end
-
-			if not (tostring(value):match("Argument%(%d-%)")) then
-				error(("Value with index %s in base, isnt of type Argument"):format(index), 3)
 			end
 		end
 
@@ -3521,41 +3672,6 @@ return Types
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-			<Item class="ModuleScript" referent="RBX00CB7A85730C4D8BA9CADD6CE762BFB7">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Argument</string>
-					<string name="ScriptGuid">{C95666FA-BB9F-490A-9B9B-44C956CF55AD}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Argument Class
-    HawDevelopment
-    13/06/2021
---]]
-
---- Creates a new argument
----@param num number
----@return Argument
-return function(num)
-	---@class Argument
-	local self = newproxy(true)
-
-	local wrapStr = ("Argument(%d)"):format(num)
-
-	getmetatable(self).__call = function()
-		return num
-	end
-	getmetatable(self).__tostring = function()
-		return wrapStr
-	end
-
-	return self
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
 			<Item class="ModuleScript" referent="RBX13534B7015AC4726B0B40E63A6B51A2A">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3568,7 +3684,7 @@ end
     14/06/2021
 --]]
 
-local t = require(game.ReplicatedStorage.t)
+local t = require(script.Parent.t)
 
 ---class @Singleton
 local Singleton = {}
@@ -3643,9 +3759,9 @@ return setmetatable(Singleton, {
     HawDevelopment
     23/06/2021
 --]]
-local t = require(game.ReplicatedStorage.t)
+local t = require(script.Parent.t)
 
----class @Strategy
+---@class Strategy
 local Strategy = {}
 Strategy.__index = Strategy
 
@@ -3709,14 +3825,171 @@ return setmetatable(Strategy, {
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
-		</Item>
-		<Item class="ModuleScript" referent="RBXBEE64A878C0747D1A271C178FE712DBA">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<Content name="LinkedSource"><null></null></Content>
-				<string name="Name">t</string>
-				<string name="ScriptGuid">{8ED1B0A6-04F6-4337-ADF2-15BD14F38F45}</string>
-				<ProtectedString name="Source"><![CDATA[-- t: a runtime typechecker for Roblox
+			<Item class="ModuleScript" referent="RBX41CE45F9CC214BD7A484A41CB8123DC2">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Symbol</string>
+					<string name="ScriptGuid">{6DC8813B-0C61-413D-AA52-B1EDA9EDEB7D}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Symbol Class
+    HawDevelopment
+    24/06/2021
+--]]
+
+---@class Symbol
+local Symbol = {}
+
+--- Creates a new symbol
+---@param name string @The name of the symbol
+---@return Symbol
+function Symbol.named(name)
+	assert(type(name) == "string", "Symbols must be created using a string name!")
+
+	local self = newproxy(true)
+
+	local wrappedName = ("Symbol(%s)"):format(name)
+
+	getmetatable(self).__tostring = function()
+		return wrappedName
+	end
+
+	return self
+end
+
+--- Creates an unnamed symbol
+---@return Symbol
+function Symbol.unnamed()
+	local self = newproxy(true)
+
+	getmetatable(self).__tostring = function()
+		return "Unnamed Symbol"
+	end
+
+	return self
+end
+
+return Symbol
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX56422C9115FE47619D70226E4663E021">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Observer</string>
+					<string name="ScriptGuid">{DB817D81-6A71-44BB-A5A9-BC0149C4D616}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Observer
+    HawDevelopment
+    24/06/2021
+--]]
+
+local t = require(script.Parent.t)
+local symbol = require(script.Parent.Symbol)
+
+---@module Observer
+---@class Observer
+local Observer = {}
+Observer.__index = Observer
+
+--- Creates a new Observer
+---@param listeners nil | table | "nil" | "{}" @Start listeners
+---@return Observer
+function Observer.new(listeners)
+	assert(t.union(t.table, t.none)(listeners))
+
+	local self = setmetatable({}, Observer)
+
+	self.__listeners = listeners or {}
+
+	return self
+end
+
+--- Adds a handler / listener to observer
+---@param handler fun(any) | "function(arg1, arg2) end"
+---@param type string
+---@return fun() @Function that when called whil remove handler from its index
+function Observer:add(handler, type)
+	assert(t.callback(handler))
+	assert(t.union(t.string, t.none)(type))
+
+	local tab = self.__listeners
+	if type then
+		if not self.__listeners[type] then
+			self.__listeners[type] = {}
+		end
+
+		tab = self.__listeners[type]
+	end
+
+	local index = #tab + 1
+	tab[index] = handler
+
+	return function()
+		tab[index] = nil
+	end
+end
+
+--- Fires observer, calling every listener
+---@param type string | nil
+---@vararg any
+---@return Observer
+function Observer:fire(type, ...)
+	local tab = self.__listeners
+	if type then
+		if not self.__listeners[type] then
+			self.__listeners[type] = {}
+		end
+
+		tab = self.__listeners[type]
+	end
+
+	for _, fun in pairs(tab) do
+		fun(...)
+	end
+
+	return self
+end
+
+Observer.__index = function(self, index)
+	if type(Observer[index]) == "function" then
+		return function(...)
+			return Observer[index](self, ...)
+		end
+	else
+		return Observer[index]
+	end
+end
+Observer.__call = function(self, ...)
+	return self.fire(...)
+end
+
+return setmetatable(Observer, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX8396BDA7AC5B478F8ED632D43A7C41D5">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">t</string>
+					<string name="ScriptGuid">{36E81A9F-C7B6-44EC-8998-EADAB80C3FD3}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+	t: a runtime typechecker for Roblox
+	HawDevelopment
+	24/06/2021
+	
+	https://github.com/osyrisrblx/t
+--]]
 
 -- regular lua compatibility
 local typeof = typeof or type
@@ -4529,7 +4802,7 @@ end
 
 do
 	local arrayKeysCheck = t.keys(t.integer)
---[[**
+	--[[**
 		ensures value is an array and all values of the array match check
 
 		@param check The check to compare all values with
@@ -4569,7 +4842,7 @@ do
 		end
 	end
 
---[[**
+	--[[**
 		ensures value is an array of a strict makeup and size
 
 		@param check The check to compare all values with
@@ -4605,7 +4878,7 @@ end
 
 do
 	local callbackArray = t.array(t.callback)
---[[**
+	--[[**
 		creates a union type
 
 		@param ... The checks to union
@@ -4627,12 +4900,12 @@ do
 		end
 	end
 
---[[**
+	--[[**
 		Alias for t.union
 	**--]]
 	t.some = t.union
 
---[[**
+	--[[**
 		creates an intersection type
 
 		@param ... The checks to intersect
@@ -4655,7 +4928,7 @@ do
 		end
 	end
 
---[[**
+	--[[**
 		Alias for t.intersection
 	**--]]
 	t.every = t.intersection
@@ -4663,7 +4936,7 @@ end
 
 do
 	local checkInterface = t.map(t.any, t.callback)
---[[**
+	--[[**
 		ensures value matches given interface definition
 
 		@param checkTable The interface definition
@@ -4689,7 +4962,7 @@ do
 		end
 	end
 
---[[**
+	--[[**
 		ensures value matches given interface definition strictly
 
 		@param checkTable The interface definition
@@ -4822,7 +5095,7 @@ end
 do
 	local checkWrap = t.tuple(t.callback, t.callback)
 
---[[**
+	--[[**
 		wraps a callback in an assert with checkArgs
 
 		@param callback The function to wrap
@@ -4855,7 +5128,7 @@ end
 do
 	local checkChildren = t.map(t.string, t.callback)
 
---[[**
+	--[[**
 		Takes a table where keys are child names and values are functions to check the children against.
 		Pass an instance tree into the function.
 		If at least one child passes each check, the overall check passes.
@@ -4900,1796 +5173,6 @@ do
 end
 
 return t
-]]></ProtectedString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-			<Item class="ModuleScript" referent="RBX7DA3804347C34770B8D78414F8BE4BCC">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">init.spec</string>
-					<string name="ScriptGuid">{209EF7C8-77E2-4F7B-9CB5-C660A9FB5412}</string>
-					<ProtectedString name="Source"><![CDATA[return function()
-	local t = require(script.Parent)
-
-	it("should support basic types", function()
-		assert(t.any(""))
-		assert(t.boolean(true))
-		assert(t.none(nil))
-		assert(t.number(1))
-		assert(t.string("foo"))
-		assert(t.table({}))
-
-		assert(not (t.any(nil)))
-		assert(not (t.boolean("true")))
-		assert(not (t.none(1)))
-		assert(not (t.number(true)))
-		assert(not (t.string(true)))
-		assert(not (t.table(82)))
-	end)
-
-	it("should support special number types", function()
-		local maxTen = t.numberMax(10)
-		local minTwo = t.numberMin(2)
-		local maxTenEx = t.numberMaxExclusive(10)
-		local minTwoEx = t.numberMinExclusive(2)
-		local constrainedEightToEleven = t.numberConstrained(8, 11)
-		local constrainedEightToElevenEx = t.numberConstrainedExclusive(8, 11)
-
-		assert(maxTen(5))
-		assert(maxTen(10))
-		assert(not (maxTen(11)))
-		assert(not (maxTen()))
-
-		assert(minTwo(5))
-		assert(minTwo(2))
-		assert(not (minTwo(1)))
-		assert(not (minTwo()))
-
-		assert(maxTenEx(5))
-		assert(maxTenEx(9))
-		assert(not (maxTenEx(10)))
-		assert(not (maxTenEx()))
-
-		assert(minTwoEx(5))
-		assert(minTwoEx(3))
-		assert(not (minTwoEx(2)))
-		assert(not (minTwoEx()))
-
-		assert(not (constrainedEightToEleven(7)))
-		assert(constrainedEightToEleven(8))
-		assert(constrainedEightToEleven(9))
-		assert(constrainedEightToEleven(11))
-		assert(not (constrainedEightToEleven(12)))
-		assert(not (constrainedEightToEleven()))
-
-		assert(not (constrainedEightToElevenEx(7)))
-		assert(not (constrainedEightToElevenEx(8)))
-		assert(constrainedEightToElevenEx(9))
-		assert(not (constrainedEightToElevenEx(11)))
-		assert(not (constrainedEightToElevenEx(12)))
-		assert(not (constrainedEightToElevenEx()))
-	end)
-
-	it("should support optional types", function()
-		local check = t.optional(t.string)
-		assert(check(""))
-		assert(check())
-		assert(not (check(1)))
-	end)
-
-	it("should support tuple types", function()
-		local myTupleCheck = t.tuple(t.number, t.string, t.optional(t.number))
-		assert(myTupleCheck(1, "2", 3))
-		assert(myTupleCheck(1, "2"))
-		assert(not (myTupleCheck(1, "2", "3")))
-	end)
-
-	it("should support union types", function()
-		local numberOrString = t.union(t.number, t.string)
-		assert(numberOrString(1))
-		assert(numberOrString("1"))
-		assert(not (numberOrString(nil)))
-	end)
-
-	it("should support literal types", function()
-		local checkSingle = t.literal("foo")
-		local checkUnion = t.union(t.literal("foo"), t.literal("bar"), t.literal("oof"))
-
-		assert(checkSingle("foo"))
-		assert(checkUnion("foo"))
-		assert(checkUnion("bar"))
-		assert(checkUnion("oof"))
-
-		assert(not (checkSingle("FOO")))
-		assert(not (checkUnion("FOO")))
-		assert(not (checkUnion("BAR")))
-		assert(not (checkUnion("OOF")))
-	end)
-
-	it("should support multiple literal types", function()
-		local checkSingle = t.literal("foo")
-		local checkUnion = t.literal("foo", "bar", "oof")
-
-		assert(checkSingle("foo"))
-		assert(checkUnion("foo"))
-		assert(checkUnion("bar"))
-		assert(checkUnion("oof"))
-
-		assert(not (checkSingle("FOO")))
-		assert(not (checkUnion("FOO")))
-		assert(not (checkUnion("BAR")))
-		assert(not (checkUnion("OOF")))
-	end)
-
-	it("should support intersection types", function()
-		local integerMax5000 = t.intersection(t.integer, t.numberMax(5000))
-		assert(integerMax5000(1))
-		assert(not (integerMax5000(5001)))
-		assert(not (integerMax5000(1.1)))
-		assert(not (integerMax5000("1")))
-	end)
-
-	describe("array", function()
-		it("should support array types", function()
-			local stringArray = t.array(t.string)
-			local anyArray = t.array(t.any)
-			local stringValues = t.values(t.string)
-			assert(not (anyArray("foo")))
-			assert(anyArray({1, "2", 3}))
-			assert(not (stringArray({1, "2", 3})))
-			assert(not (stringArray()))
-			assert(not (stringValues()))
-			assert(anyArray({"1", "2", "3"}, t.string))
-			assert(not (anyArray({
-				foo = "bar"
-			})))
-			assert(not (anyArray({
-				[1] = "non",
-				[5] = "sequential"
-			})))
-		end)
-
-		it("should not be fooled by sparse arrays", function()
-			local anyArray = t.array(t.any)
-
-			assert(not (anyArray({
-				[1] = 1,
-				[2] = 2,
-				[4] = 4,
-			})))
-		end)
-	end)
-
-	it("should support map types", function()
-		local stringNumberMap = t.map(t.string, t.number)
-		assert(stringNumberMap({}))
-		assert(stringNumberMap({a = 1}))
-		assert(not (stringNumberMap({[1] = "a"})))
-		assert(not (stringNumberMap({a = "a"})))
-		assert(not (stringNumberMap()))
-	end)
-
-	it("should support set types", function()
-		local stringSet = t.set(t.string)
-		assert(stringSet({}))
-		assert(stringSet({a = true}))
-		assert(not (stringSet({[1] = "a"})))
-		assert(not (stringSet({a = "a"})))
-		assert(not (stringSet({a = false})))
-		assert(not (stringSet()))
-	end)
-
-	it("should support interface types", function()
-		local IVector3 = t.interface({
-			x = t.number,
-			y = t.number,
-			z = t.number,
-		})
-
-		assert(IVector3({
-			w = 0,
-			x = 1,
-			y = 2,
-			z = 3,
-		}))
-
-		assert(not (IVector3({
-			w = 0,
-			x = 1,
-			y = 2,
-		})))
-	end)
-
-	it("should support strict interface types", function()
-		local IVector3 = t.strictInterface({
-			x = t.number,
-			y = t.number,
-			z = t.number,
-		})
-
-		assert(not (IVector3(0)))
-
-		assert(not (IVector3({
-			w = 0,
-			x = 1,
-			y = 2,
-			z = 3,
-		})))
-
-		assert(not (IVector3({
-			w = 0,
-			x = 1,
-			y = 2,
-		})))
-
-		assert(IVector3({
-			x = 1,
-			y = 2,
-			z = 3,
-		}))
-	end)
-
-	it("should support deep interface types", function()
-		local IPlayer = t.interface({
-			name = t.string,
-			inventory = t.interface({
-				size = t.number
-			})
-		})
-
-		assert(IPlayer({
-			name = "TestPlayer",
-			inventory = {
-				size = 1
-			}
-		}))
-
-		assert(not (IPlayer({
-			inventory = {
-				size = 1
-			}
-		})))
-
-		assert(not (IPlayer({
-			name = "TestPlayer",
-			inventory = {
-			}
-		})))
-
-		assert(not (IPlayer({
-			name = "TestPlayer",
-		})))
-	end)
-
-	it("should support deep optional interface types", function()
-		local IPlayer = t.interface({
-			name = t.string,
-			inventory = t.optional(t.interface({
-				size = t.number
-			}))
-		})
-
-		assert(IPlayer({
-			name = "TestPlayer"
-		}))
-
-		assert(not (IPlayer({
-			name = "TestPlayer",
-			inventory = {
-			}
-		})))
-
-		assert(IPlayer({
-			name = "TestPlayer",
-			inventory = {
-				size = 1
-			}
-		}))
-	end)
-
-	it("should support Roblox Instance types", function()
-		local stringValueCheck = t.instanceOf("StringValue")
-		local stringValue = Instance.new("StringValue")
-		local boolValue = Instance.new("BoolValue")
-
-		assert(stringValueCheck(stringValue))
-		assert(not (stringValueCheck(boolValue)))
-		assert(not (stringValueCheck()))
-	end)
-
-	it("should support Roblox Instance types inheritance", function()
-		local guiObjectCheck = t.instanceIsA("GuiObject")
-		local frame = Instance.new("Frame")
-		local textLabel = Instance.new("TextLabel")
-		local stringValue = Instance.new("StringValue")
-
-		assert(guiObjectCheck(frame))
-		assert(guiObjectCheck(textLabel))
-		assert(not (guiObjectCheck(stringValue)))
-		assert(not (guiObjectCheck()))
-	end)
-
-	it("should support Roblox Enum types", function()
-		local sortOrderEnumCheck = t.enum(Enum.SortOrder)
-		assert(t.Enum(Enum.SortOrder))
-		assert(not (t.Enum("Enum.SortOrder")))
-
-		assert(t.EnumItem(Enum.SortOrder.Name))
-		assert(not (t.EnumItem("Enum.SortOrder.Name")))
-
-		assert(sortOrderEnumCheck(Enum.SortOrder.Name))
-		assert(sortOrderEnumCheck(Enum.SortOrder.Custom))
-		assert(not (sortOrderEnumCheck(Enum.EasingStyle.Linear)))
-		assert(not (sortOrderEnumCheck()))
-	end)
-
-	it("should support Roblox RBXScriptSignal", function()
-		assert(t.RBXScriptSignal(game.ChildAdded))
-		assert(not (t.RBXScriptSignal(nil)))
-		assert(not (t.RBXScriptSignal(Vector3.new())))
-	end)
-
-	-- TODO: Add this back when Lemur supports it
-	-- it("should support Roblox RBXScriptConnection", function()
-	-- 	local conn = game.ChildAdded:Connect(function() end)
-	-- 	assert(t.RBXScriptConnection(conn))
-	-- 	assert(not (t.RBXScriptConnection(nil)))
-	-- 	assert(not (t.RBXScriptConnection(Vector3.new())))
-	-- end)
-
-	it("should support wrapping function types", function()
-		local checkFoo = t.tuple(t.string, t.number, t.optional(t.string))
-		local foo = t.wrap(function(a, b, c)
-			local result = string.format("%s %d", a, b)
-			if c then
-				result = result .. " " .. c
-			end
-			return result
-		end, checkFoo)
-
-		assert(not (pcall(foo)))
-		assert(not (pcall(foo, "a")))
-		assert(not (pcall(foo, 2)))
-		assert(pcall(foo, "a", 1))
-		assert(pcall(foo, "a", 1, "b"))
-	end)
-
-	it("should support strict types", function()
-		local myType = t.strict(t.tuple(t.string, t.number))
-		assert(not (pcall(function()
-			myType("a", "b")
-		end)))
-		assert(pcall(function()
-			myType("a", 1)
-		end))
-	end)
-
-	it("should support common OOP types", function()
-		local MyClass = {}
-		MyClass.__index = MyClass
-
-		function MyClass.new()
-			local self = setmetatable({}, MyClass)
-			return self
-		end
-
-		local function instanceOfClass(class)
-			return function(value)
-				local tableSuccess, tableErrMsg = t.table(value)
-				if not tableSuccess then
-					return false, tableErrMsg or ""
-				end
-
-				local mt = getmetatable(value)
-				if not mt or mt.__index ~= class then
-					return false, "bad member of class"
-				end
-
-				return true
-			end
-		end
-
-		local instanceOfMyClass = instanceOfClass(MyClass)
-
-		local myObject = MyClass.new()
-		assert(instanceOfMyClass(myObject))
-		assert(not (instanceOfMyClass({})))
-		assert(not (instanceOfMyClass()))
-	end)
-
-	it("should not treat NaN as numbers", function()
-		assert(t.number(1))
-		assert(not (t.number(0/0)))
-		assert(not (t.number("1")))
-	end)
-
-	it("should not treat numbers as NaN", function()
-		assert(not (t.nan(1)))
-		assert(t.nan(0/0))
-		assert(not (t.nan("1")))
-	end)
-
-	it("should allow union of number and NaN", function()
-		local numberOrNaN = t.union(t.number, t.nan)
-		assert(numberOrNaN(1))
-		assert(numberOrNaN(0/0))
-		assert(not (numberOrNaN("1")))
-	end)
-
-	it("should support non-string keys for interfaces", function()
-		local key = {}
-		local myInterface = t.interface({ [key] = t.number })
-		assert(myInterface({ [key] = 1 }))
-		assert(not (myInterface({ [key] = "1" })))
-	end)
-
-	it("should support failing on non-string keys for strict interfaces", function()
-		local myInterface = t.strictInterface({ a = t.number })
-		assert(not (myInterface({ a = 1, [{}] = 2 })))
-	end)
-
-	it("should support children", function()
-		local myInterface = t.interface({
-			buttonInFrame = t.intersection(t.instanceOf("Frame"), t.children({
-				MyButton = t.instanceOf("ImageButton")
-			}))
-		})
-
-		assert(not (t.children({})(5)))
-		assert(not (myInterface({ buttonInFrame = Instance.new("Frame") })))
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("ImageButton", frame)
-			button.Name = "MyButton"
-			assert(myInterface({ buttonInFrame = frame }))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("ImageButton", frame)
-			button.Name = "NotMyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("TextButton", frame)
-			button.Name = "MyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button1 = Instance.new("ImageButton", frame)
-			button1.Name = "MyButton"
-			local button2 = Instance.new("ImageButton", frame)
-			button2.Name = "MyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-	end)
-
-	it("should support t.instanceOf shorthand", function()
-		local myInterface = t.interface({
-			buttonInFrame = t.instanceOf("Frame", {
-				MyButton = t.instanceOf("ImageButton")
-			})
-		})
-
-		assert(not (t.children({})(5)))
-		assert(not (myInterface({ buttonInFrame = Instance.new("Frame") })))
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("ImageButton", frame)
-			button.Name = "MyButton"
-			assert(myInterface({ buttonInFrame = frame }))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("ImageButton", frame)
-			button.Name = "NotMyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("TextButton", frame)
-			button.Name = "MyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button1 = Instance.new("ImageButton", frame)
-			button1.Name = "MyButton"
-			local button2 = Instance.new("ImageButton", frame)
-			button2.Name = "MyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-	end)
-
-	it("should support t.instanceIsA shorthand", function()
-		local myInterface = t.interface({
-			buttonInFrame = t.instanceIsA("Frame", {
-				MyButton = t.instanceIsA("ImageButton")
-			})
-		})
-
-		assert(not (t.children({})(5)))
-		assert(not (myInterface({ buttonInFrame = Instance.new("Frame") })))
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("ImageButton", frame)
-			button.Name = "MyButton"
-			assert(myInterface({ buttonInFrame = frame }))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("ImageButton", frame)
-			button.Name = "NotMyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button = Instance.new("TextButton", frame)
-			button.Name = "MyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-
-		do
-			local frame = Instance.new("Frame")
-			local button1 = Instance.new("ImageButton", frame)
-			button1.Name = "MyButton"
-			local button2 = Instance.new("ImageButton", frame)
-			button2.Name = "MyButton"
-			assert(not (myInterface({ buttonInFrame = frame })))
-		end
-	end)
-
-	it("should support t.match", function()
-		local check = t.match("%d+")
-		assert(check("123"))
-		assert(not (check("abc")))
-		assert(not (check()))
-	end)
-
-	it("should support t.keyOf", function()
-		local myNewEnum = {
-			OptionA = {},
-			OptionB = {},
-		}
-		local check = t.keyOf(myNewEnum)
-		assert(check("OptionA"))
-		assert(not (check("OptionC")))
-	end)
-
-	it("should support t.valueOf", function()
-		local myNewEnum = {
-			OptionA = {},
-			OptionB = {},
-		}
-		local check = t.valueOf(myNewEnum)
-		assert(check(myNewEnum.OptionA))
-		assert(not (check(1010)))
-	end)
-
-	it("should support t.strictArray", function()
-		local fixedArrayCheck = t.strictArray(t.number, t.number)
-
-		assert(fixedArrayCheck({1, 2}))
-		assert(not fixedArrayCheck({1, 2, 3}))
-		assert(not fixedArrayCheck({10}))
-		assert(not fixedArrayCheck({"Hello", 10}))
-		assert(not fixedArrayCheck({ Foo = "Bar" }))
-
-		local fixedArrayCheck2 = t.strictArray(t.number, t.number, t.optional(t.string))
-
-		assert(fixedArrayCheck2({10, 20}))
-		assert(fixedArrayCheck2({10, 20, "Hello"}))
-		assert(not fixedArrayCheck2({10, 20, 30}))
-	end)
-end]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBXBB31037125E548D5972D77AC9E31CBD4">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">ts</string>
-					<string name="ScriptGuid">{C2C46E4B-DFE0-4AFC-AD73-1C327BF89256}</string>
-					<ProtectedString name="Source"><![CDATA[-- t: a runtime typechecker for Roblox
-
--- regular lua compatibility
-local typeof = typeof or type
-
-local function primitive(typeName)
-	return function(value)
-		local valueType = typeof(value)
-		if valueType == typeName then
-			return true
-		else
-			return false
-		end
-	end
-end
-
-local t = {}
-
---[[**
-	matches any type except nil
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-function t.any(value)
-	if value ~= nil then
-		return true
-	else
-		return false
-	end
-end
-
---Lua primitives
-
---[[**
-	ensures Lua primitive boolean type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.boolean = primitive("boolean")
-
---[[**
-	ensures Lua primitive thread type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.thread = primitive("thread")
-
---[[**
-	ensures Lua primitive callback type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.callback = primitive("function")
-t["function"] = t.callback
-
---[[**
-	ensures Lua primitive none type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.none = primitive("nil")
-t["nil"] = t.none
-
---[[**
-	ensures Lua primitive string type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.string = primitive("string")
-
---[[**
-	ensures Lua primitive table type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.table = primitive("table")
-
---[[**
-	ensures Lua primitive userdata type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.userdata = primitive("userdata")
-
---[[**
-	ensures value is a number and non-NaN
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-function t.number(value)
-	local valueType = typeof(value)
-	if valueType == "number" then
-		if value == value then
-			return true
-		else
-			return false
-		end
-	else
-		return false
-	end
-end
-
---[[**
-	ensures value is NaN
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-function t.nan(value)
-	if value ~= value then
-		return true
-	else
-		return false
-	end
-end
-
--- roblox types
-
---[[**
-	ensures Roblox Axes type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Axes = primitive("Axes")
-
---[[**
-	ensures Roblox BrickColor type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.BrickColor = primitive("BrickColor")
-
---[[**
-	ensures Roblox CFrame type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.CFrame = primitive("CFrame")
-
---[[**
-	ensures Roblox Color3 type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Color3 = primitive("Color3")
-
---[[**
-	ensures Roblox ColorSequence type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.ColorSequence = primitive("ColorSequence")
-
---[[**
-	ensures Roblox ColorSequenceKeypoint type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.ColorSequenceKeypoint = primitive("ColorSequenceKeypoint")
-
---[[**
-	ensures Roblox DockWidgetPluginGuiInfo type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.DockWidgetPluginGuiInfo = primitive("DockWidgetPluginGuiInfo")
-
---[[**
-	ensures Roblox Faces type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Faces = primitive("Faces")
-
---[[**
-	ensures Roblox Instance type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Instance = primitive("Instance")
-
---[[**
-	ensures Roblox NumberRange type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.NumberRange = primitive("NumberRange")
-
---[[**
-	ensures Roblox NumberSequence type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.NumberSequence = primitive("NumberSequence")
-
---[[**
-	ensures Roblox NumberSequenceKeypoint type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.NumberSequenceKeypoint = primitive("NumberSequenceKeypoint")
-
---[[**
-	ensures Roblox PathWaypoint type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.PathWaypoint = primitive("PathWaypoint")
-
---[[**
-	ensures Roblox PhysicalProperties type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.PhysicalProperties = primitive("PhysicalProperties")
-
---[[**
-	ensures Roblox Random type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Random = primitive("Random")
-
---[[**
-	ensures Roblox Ray type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Ray = primitive("Ray")
-
---[[**
-	ensures Roblox Rect type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Rect = primitive("Rect")
-
---[[**
-	ensures Roblox Region3 type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Region3 = primitive("Region3")
-
---[[**
-	ensures Roblox Region3int16 type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Region3int16 = primitive("Region3int16")
-
---[[**
-	ensures Roblox TweenInfo type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.TweenInfo = primitive("TweenInfo")
-
---[[**
-	ensures Roblox UDim type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.UDim = primitive("UDim")
-
---[[**
-	ensures Roblox UDim2 type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.UDim2 = primitive("UDim2")
-
---[[**
-	ensures Roblox Vector2 type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Vector2 = primitive("Vector2")
-
---[[**
-	ensures Roblox Vector3 type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Vector3 = primitive("Vector3")
-
---[[**
-	ensures Roblox Vector3int16 type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Vector3int16 = primitive("Vector3int16")
-
--- roblox enum types
-
---[[**
-	ensures Roblox Enum type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.Enum = primitive("Enum")
-
---[[**
-	ensures Roblox EnumItem type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.EnumItem = primitive("EnumItem")
-
---[[**
-	ensures Roblox RBXScriptSignal type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.RBXScriptSignal = primitive("RBXScriptSignal")
-
---[[**
-	ensures Roblox RBXScriptConnection type
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-t.RBXScriptConnection = primitive("RBXScriptConnection")
-
---[[**
-	ensures value is a given literal value
-
-	@param literal The literal to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.literal(...)
-	local size = select("#", ...)
-	if size == 1 then
-		local literal = ...
-		return function(value)
-			if value ~= literal then
-				return false
-			end
-
-			return true
-		end
-	else
-		local literals = {}
-		for i = 1, size do
-			local value = select(i, ...)
-			literals[i] = t.literal(value)
-		end
-
-		return t.union(table.unpack(literals, 1, size))
-	end
-end
-
---[[**
-	DEPRECATED
-	Please use t.literal
-**--]]
-t.exactly = t.literal
-
---[[**
-	Returns a t.union of each key in the table as a t.literal
-
-	@param keyTable The table to get keys from
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-function t.keyOf(keyTable)
-	local keys = {}
-	local length = 0
-	for key in pairs(keyTable) do
-		length = length + 1
-		keys[length] = key
-	end
-
-	return t.literal(table.unpack(keys, 1, length))
-end
-
---[[**
-	Returns a t.union of each value in the table as a t.literal
-
-	@param valueTable The table to get values from
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-function t.valueOf(valueTable)
-	local values = {}
-	local length = 0
-	for _, value in pairs(valueTable) do
-		length = length + 1
-		values[length] = value
-	end
-
-	return t.literal(table.unpack(values, 1, length))
-end
-
---[[**
-	ensures value is an integer
-
-	@param value The value to check against
-
-	@returns True iff the condition is satisfied, false otherwise
-**--]]
-function t.integer(value)
-	local success = t.number(value)
-	if not success then
-		return false
-	end
-
-	if value % 1 == 0 then
-		return true
-	else
-		return false
-	end
-end
-
---[[**
-	ensures value is a number where min <= value
-
-	@param min The minimum to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.numberMin(min)
-	return function(value)
-		local success = t.number(value)
-		if not success then
-			return false
-		end
-
-		if value >= min then
-			return true
-		else
-			return false
-		end
-	end
-end
-
---[[**
-	ensures value is a number where value <= max
-
-	@param max The maximum to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.numberMax(max)
-	return function(value)
-		local success = t.number(value)
-		if not success then
-			return false
-		end
-
-		if value <= max then
-			return true
-		else
-			return false
-		end
-	end
-end
-
---[[**
-	ensures value is a number where min < value
-
-	@param min The minimum to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.numberMinExclusive(min)
-	return function(value)
-		local success = t.number(value)
-		if not success then
-			return false
-		end
-
-		if min < value then
-			return true
-		else
-			return false
-		end
-	end
-end
-
---[[**
-	ensures value is a number where value < max
-
-	@param max The maximum to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.numberMaxExclusive(max)
-	return function(value)
-		local success = t.number(value)
-		if not success then
-			return false
-		end
-
-		if value < max then
-			return true
-		else
-			return false
-		end
-	end
-end
-
---[[**
-	ensures value is a number where value > 0
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-t.numberPositive = t.numberMinExclusive(0)
-
---[[**
-	ensures value is a number where value < 0
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-t.numberNegative = t.numberMaxExclusive(0)
-
---[[**
-	ensures value is a number where min <= value <= max
-
-	@param min The minimum to use
-	@param max The maximum to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.numberConstrained(min, max)
-	assert(t.number(min))
-	assert(t.number(max))
-	local minCheck = t.numberMin(min)
-	local maxCheck = t.numberMax(max)
-
-	return function(value)
-		local minSuccess = minCheck(value)
-		if not minSuccess then
-			return false
-		end
-
-		local maxSuccess = maxCheck(value)
-		if not maxSuccess then
-			return false
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures value is a number where min < value < max
-
-	@param min The minimum to use
-	@param max The maximum to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.numberConstrainedExclusive(min, max)
-	assert(t.number(min))
-	assert(t.number(max))
-	local minCheck = t.numberMinExclusive(min)
-	local maxCheck = t.numberMaxExclusive(max)
-
-	return function(value)
-		local minSuccess = minCheck(value)
-		if not minSuccess then
-			return false
-		end
-
-		local maxSuccess = maxCheck(value)
-		if not maxSuccess then
-			return false
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures value matches string pattern
-
-	@param string pattern to check against
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.match(pattern)
-	assert(t.string(pattern))
-	return function(value)
-		local stringSuccess = t.string(value)
-		if not stringSuccess then
-			return false
-		end
-
-		if string.match(value, pattern) == nil then
-			return false
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures value is either nil or passes check
-
-	@param check The check to use
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.optional(check)
-	assert(t.callback(check))
-	return function(value)
-		if value == nil then
-			return true
-		end
-
-		local success = check(value)
-		if success then
-			return true
-		else
-			return false
-		end
-	end
-end
-
---[[**
-	matches given tuple against tuple type definition
-
-	@param ... The type definition for the tuples
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.tuple(...)
-	local checks = { ... }
-	return function(...)
-		local args = { ... }
-		for i, check in ipairs(checks) do
-			local success = check(args[i])
-			if success == false then
-				return false
-			end
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures all keys in given table pass check
-
-	@param check The function to use to check the keys
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.keys(check)
-	assert(t.callback(check))
-	return function(value)
-		local tableSuccess = t.table(value)
-		if tableSuccess == false then
-			return false
-		end
-
-		for key in pairs(value) do
-			local success = check(key)
-			if success == false then
-				return false
-			end
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures all values in given table pass check
-
-	@param check The function to use to check the values
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.values(check)
-	assert(t.callback(check))
-	return function(value)
-		local tableSuccess = t.table(value)
-		if tableSuccess == false then
-			return false
-		end
-
-		for _, val in pairs(value) do
-			local success = check(val)
-			if success == false then
-				return false
-			end
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures value is a table and all keys pass keyCheck and all values pass valueCheck
-
-	@param keyCheck The function to use to check the keys
-	@param valueCheck The function to use to check the values
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.map(keyCheck, valueCheck)
-	assert(t.callback(keyCheck))
-	assert(t.callback(valueCheck))
-	local keyChecker = t.keys(keyCheck)
-	local valueChecker = t.values(valueCheck)
-
-	return function(value)
-		local keySuccess = keyChecker(value)
-		if not keySuccess then
-			return false
-		end
-
-		local valueSuccess = valueChecker(value)
-		if not valueSuccess then
-			return false
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures value is a table and all keys pass valueCheck and all values are true
-
-	@param valueCheck The function to use to check the values
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.set(valueCheck)
-	return t.map(valueCheck, t.literal(true))
-end
-
-do
-	local arrayKeysCheck = t.keys(t.integer)
---[[**
-		ensures value is an array and all values of the array match check
-
-		@param check The check to compare all values with
-
-		@returns A function that will return true iff the condition is passed
-	**--]]
-	function t.array(check)
-		assert(t.callback(check))
-		local valuesCheck = t.values(check)
-
-		return function(value)
-			local keySuccess = arrayKeysCheck(value)
-			if keySuccess == false then
-				return false
-			end
-
-			-- # is unreliable for sparse arrays
-			-- Count upwards using ipairs to avoid false positives from the behavior of #
-			local arraySize = 0
-
-			for _ in ipairs(value) do
-				arraySize = arraySize + 1
-			end
-
-			for key in pairs(value) do
-				if key < 1 or key > arraySize then
-					return false
-				end
-			end
-
-			local valueSuccess = valuesCheck(value)
-			if not valueSuccess then
-				return false
-			end
-
-			return true
-		end
-	end
-
---[[**
-		ensures value is an array of a strict makeup and size
-
-		@param check The check to compare all values with
-
-		@returns A function that will return true iff the condition is passed
-	**--]]
-	function t.strictArray(...)
-		local valueTypes = { ... }
-		assert(t.array(t.callback)(valueTypes))
-
-		return function(value)
-			local keySuccess = arrayKeysCheck(value)
-			if keySuccess == false then
-				return false
-			end
-
-			-- If there's more than the set array size, disallow
-			if #valueTypes < #value then
-				return false
-			end
-
-			for idx, typeFn in pairs(valueTypes) do
-				local typeSuccess = typeFn(value[idx])
-				if not typeSuccess then
-					return false
-				end
-			end
-
-			return true
-		end
-	end
-end
-
-do
-	local callbackArray = t.array(t.callback)
---[[**
-		creates a union type
-
-		@param ... The checks to union
-
-		@returns A function that will return true iff the condition is passed
-	**--]]
-	function t.union(...)
-		local checks = { ... }
-		assert(callbackArray(checks))
-
-		return function(value)
-			for _, check in ipairs(checks) do
-				if check(value) then
-					return true
-				end
-			end
-
-			return false
-		end
-	end
-
---[[**
-		Alias for t.union
-	**--]]
-	t.some = t.union
-
---[[**
-		creates an intersection type
-
-		@param ... The checks to intersect
-
-		@returns A function that will return true iff the condition is passed
-	**--]]
-	function t.intersection(...)
-		local checks = { ... }
-		assert(callbackArray(checks))
-
-		return function(value)
-			for _, check in ipairs(checks) do
-				local success = check(value)
-				if not success then
-					return false
-				end
-			end
-
-			return true
-		end
-	end
-
---[[**
-		Alias for t.intersection
-	**--]]
-	t.every = t.intersection
-end
-
-do
-	local checkInterface = t.map(t.any, t.callback)
---[[**
-		ensures value matches given interface definition
-
-		@param checkTable The interface definition
-
-		@returns A function that will return true iff the condition is passed
-	**--]]
-	function t.interface(checkTable)
-		assert(checkInterface(checkTable))
-		return function(value)
-			local tableSuccess = t.table(value)
-			if tableSuccess == false then
-				return false
-			end
-
-			for key, check in pairs(checkTable) do
-				local success = check(value[key])
-				if success == false then
-					return false
-				end
-			end
-
-			return true
-		end
-	end
-
---[[**
-		ensures value matches given interface definition strictly
-
-		@param checkTable The interface definition
-
-		@returns A function that will return true iff the condition is passed
-	**--]]
-	function t.strictInterface(checkTable)
-		assert(checkInterface(checkTable))
-		return function(value)
-			local tableSuccess = t.table(value)
-			if tableSuccess == false then
-				return false
-			end
-
-			for key, check in pairs(checkTable) do
-				local success = check(value[key])
-				if success == false then
-					return false
-				end
-			end
-
-			for key in pairs(value) do
-				if not checkTable[key] then
-					return false
-				end
-			end
-
-			return true
-		end
-	end
-end
-
---[[**
-	ensure value is an Instance and it's ClassName matches the given ClassName
-
-	@param className The class name to check for
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.instanceOf(className, childTable)
-	assert(t.string(className))
-
-	local childrenCheck
-	if childTable ~= nil then
-		childrenCheck = t.children(childTable)
-	end
-
-	return function(value)
-		local instanceSuccess = t.Instance(value)
-		if not instanceSuccess then
-			return false
-		end
-
-		if value.ClassName ~= className then
-			return false
-		end
-
-		if childrenCheck then
-			local childrenSuccess = childrenCheck(value)
-			if not childrenSuccess then
-				return false
-			end
-		end
-
-		return true
-	end
-end
-
-t.instance = t.instanceOf
-
---[[**
-	ensure value is an Instance and it's ClassName matches the given ClassName by an IsA comparison
-
-	@param className The class name to check for
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.instanceIsA(className, childTable)
-	assert(t.string(className))
-
-	local childrenCheck
-	if childTable ~= nil then
-		childrenCheck = t.children(childTable)
-	end
-
-	return function(value)
-		local instanceSuccess = t.Instance(value)
-		if not instanceSuccess then
-			return false
-		end
-
-		if not value:IsA(className) then
-			return false
-		end
-
-		if childrenCheck then
-			local childrenSuccess = childrenCheck(value)
-			if not childrenSuccess then
-				return false
-			end
-		end
-
-		return true
-	end
-end
-
---[[**
-	ensures value is an enum of the correct type
-
-	@param enum The enum to check
-
-	@returns A function that will return true iff the condition is passed
-**--]]
-function t.enum(enum)
-	assert(t.Enum(enum))
-	return function(value)
-		local enumItemSuccess = t.EnumItem(value)
-		if not enumItemSuccess then
-			return false
-		end
-
-		if value.EnumType == enum then
-			return true
-		else
-			return false
-		end
-	end
-end
-
-do
-	local checkWrap = t.tuple(t.callback, t.callback)
-
---[[**
-		wraps a callback in an assert with checkArgs
-
-		@param callback The function to wrap
-		@param checkArgs The functon to use to check arguments in the assert
-
-		@returns A function that first asserts using checkArgs and then calls callback
-	**--]]
-	function t.wrap(callback, checkArgs)
-		assert(checkWrap(callback, checkArgs))
-		return function(...)
-			assert(checkArgs(...))
-			return callback(...)
-		end
-	end
-end
-
---[[**
-	asserts a given check
-
-	@param check The function to wrap with an assert
-
-	@returns A function that simply wraps the given check in an assert
-**--]]
-function t.strict(check)
-	return function(...)
-		assert(check(...))
-	end
-end
-
-do
-	local checkChildren = t.map(t.string, t.callback)
-
---[[**
-		Takes a table where keys are child names and values are functions to check the children against.
-		Pass an instance tree into the function.
-		If at least one child passes each check, the overall check passes.
-
-		Warning! If you pass in a tree with more than one child of the same name, this function will always return false
-
-		@param checkTable The table to check against
-
-		@returns A function that checks an instance tree
-	**--]]
-	function t.children(checkTable)
-		assert(checkChildren(checkTable))
-
-		return function(value)
-			local instanceSuccess = t.Instance(value)
-			if not instanceSuccess then
-				return false
-			end
-
-			local childrenByName = {}
-			for _, child in ipairs(value:GetChildren()) do
-				local name = child.Name
-				if checkTable[name] then
-					if childrenByName[name] then
-						return false
-					end
-
-					childrenByName[name] = child
-				end
-			end
-
-			for name, check in pairs(checkTable) do
-				local success = check(childrenByName[name])
-				if not success then
-					return false
-				end
-			end
-
-			return true
-		end
-	end
-end
-
-return { t = t }
 ]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
