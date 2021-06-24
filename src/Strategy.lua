@@ -5,7 +5,7 @@
 --]]
 local t = require(game.ReplicatedStorage.t)
 
----class @Strategy
+---@class Strategy
 local Strategy = {}
 Strategy.__index = Strategy
 
