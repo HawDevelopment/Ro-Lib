@@ -93,7 +93,11 @@ function Factory:create(type, ...)
 	-- Base
 	if self.__base then
 		for index, argument in pairs(self.__base) do
-			class[index] = args[tonumber(argument())]
+			if tostring(argument):match("Argument%(%d-%)") then
+				class[index] = args[tonumber(argument())]
+			else
+				class[index] = argument
+			end
 		end
 	end
 
@@ -125,10 +129,6 @@ function Factory:base(base)
 		for index, value in pairs(base) do
 			if not (type(index) == "number" or type(index) == "string") then
 				error(("Index %s in base, isnt of type string or number"):format(index), 3)
-			end
-
-			if not (tostring(value):match("Argument%(%d-%)")) then
-				error(("Value with index %s in base, isnt of type Argument"):format(index), 3)
 			end
 		end
 

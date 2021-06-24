@@ -54,8 +54,7 @@ return function()
 			end).to.be.throw()
 
 			expect(function()
-				Factory.new(game, function()
-				end)
+				Factory.new(game, function() end)
 			end).to.be.throw()
 		end)
 
@@ -65,8 +64,7 @@ return function()
 					Developer = 1,
 					CEO = 2,
 				}, {
-					CEO = function()
-					end,
+					CEO = function() end,
 				})
 			end).to.be.throw()
 		end)
@@ -125,10 +123,8 @@ return function()
 
 		it("should comply with Factory bases", function()
 			local baseFactory = Factory.new(factoryEnum, {
-				Developer = function()
-				end,
-				Tester = function()
-				end,
+				Developer = function() end,
+				Tester = function() end,
 			})
 
 			baseFactory.base({
@@ -215,6 +211,7 @@ return function()
 			local base = {
 				Name = Factory.Argument(1),
 				Age = Factory.Argument(2),
+				Iq = 120,
 			}
 
 			factory.base(base)

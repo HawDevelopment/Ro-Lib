@@ -7,12 +7,11 @@
 			<token name="AnimationWeightedBlendFix">0</token>
 			<BinaryString name="AttributesSerialize"></BinaryString>
 			<token name="ClientAnimatorThrottling">0</token>
-			<string name="CollisionGroups">Default^0^1</string>
+			<string name="CollisionGroups">Default^0^-1</string>
 			<Ref name="CurrentCamera">RBXB2C1BCAE0B444AA39A594B54160A5A89</Ref>
 			<double name="DistributedGameTime">0</double>
 			<bool name="ExplicitAutoJoints">true</bool>
 			<float name="FallenPartsDestroyHeight">-500</float>
-			<bool name="FilteringEnabled">true</bool>
 			<float name="Gravity">196.199997</float>
 			<token name="InterpolationThrottling">0</token>
 			<token name="LevelOfDetail">0</token>
@@ -483,18 +482,6 @@ gcLgc4RKxr21zq2UlJSM]]></BinaryString>
 				<int64 name="SourceAssetId">-1</int64>
 				<BinaryString name="Tags"></BinaryString>
 			</Properties>
-			<Item class="LocalScript" referent="9">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<bool name="Disabled">false</bool>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Client</string>
-					<string name="ScriptGuid">{00089E41-F7A6-49E0-8391-4B49889FBD4E}</string>
-					<ProtectedString name="Source">print(&quot;Hello world, from client!&quot;)</ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
 			<Item class="LocalScript" referent="RBX77C05F91863D4AF29350A5A130BEF09B">
 				<Properties>
 					<BinaryString name="AttributesSerialize"></BinaryString>
@@ -722,18 +709,6 @@ TestEz.TestBootstrap:run(Tests:GetDescendants())
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Script" referent="5">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<bool name="Disabled">false</bool>
-				<Content name="LinkedSource"><null></null></Content>
-				<string name="Name">Server</string>
-				<string name="ScriptGuid">{A5E5331E-CCA4-466E-B1C6-1729B931225C}</string>
-				<ProtectedString name="Source">print(&quot;Hello world, from server!&quot;)</ProtectedString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-		</Item>
 		<Item class="Folder" referent="RBXE2AC8BFA808648439B1FCF5781E78A1B">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
@@ -1023,6 +998,224 @@ Factory.Argument()
 					<BinaryString name="Tags"></BinaryString>
 				</Properties>
 			</Item>
+			<Item class="ModuleScript" referent="RBXE00BF4F4A43140BA97FC2320EF677756">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Singleton.spec</string>
+					<string name="ScriptGuid">{3FC0A21D-A258-4540-ACE6-262C96E8AB8E}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Singleton Tests
+    HawDevelopment
+    14/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+	local lib = require(ReplicatedStorage.libs)
+	local Singleton = require(lib.Singleton)
+
+	local function ObjectCreater()
+		return {
+			Name = "HawDevelopment",
+			Skill = "Scripting",
+			Iq = -10,
+		}
+	end
+
+	describe("Singleton.new", function()
+		it("should create a valid singleton", function()
+			local singleton
+			expect(function()
+				singleton = Singleton.new(ObjectCreater)
+			end).to.never.be.throw()
+
+			expect(singleton.__creator).to.be.equal(ObjectCreater)
+			expect(singleton.__obj).to.be.equal(nil)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Singleton.new()
+			end).to.be.throw()
+
+			expect(function()
+				Singleton.new("Yes")
+			end).to.be.throw()
+
+			expect(function()
+				Singleton.new(420)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Singleton(ObjectCreater)
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Singleton.get", function()
+		local singleton
+		beforeEach(function()
+			singleton = Singleton.new(ObjectCreater)
+		end)
+
+		it("should return the singleton", function()
+			local ret
+			expect(function()
+				ret = singleton.get()
+			end).to.never.be.throw()
+
+			expect(ret).to.be.a("table")
+			expect(ret.Name).to.be.equal("HawDevelopment")
+			expect(ret.Iq).to.be.equal(-10)
+			expect(ret.Skill).to.be.equal("Scripting")
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				singleton(ObjectCreater)
+			end).to.never.be.throw()
+		end)
+	end)
+end
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX88C43457AE2644159912197EC6687743">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Strategy.spec</string>
+					<string name="ScriptGuid">{B22173DB-837A-4C19-BCFA-64369113380D}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Strategy tests
+    HawDevelopment
+    23/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local lib = require(ReplicatedStorage.libs)
+
+	---@module Strategy
+	local Strategy = require(lib.Strategy)
+
+	local handles = {
+		Support = function(name)
+			return "Support " .. tostring(name)
+		end,
+		Ticket = function(name)
+			return "Ticket " .. tostring(name)
+		end,
+	}
+
+	describe("Strategy.new", function()
+		it("should return a valid strategy", function()
+			local strat = Strategy.new(handles, 1)
+
+			expect(strat.__handles).to.be.a("table")
+			expect(strat.__strategy).to.be.a("function")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Strategy.new("Sup")
+			end).to.be.throw()
+
+			expect(function()
+				Strategy.new(69)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Strategy(handles)
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Strategy.set", function()
+		local strat
+		beforeEach(function()
+			strat = Strategy.new(handles)
+		end)
+
+		it("should set the current strategy", function()
+			-- Reset strategy
+			strat.__strategy = nil
+			strat.set("Ticket")
+
+			expect(strat.__strategy).to.be.a("function")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				strat.set(game)
+			end).to.be.throw()
+
+			expect(function()
+				strat.set()
+			end).to.be.throw()
+
+			expect(function()
+				strat.set({})
+			end).to.be.throw()
+		end)
+
+		it("should error if strategy isnt found", function()
+			expect(function()
+				strat.set("Developer")
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Strategy.call", function()
+		local strat
+		beforeEach(function()
+			strat = Strategy.new(handles, 1)
+		end)
+
+		it("should call strategy and return its value", function()
+			-- Just to be sure
+			strat.set("Support")
+
+			local ret
+			expect(function()
+				ret = strat.call("1")
+			end).to.never.be.throw()
+
+			expect(ret).to.be.equal("Support 1")
+		end)
+
+		it("should error if no strategy is set", function()
+			strat.__strategy = nil
+			expect(function()
+				strat.call()
+			end).to.be.throw()
+		end)
+
+		it("should be able to be called using __call", function()
+			strat.set("Ticket")
+
+			local ret
+			expect(function()
+				ret = strat("1")
+			end).to.never.be.throw()
+
+			expect(ret).to.be.equal("Ticket 1")
+		end)
+	end)
+end
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
 		</Item>
 		<Item class="Script" referent="RBX9B68FD11B2A8415CB6CCFF2ECE129F99">
 			<Properties>
@@ -1063,27 +1256,6 @@ TestEz.TestBootstrap:run(Tests:GetDescendants())
 			<int64 name="SourceAssetId">-1</int64>
 			<BinaryString name="Tags"></BinaryString>
 		</Properties>
-		<Item class="Folder" referent="2">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">Common</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-			<Item class="ModuleScript" referent="3">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Hello</string>
-					<string name="ScriptGuid">{12106A1A-4CF9-4F31-9E52-B0202EC2850E}</string>
-					<ProtectedString name="Source"><![CDATA[return function()
-	print("Hello, world!")
-end]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-		</Item>
 		<Item class="ModuleScript" referent="RBXACADE9C7E9F04BE09A2EEA2013E60B64">
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
@@ -3128,6 +3300,8 @@ return TestSession
 				<string name="ScriptGuid">{442D2829-147F-47FB-A718-0D0A4D470AA4}</string>
 				<ProtectedString name="Source"><![CDATA[return {
 	Factory = script.Factory,
+	Singleton = script.Singleton,
+	Strategy = script.Strategy,
 }
 ]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
@@ -3220,7 +3394,10 @@ function Factory:create(type, ...)
 	if self.__rule then
 		for index, value in ipairs(args) do
 			if self.__rule[index](value) == false then
-				error(("Argument %d in function with type %s, doesnt comply with rules"):format(index, typeof(value)), 3)
+				error(
+					("Argument %d in function with type %s, doesnt comply with rules"):format(index, typeof(value)),
+					3
+				)
 			end
 		end
 	end
@@ -3287,7 +3464,7 @@ Factory.__index = function(self, index)
 	end
 end
 Factory.__call = function(self, ...)
-	return self:create(...)
+	return self.create(...)
 end
 
 return setmetatable(Factory, {
@@ -3374,6 +3551,159 @@ return function(num)
 
 	return self
 end
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX13534B7015AC4726B0B40E63A6B51A2A">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Singleton</string>
+					<string name="ScriptGuid">{64FEAFE9-5514-4DC7-AA0E-9808C1091CE2}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Singleton Class
+    HawDevelopment
+    14/06/2021
+--]]
+
+local t = require(game.ReplicatedStorage.t)
+
+---class @Singleton
+local Singleton = {}
+Singleton.__index = Singleton
+
+--- Creates a new singleton
+---@param handle fun() | table
+---@return Singleton
+function Singleton.new(handle)
+	assert(t.union(t.callback, t.table)(handle))
+
+	if type(handle) == "table" then
+		assert(type(handle.new) == "function", "Expected class, got table")
+	end
+
+	local self = setmetatable({}, Singleton)
+
+	self.__creator = handle
+
+	return self
+end
+
+--- Gets or Creates object from the handler
+---@return any
+function Singleton:get()
+	if not self.__obj then
+		local ret
+
+		if type(self.__creator) == "table" then
+			ret = self.__creator.new()
+		else
+			ret = self.__creator()
+		end
+
+		self.__obj = ret
+	end
+
+	return self.__obj
+end
+
+Singleton.__index = function(self, index)
+	if type(Singleton[index]) == "function" then
+		return function(...)
+			return Singleton[index](self, ...)
+		end
+	else
+		return Singleton[index]
+	end
+end
+Singleton.__call = function(self, ...)
+	return self.get(...)
+end
+
+return setmetatable(Singleton, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBXAA6F4B7A36B2469D8C8E8B91A1D2C90A">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Strategy</string>
+					<string name="ScriptGuid">{1FB08F7C-B5AD-43BD-97D7-D84A5EEFB36E}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Strategy class
+    HawDevelopment
+    23/06/2021
+--]]
+local t = require(game.ReplicatedStorage.t)
+
+---class @Strategy
+local Strategy = {}
+Strategy.__index = Strategy
+
+--- Creates a new Strategy
+---@param handles table<string | number, fun(any): any>
+---@param start number
+function Strategy.new(handles, start)
+	assert(t.table(handles))
+	assert(#handles < 1, "Expected a table with more than zero entrys")
+
+	local self = setmetatable({}, Strategy)
+
+	self.__handles = handles
+	_, self.__strategy = next(handles)
+
+	return self
+end
+
+--- Sets the current Strategy
+---@param name string @The name of strategy to set
+---@return nil
+function Strategy:set(name)
+	assert(t.union(t.string, t.number)(name))
+
+	if not self.__handles[name] then
+		return error(("Strategy named %s could not be found"):format(tostring(name)), 2)
+	end
+
+	self.__strategy = self.__handles[name]
+end
+
+--- Calls the current set strategy, of none is found it errors
+---@vararg any
+---@return any
+function Strategy:call(...)
+	assert(self.__strategy ~= nil, "Strategy not set")
+
+	return self.__strategy(...)
+end
+
+Strategy.__index = function(self, index)
+	if type(Strategy[index]) == "function" then
+		return function(...)
+			return Strategy[index](self, ...)
+		end
+	else
+		return Strategy[index]
+	end
+end
+Strategy.__call = function(self, ...)
+	return self.call(...)
+end
+
+return setmetatable(Strategy, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
 ]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
