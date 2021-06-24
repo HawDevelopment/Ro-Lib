@@ -3,11 +3,9 @@
     HawDevelopment
     11/06/2021
 --]]
-local t = require(game.ReplicatedStorage.t)
+local t = require(script.Parent.t)
 
----alias Factory {__enum: table<string, number>, __factories: table<string, function>, rule: fun(types: Rule[]), create: fun(type: string | number, ...): table, base: fun(base: table<string | number, FactoryArgument>)}
 ---@alias Rule fun(type: any): boolean
-
 ---@class Factory
 local Factory = {}
 
@@ -15,7 +13,21 @@ local Factory = {}
 Factory.Type = require(script.Parent.Types)
 
 ---@type fun(num: number): Argument
-Factory.Argument = require(script.Parent.Argument)
+Factory.Argument = function(num)
+	---@class Argument
+	local self = newproxy(true)
+
+	local wrapStr = ("Argument(%d)"):format(num)
+
+	getmetatable(self).__call = function()
+		return num
+	end
+	getmetatable(self).__tostring = function()
+		return wrapStr
+	end
+
+	return self
+end
 
 local function Copy(tab)
 	local newtab = {}
