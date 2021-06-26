@@ -5,4 +5,5 @@ return {
 	Observer = script.Observer,
 	State = script.State,
 	Command = script.Command,
+	Chain = script.Chain,
 }
