@@ -56,7 +56,7 @@ end
 ---@return Observer
 function Observer:fire(type, ...)
 	local tab = self.__listeners
-	if type then
+	if type and string.lower(type) ~= "all" then
 		if not self.__listeners[type] then
 			self.__listeners[type] = {}
 		end
