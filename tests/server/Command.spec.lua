@@ -4,12 +4,6 @@
     26/06/2021
 --]]
 
---[[
-    State test
-    HawDevelopment
-    26/06/2021
---]]
-
 return function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 	local libs = require(ReplicatedStorage.libs)
