@@ -121,8 +121,8 @@ return function()
 
 		it("should error if given wrong arguments", function()
 			expect(function()
-				observer.fire({})
-			end).to.never.be.throw()
+				observer.fire({}, true)
+			end).to.be.throw()
 		end)
 	end)
 end
