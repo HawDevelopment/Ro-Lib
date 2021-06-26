@@ -3,4 +3,5 @@ return {
 	Singleton = script.Singleton,
 	Strategy = script.Strategy,
 	Observer = script.Observer,
+	State = script.State,
 }
