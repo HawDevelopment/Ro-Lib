@@ -11,19 +11,31 @@ Strategy.__index = Strategy
 
 --- Creates a new Strategy
 ---@param handles table<string | number, fun(any): any>
----@param start number
+---@param start number | nil
 function Strategy.new(handles, start)
 	assert(t.table(handles))
-	assert(#handles < 1, "Expected a table with more than zero entrys")
 
 	local self = setmetatable({}, Strategy)
 
 	self.__handles = handles
-	_, self.__strategy = next(handles)
+	if start then
+		self.__strategy = handles[start]
+	else
+		_, self.__strategy = next(handles)
+	end
 
 	return self
 end
 
+--- Adds a new handler to the strategy
+---@param handler fun(any): any
+---@param name string
+function Strategy:add(handler, name)
+	assert(t.callback(handler))
+	assert(t.string(name))
+
+	self.__handles[name] = handler
+end
 --- Sets the current Strategy
 ---@param name string @The name of strategy to set
 ---@return nil
