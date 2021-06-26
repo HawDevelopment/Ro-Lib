@@ -22,7 +22,7 @@ return function()
 
 	describe("Strategy.new", function()
 		it("should return a valid strategy", function()
-			local strat = Strategy.new(handles, 1)
+			local strat = Strategy.new(handles, "Support")
 
 			expect(strat.__handles).to.be.a("table")
 			expect(strat.__strategy).to.be.a("function")
