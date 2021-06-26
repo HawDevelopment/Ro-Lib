@@ -1115,7 +1115,7 @@ return function()
 
 	describe("Strategy.new", function()
 		it("should return a valid strategy", function()
-			local strat = Strategy.new(handles, 1)
+			local strat = Strategy.new(handles, "Support")
 
 			expect(strat.__handles).to.be.a("table")
 			expect(strat.__strategy).to.be.a("function")
@@ -1344,8 +1344,345 @@ return function()
 
 		it("should error if given wrong arguments", function()
 			expect(function()
-				observer.fire({})
+				observer.fire({}, true)
+			end).to.be.throw()
+		end)
+	end)
+end
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX3114639300554761AB008F0E4A2898BC">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">State.spec</string>
+					<string name="ScriptGuid">{D43D6EBE-254E-4B8A-A5AD-01833AB86153}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    State test
+    HawDevelopment
+    26/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local libs = require(ReplicatedStorage.libs)
+	local Observer = require(libs.Observer)
+	---@module State
+	local State = require(libs.State)
+
+	describe("State.new", function()
+		it("should return a valid state", function()
+			local state = State.new(true)
+
+			expect(state.__observer).to.be.a("table")
+			expect(state.__state).to.be.equal(true)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				State.new(nil, 10)
+			end).to.be.throw()
+
+			expect(function()
+				State.new(nil, game)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				State()
 			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("State.observer", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should set observer", function()
+			local observer = Observer.new()
+
+			state.observer(observer)
+			expect(state.__observer).to.be.equal(observer)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				State.new(true, "Sup")
+			end).to.be.throw()
+
+			expect(function()
+				State.new(true, 10)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("State.bind", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should bind a function", function()
+			expect(function()
+				state.bind(function()
+					print("Hello world!")
+				end)
+			end).to.never.be.throw()
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				state.bind("yes")
+			end).to.be.throw()
+
+			expect(function()
+				state.bind(function() end, workspace)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("State.set", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should set the state", function()
+			state.set(10)
+
+			expect(state.__state).to.be.equal(10)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				state.set(1, game)
+			end).to.be.throw()
+
+			expect(function()
+				state.set(1, false)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("State.get", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should return the state", function()
+			state.set(10)
+
+			expect(state.get()).to.be.equal(10)
+		end)
+	end)
+end
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX19BD0A8233AE4E03B8126B576536EDF1">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Command.spec</string>
+					<string name="ScriptGuid">{30FD678A-C226-4010-AFFA-228A8DB8E286}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Command tests
+    HawDevelopment
+    26/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local libs = require(ReplicatedStorage.libs)
+	---@module Command
+	local Command = require(libs.Command)
+
+	local commands = {
+		Hey = function()
+			-- Hello!
+		end,
+		Bye = function()
+			-- Bye! :(
+		end,
+	}
+
+	describe("Command.new", function()
+		it("should return a valid command", function()
+			local command = Command.new()
+
+			expect(command.__commands).to.be.a("table")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Command.new(10)
+			end).to.be.throw()
+
+			expect(function()
+				Command.new(workspace)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Command()
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Command.add", function()
+		local command
+		beforeEach(function()
+			command = Command.new()
+		end)
+
+		it("should add a command", function()
+			command.add(commands.Hey, "Hey")
+			expect(command.__commands["Hey"]).to.be.ok()
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				command.add(true)
+			end).to.be.throw()
+
+			expect(function()
+				command.add(commands.Bye, 10)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Command.execute", function()
+		local command
+		beforeEach(function()
+			command = Command.new()
+		end)
+
+		it("should execure a function", function()
+			local res
+			command.add(function()
+				res = true
+			end, "Test")
+
+			expect(function()
+				command.execute("Test")
+			end).to.never.be.throw()
+
+			expect(res).to.be.equal(true)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				command.execute(10)
+			end).to.be.throw()
+
+			expect(function()
+				command.execute(true)
+			end).to.be.throw()
+		end)
+	end)
+end
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBXFE45B6DF3C8A4F65A3A7FEDCF7557184">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Chain.spec</string>
+					<string name="ScriptGuid">{577EBB59-F478-4066-BC30-340DC14AA5E5}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Chain tests
+    HawDevelopment
+    26/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local libs = require(ReplicatedStorage.libs)
+	---@module Chain
+	local Chain = require(libs.Chain)
+
+	local chains = {
+		function()
+			return true
+		end,
+		function()
+			return false, "Error!"
+		end,
+	}
+
+	describe("Chain.new", function()
+		it("should return a valid Chain", function()
+			local Chain = Chain.new(chains)
+
+			expect(Chain.__chain).to.be.a("table")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Chain.new(13)
+			end).to.be.throw()
+
+			expect(function()
+				Chain.new(workspace)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Chain()
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Chain.add", function()
+		local chain
+		beforeEach(function()
+			chain = Chain.new(chains)
+		end)
+
+		it("should add a handler to the Chain", function()
+			chain.add(function() end, 1)
+			expect(#chain.__chain).to.be.equal(3)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				chain.add(true)
+			end).to.be.throw()
+
+			expect(function()
+				chain.add(function() end, "yes")
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Chain.execute", function()
+		local chain
+		beforeEach(function()
+			chain = Chain.new(chains)
+		end)
+
+		it("should execute the chain", function()
+			local res = true
+
+			expect(function()
+				res = chain.execute()
+			end).to.never.be.throw()
+
+			expect(res).to.be.equal(false)
 		end)
 	end)
 end
@@ -3441,6 +3778,9 @@ return TestSession
 	Singleton = script.Singleton,
 	Strategy = script.Strategy,
 	Observer = script.Observer,
+	State = script.State,
+	Command = script.Command,
+	Chain = script.Chain,
 }
 ]]></ProtectedString>
 				<int64 name="SourceAssetId">-1</int64>
@@ -3767,19 +4107,31 @@ Strategy.__index = Strategy
 
 --- Creates a new Strategy
 ---@param handles table<string | number, fun(any): any>
----@param start number
+---@param start number | nil
 function Strategy.new(handles, start)
 	assert(t.table(handles))
-	assert(#handles < 1, "Expected a table with more than zero entrys")
 
 	local self = setmetatable({}, Strategy)
 
 	self.__handles = handles
-	_, self.__strategy = next(handles)
+	if start then
+		self.__strategy = handles[start]
+	else
+		_, self.__strategy = next(handles)
+	end
 
 	return self
 end
 
+--- Adds a new handler to the strategy
+---@param handler fun(any): any
+---@param name string
+function Strategy:add(handler, name)
+	assert(t.callback(handler))
+	assert(t.string(name))
+
+	self.__handles[name] = handler
+end
 --- Sets the current Strategy
 ---@param name string @The name of strategy to set
 ---@return nil
@@ -3939,7 +4291,7 @@ end
 ---@return Observer
 function Observer:fire(type, ...)
 	local tab = self.__listeners
-	if type then
+	if type and string.lower(type) ~= "all" then
 		if not self.__listeners[type] then
 			self.__listeners[type] = {}
 		end
@@ -5173,6 +5525,292 @@ do
 end
 
 return t
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX4C680388922E49D9A27C00E8B4220DD0">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">State</string>
+					<string name="ScriptGuid">{6389AD77-AFF6-4E72-B1B0-D606D6F9C9AC}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    State class
+    HawDevelopment
+    26/06/2021
+--]]
+
+local t = require(script.Parent.t)
+local Observer = require(script.Parent.Observer)
+
+local t_type = t.union(t.string, t.none)
+
+---@class State
+local State = {}
+State.__index = State
+
+--- Creates a new state
+---@param default any | nil
+---@param observer Observer | nil
+function State.new(default, observer)
+	assert(t.union(t.table, t.none)(observer))
+	local self = setmetatable({}, State)
+
+	self.__state = default
+	self.__observer = observer or Observer.new()
+
+	return self
+end
+
+--- Sets state observer
+---@param observer Observer
+function State:observer(observer)
+	assert(t.table(observer))
+	self.__observer = observer
+end
+
+--- Adds a callback to state obsever
+---@param callback fun(state: any) | "function(state) end"
+---@param type string | nil
+function State:bind(callback, type)
+	assert(t.callback(callback))
+	assert(t_type(type))
+	self.__observer.add(callback)
+end
+
+---@return table
+local function Mix(tab1, tab2)
+	for i, v in pairs(tab2) do
+		tab1[i] = b
+	end
+	return tab1
+end
+
+--- Sets the state
+---@param state any
+---@type string | nil
+function State:set(state, type)
+	assert(t.any(state))
+	assert(t_type(type))
+
+	if typeof(state) == "table" then
+		setmetatable(
+			state,
+			Mix(getmetatable(state) or {}, {
+				__newindex = function()
+					error("State is read only!", 2)
+				end,
+			})
+		)
+	end
+
+	self.__observer.fire(type or "all", state)
+	self.__state = state
+end
+
+--- Gets the state
+---@return any
+function State:get()
+	return self.__state
+end
+
+State.__index = function(self, index)
+	if type(State[index]) == "function" then
+		return function(...)
+			return State[index](self, ...)
+		end
+	else
+		return State[index]
+	end
+end
+State.__call = function(self, ...)
+	return self.set(...)
+end
+
+return setmetatable(State, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX9532CC1E6F87405BA8EA647316FEB988">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Command</string>
+					<string name="ScriptGuid">{63BAEE7E-B874-43F1-8DAC-709FD443DB6D}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Command class
+    HawDevelopment
+    26/06/2021
+--]]
+
+local t = require(script.Parent.t)
+local Observer = require(script.Parent.Observer)
+
+local t_type = t.union(t.string, t.none)
+
+---@class Command
+local Command = {}
+Command.__index = Command
+
+--- Creates a new command
+---@param commands table<string, fun(any): any> | nil
+function Command.new(commands)
+	assert(t.union(t.table, t.none)(commands))
+	local self = setmetatable({}, Command)
+
+	self.__commands = commands or {}
+
+	return self
+end
+
+--- Adds a new command
+---@param command fun(any): any
+---@param name string
+function Command:add(command, name)
+	assert(t.callback(command))
+	assert(t.string(name))
+	self.__commands[name] = command
+end
+
+--- Executes command with given name
+---@param name string
+function Command:execute(name, ...)
+	assert(t.string(name))
+	assert(self.__commands[name] ~= nil, ("Command with name %s could not be found"):format(name))
+
+	self.__commands[name](...)
+end
+
+Command.__index = function(self, index)
+	if type(Command[index]) == "function" then
+		return function(...)
+			return Command[index](self, ...)
+		end
+	else
+		return Command[index]
+	end
+end
+Command.__call = function(self, ...)
+	return self.set(...)
+end
+
+return setmetatable(Command, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></ProtectedString>
+					<int64 name="SourceAssetId">-1</int64>
+					<BinaryString name="Tags"></BinaryString>
+				</Properties>
+			</Item>
+			<Item class="ModuleScript" referent="RBX02F0E580BB1042148E59EA351CC1F142">
+				<Properties>
+					<BinaryString name="AttributesSerialize"></BinaryString>
+					<Content name="LinkedSource"><null></null></Content>
+					<string name="Name">Chain</string>
+					<string name="ScriptGuid">{369AFF3A-AA80-4E2C-9A4B-092082785D63}</string>
+					<ProtectedString name="Source"><![CDATA[--[[
+    Chain class
+    HawDevelopment
+    26/06/2021
+--]]
+
+local t = require(script.Parent.t)
+
+---@class Chain
+local Chain = {}
+Chain.__index = Chain
+
+--- Creates a new Chain
+---@param handles table<string | number, fun(any): boolean> | nil
+---@param shouldWarn boolean
+function Chain.new(chain, shouldWarn)
+	assert(t.union(t.table, t.none)(chain))
+	chain = chain or {}
+
+	for index, val in pairs(chain) do
+		if type(index) ~= "number" then
+			error("Chain indexes can only be numbers!", 2)
+		end
+
+		if type(val) ~= "function" then
+			error("Chain values can only be functions", 2)
+		end
+	end
+
+	local self = setmetatable({}, Chain)
+
+	self.__chain = chain
+
+	if shouldWarn then
+		self.__warn = shouldWarn
+	else
+		self.__warn = true
+	end
+
+	return self
+end
+
+--- Sets the current Chain
+---@param handler fun(any): boolean
+---@param index number | nil @Index of handler in chain, defaults to last index plus one
+function Chain:add(handler, index)
+	assert(t.callback(handler))
+	assert(t.union(t.number, t.none)(index))
+	index = index or #self.__chain + 1
+
+	table.insert(self.__chain, index, handler)
+	return self
+end
+
+--- Execures the current Chain
+---@vararg any
+---@return boolean
+function Chain:execute(...)
+	for i, handle in ipairs(self.__chain) do
+		local ret, err = handle(...)
+
+		if ret == false then
+			if err and self.__warn then
+				warn(err)
+			else
+				warn(("Error cought in chain on index %s"):format(i))
+			end
+
+			return ret
+		end
+	end
+
+	return true
+end
+
+Chain.__index = function(self, index)
+	if type(Chain[index]) == "function" then
+		return function(...)
+			return Chain[index](self, ...)
+		end
+	else
+		return Chain[index]
+	end
+end
+Chain.__call = function(self, ...)
+	return self.fire(...)
+end
+
+return setmetatable(Chain, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
 ]]></ProtectedString>
 					<int64 name="SourceAssetId">-1</int64>
 					<BinaryString name="Tags"></BinaryString>
