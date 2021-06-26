@@ -4,4 +4,5 @@ return {
 	Strategy = script.Strategy,
 	Observer = script.Observer,
 	State = script.State,
+	Command = script.Command,
 }
