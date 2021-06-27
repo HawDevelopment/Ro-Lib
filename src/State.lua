@@ -39,7 +39,7 @@ end
 function State:bind(callback, type)
 	assert(t.callback(callback))
 	assert(t_type(type))
-	self.__observer.add(callback)
+	self.__observer.add(callback, type)
 end
 
 ---@return table
@@ -76,6 +76,10 @@ end
 ---@return any
 function State:get()
 	return self.__state
+end
+
+State.__tostring = function(self)
+	return tostring(self.__state)
 end
 
 State.__index = function(self, index)
