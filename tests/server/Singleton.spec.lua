@@ -74,4 +74,23 @@ return function()
 			end).to.never.be.throw()
 		end)
 	end)
+
+	describe("Singleton.destroy", function()
+		local singleton
+		beforeEach(function()
+			singleton = Singleton.new(ObjectCreater)
+		end)
+
+		it("should destroy the current object", function()
+			local ret
+			expect(function()
+				ret = singleton.get()
+			end).to.never.be.throw()
+
+			singleton.destroy()
+			expect(singleton.__obj).to.be.equal(nil)
+
+			expect(singleton.get()).to.never.be.equal(ret)
+		end)
+	end)
 end
