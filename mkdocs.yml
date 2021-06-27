@@ -1,0 +1,62 @@
+
+
+site_name: Ro-Lib
+site_author: HawDevelopment
+site_description: >-
+  Module with all design patterns you need for roblox development. Includes chain of responsibility, Command, Factory, Observer, Singleton, State, and Strategy.
+repo_name: HawDevelopment/Ro-Lib
+repo_url: https://github.com/HawDevelopment/Ro-Lib
+edit_uri: ""
+
+copyright: Copyright &copy; 2021 - 2022 HawDevelopment
+
+nav:
+  - Home: index.md
+  - Installation: Installation.md
+  - Getting Started: Getting_Started.md
+  - Api: Api.md
+
+theme:
+  # 404 page
+  static_templates:
+    - 404.html
+  
+  features:
+    - navigation.instant
+  
+  font:
+    text: Roboto
+    code: Roboto Mono
+  
+  language: en
+  include_search_page: false
+  search_index_only: true
+  name: material
+  
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/HawDevelopment/Ro-Lib
+      name: GitHub repo
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/HawDevelopment
+      name: HawDevelopment's Twitter
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details
