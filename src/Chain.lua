@@ -34,7 +34,7 @@ function Chain.new(chain, shouldWarn)
 	if shouldWarn then
 		self.__warn = shouldWarn
 	else
-		self.__warn = true
+		self.__warn = false
 	end
 
 	return self
