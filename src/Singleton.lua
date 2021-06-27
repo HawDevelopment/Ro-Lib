@@ -45,6 +45,16 @@ function Singleton:get()
 	return self.__obj
 end
 
+--- Destroys the current set object
+function Singleton:destroy()
+	if self.__obj then
+		if type(self.__obj) == "table" and self.__obj.Destroy then
+			self.__obj:Destroy()
+		end
+		self.__obj = nil
+	end
+end
+
 Singleton.__index = function(self, index)
 	if type(Singleton[index]) == "function" then
 		return function(...)
