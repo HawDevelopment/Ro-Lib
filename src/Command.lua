@@ -35,11 +35,13 @@ end
 
 --- Executes command with given name
 ---@param name string
+---@vararg any
+---@return any
 function Command:execute(name, ...)
 	assert(t.string(name))
 	assert(self.__commands[name] ~= nil, ("Command with name %s could not be found"):format(name))
 
-	self.__commands[name](...)
+	return self.__commands[name](...)
 end
 
 Command.__index = function(self, index)
