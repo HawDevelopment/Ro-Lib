@@ -40,7 +40,10 @@ end
 ---@param name string @The name of strategy to set
 ---@return nil
 function Strategy:set(name)
-	assert(t.union(t.string, t.number)(name))
+	assert(t.union(t.string, t.table)(name))
+
+	-- For state objects
+	name = tostring(name)
 
 	if not self.__handles[name] then
 		return error(("Strategy named %s could not be found"):format(tostring(name)), 2)
