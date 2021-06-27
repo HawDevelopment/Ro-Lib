@@ -6,9 +6,9 @@
 
 return function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local libs = require(ReplicatedStorage.libs)
+	local lib = require(ReplicatedStorage.lib)
 	---@module Command
-	local Command = require(libs.Command)
+	local Command = require(lib.Command)
 
 	local commands = {
 		Hey = function()

@@ -6,10 +6,10 @@
 
 return function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local libs = require(ReplicatedStorage.libs)
-	local Observer = require(libs.Observer)
+	local lib = require(ReplicatedStorage.lib)
+	local Observer = require(lib.Observer)
 	---@module State
-	local State = require(libs.State)
+	local State = require(lib.State)
 
 	describe("State.new", function()
 		it("should return a valid state", function()

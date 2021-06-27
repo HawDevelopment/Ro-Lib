@@ -84,9 +84,9 @@
 			<Properties>
 				<BinaryString name="AttributesSerialize"></BinaryString>
 				<CoordinateFrame name="CFrame">
-					<X>7.5</X>
-					<Y>20</Y>
-					<Z>20</Z>
+					<X>19.3247471</X>
+					<Y>20.5891113</Y>
+					<Z>29.210228</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>-0</R02>
@@ -102,9 +102,9 @@
 				<float name="FieldOfView">70</float>
 				<token name="FieldOfViewMode">0</token>
 				<CoordinateFrame name="Focus">
-					<X>7.5</X>
-					<Y>18.7506104</Y>
-					<Z>18.4382629</Z>
+					<X>19.3247471</X>
+					<Y>19.3397217</Y>
+					<Z>27.6484909</Z>
 					<R00>1</R00>
 					<R01>0</R01>
 					<R02>0</R02>

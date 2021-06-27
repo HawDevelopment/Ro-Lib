@@ -5,7 +5,7 @@
 --]]
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local Factory = require(ReplicatedStorage.libs.Factory)
+local Factory = require(ReplicatedStorage.lib.Factory)
 
 -- Factory
 

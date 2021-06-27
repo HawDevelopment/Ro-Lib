@@ -6,9 +6,9 @@
 
 return function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local libs = require(ReplicatedStorage.libs)
+	local lib = require(ReplicatedStorage.lib)
 	---@module Chain
-	local Chain = require(libs.Chain)
+	local Chain = require(lib.Chain)
 
 	local chains = {
 		function()

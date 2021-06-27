@@ -3,7 +3,7 @@
   "tree": {
     "$className": "DataModel",
     "ReplicatedStorage": {
-      "libs": {
+      "lib": {
         "$path": "src"
       },
       "TestEz": {

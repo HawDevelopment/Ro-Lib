@@ -6,7 +6,7 @@
 
 return function()
 	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local lib = require(ReplicatedStorage.libs)
+	local lib = require(ReplicatedStorage.lib)
 	---@module Observer
 	local Observer = require(lib.Observer)
 

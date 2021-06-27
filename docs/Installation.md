@@ -6,7 +6,7 @@ Also, you should update the module to new versions regularly.
 
 **Roblox Studio:**
 
-* Get the Module from the [Library](https://www.roblox.com/library/7008961783/Ro-Lib) or from [github realeases](https://github.com/HawDevelopment/Ro-Lib/releases).
+* Get the Module from the [Library](https://www.roblox.com/library/7011462318/Ro-Lib) or from [github realeases](https://github.com/HawDevelopment/Ro-Lib/releases).
 * Place the Module within ReplicatedStorage.
 
 **Rojo workflow:**
