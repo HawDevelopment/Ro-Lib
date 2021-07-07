@@ -17,7 +17,7 @@ function Strategy.new(handles, start)
 
 	local self = setmetatable({}, Strategy)
 
-	self.__handles = handles
+	self.__handles = handles or {}
 	if start then
 		self.__strategy = handles[start]
 	else

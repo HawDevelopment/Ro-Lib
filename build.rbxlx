@@ -1,1743 +1,26 @@
-<roblox xmlns:xmime="http://www.w3.org/2005/05/xmlmime" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.roblox.com/roblox.xsd" version="4">
-	<External>null</External>
-	<External>nil</External>
-	<Item class="Workspace" referent="10">
-		<Properties>
-			<bool name="AllowThirdPartySales">false</bool>
-			<token name="AnimationWeightedBlendFix">0</token>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<token name="ClientAnimatorThrottling">0</token>
-			<string name="CollisionGroups">Default^0^-1</string>
-			<Ref name="CurrentCamera">RBXB2C1BCAE0B444AA39A594B54160A5A89</Ref>
-			<double name="DistributedGameTime">0</double>
-			<bool name="ExplicitAutoJoints">true</bool>
-			<float name="FallenPartsDestroyHeight">-500</float>
-			<float name="Gravity">196.199997</float>
-			<token name="InterpolationThrottling">0</token>
-			<token name="LevelOfDetail">0</token>
-			<token name="MeshPartHeadsAndAccessories">0</token>
-			<CoordinateFrame name="ModelInPrimary">
-				<X>0</X>
-				<Y>0</Y>
-				<Z>0</Z>
-				<R00>1</R00>
-				<R01>0</R01>
-				<R02>0</R02>
-				<R10>0</R10>
-				<R11>1</R11>
-				<R12>0</R12>
-				<R20>0</R20>
-				<R21>0</R21>
-				<R22>1</R22>
-			</CoordinateFrame>
-			<CoordinateFrame name="ModelMeshCFrame">
-				<X>0</X>
-				<Y>0</Y>
-				<Z>0</Z>
-				<R00>1</R00>
-				<R01>0</R01>
-				<R02>0</R02>
-				<R10>0</R10>
-				<R11>1</R11>
-				<R12>0</R12>
-				<R20>0</R20>
-				<R21>0</R21>
-				<R22>1</R22>
-			</CoordinateFrame>
-			<SharedString name="ModelMeshData">yuZpQdnvvUBOTYh1jqZ2cA==</SharedString>
-			<Vector3 name="ModelMeshSize">
-				<X>0</X>
-				<Y>0</Y>
-				<Z>0</Z>
-			</Vector3>
-			<string name="Name">Workspace</string>
-			<bool name="NeedsPivotMigration">false</bool>
-			<token name="PhysicsSteppingMethod">0</token>
-			<Ref name="PrimaryPart">null</Ref>
-			<token name="SignalBehavior">0</token>
-			<int64 name="SourceAssetId">-1</int64>
-			<bool name="StreamingEnabled">false</bool>
-			<int name="StreamingMinRadius">64</int>
-			<token name="StreamingPauseMode">0</token>
-			<int name="StreamingTargetRadius">1024</int>
-			<BinaryString name="Tags"></BinaryString>
-			<bool name="TerrainWeldsFixed">true</bool>
-			<bool name="TouchesUseCollisionGroups">false</bool>
-			<OptionalCoordinateFrame name="WorldPivotData">
-				<CFrame>
-					<X>0</X>
-					<Y>-10</Y>
-					<Z>0</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CFrame>
-			</OptionalCoordinateFrame>
-		</Properties>
-		<Item class="Camera" referent="RBXB2C1BCAE0B444AA39A594B54160A5A89">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<CoordinateFrame name="CFrame">
-					<X>19.3247471</X>
-					<Y>20.5891113</Y>
-					<Z>29.210228</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>-0</R02>
-					<R10>-0</R10>
-					<R11>0.780868828</R11>
-					<R12>0.624695063</R12>
-					<R20>0</R20>
-					<R21>-0.624695063</R21>
-					<R22>0.780868828</R22>
-				</CoordinateFrame>
-				<Ref name="CameraSubject">null</Ref>
-				<token name="CameraType">0</token>
-				<float name="FieldOfView">70</float>
-				<token name="FieldOfViewMode">0</token>
-				<CoordinateFrame name="Focus">
-					<X>19.3247471</X>
-					<Y>19.3397217</Y>
-					<Z>27.6484909</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<bool name="HeadLocked">true</bool>
-				<float name="HeadScale">1</float>
-				<string name="Name">Camera</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-		</Item>
-		<Item class="Part" referent="11">
-			<Properties>
-				<bool name="Anchored">true</bool>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<float name="BackParamA">-0.5</float>
-				<float name="BackParamB">0.5</float>
-				<token name="BackSurface">0</token>
-				<token name="BackSurfaceInput">0</token>
-				<float name="BottomParamA">-0.5</float>
-				<float name="BottomParamB">0.5</float>
-				<token name="BottomSurface">4</token>
-				<token name="BottomSurfaceInput">0</token>
-				<CoordinateFrame name="CFrame">
-					<X>0</X>
-					<Y>-10</Y>
-					<Z>0</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<bool name="CanCollide">true</bool>
-				<bool name="CanQuery">true</bool>
-				<bool name="CanTouch">true</bool>
-				<bool name="CastShadow">true</bool>
-				<int name="CollisionGroupId">0</int>
-				<Color3uint8 name="Color3uint8">4284636770</Color3uint8>
-				<PhysicalProperties name="CustomPhysicalProperties">
-					<CustomPhysics>false</CustomPhysics>
-				</PhysicalProperties>
-				<float name="FrontParamA">-0.5</float>
-				<float name="FrontParamB">0.5</float>
-				<token name="FrontSurface">0</token>
-				<token name="FrontSurfaceInput">0</token>
-				<float name="LeftParamA">-0.5</float>
-				<float name="LeftParamB">0.5</float>
-				<token name="LeftSurface">0</token>
-				<token name="LeftSurfaceInput">0</token>
-				<bool name="Locked">true</bool>
-				<bool name="Massless">false</bool>
-				<token name="Material">256</token>
-				<string name="Name">Baseplate</string>
-				<CoordinateFrame name="PivotOffset">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<float name="Reflectance">0</float>
-				<float name="RightParamA">-0.5</float>
-				<float name="RightParamB">0.5</float>
-				<token name="RightSurface">0</token>
-				<token name="RightSurfaceInput">0</token>
-				<int name="RootPriority">0</int>
-				<Vector3 name="RotVelocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<float name="TopParamA">-0.5</float>
-				<float name="TopParamB">0.5</float>
-				<token name="TopSurface">3</token>
-				<token name="TopSurfaceInput">0</token>
-				<float name="Transparency">0</float>
-				<Vector3 name="Velocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<token name="formFactorRaw">1</token>
-				<token name="shape">1</token>
-				<Vector3 name="size">
-					<X>512</X>
-					<Y>20</Y>
-					<Z>512</Z>
-				</Vector3>
-			</Properties>
-		</Item>
-		<Item class="Terrain" referent="RBX2FB95D1EB0D547A9BA95B86BBBF1DEC0">
-			<Properties>
-				<token name="AcquisitionMethod">0</token>
-				<bool name="Anchored">true</bool>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<float name="BackParamA">-0.5</float>
-				<float name="BackParamB">0.5</float>
-				<token name="BackSurface">0</token>
-				<token name="BackSurfaceInput">0</token>
-				<float name="BottomParamA">-0.5</float>
-				<float name="BottomParamB">0.5</float>
-				<token name="BottomSurface">4</token>
-				<token name="BottomSurfaceInput">0</token>
-				<CoordinateFrame name="CFrame">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<bool name="CanCollide">true</bool>
-				<bool name="CanQuery">true</bool>
-				<bool name="CanTouch">true</bool>
-				<bool name="CastShadow">true</bool>
-				<int name="CollisionGroupId">0</int>
-				<Color3uint8 name="Color3uint8">4288914085</Color3uint8>
-				<PhysicalProperties name="CustomPhysicalProperties">
-					<CustomPhysics>false</CustomPhysics>
-				</PhysicalProperties>
-				<bool name="Decoration">false</bool>
-				<float name="FrontParamA">-0.5</float>
-				<float name="FrontParamB">0.5</float>
-				<token name="FrontSurface">0</token>
-				<token name="FrontSurfaceInput">0</token>
-				<float name="LeftParamA">-0.5</float>
-				<float name="LeftParamB">0.5</float>
-				<token name="LeftSurface">0</token>
-				<token name="LeftSurfaceInput">0</token>
-				<bool name="Locked">true</bool>
-				<bool name="Massless">false</bool>
-				<token name="Material">256</token>
-				<BinaryString name="MaterialColors"><![CDATA[AAAAAAAAan8/P39rf2Y/ilY+j35fi21PZmxvZbDqw8faiVpHOi4kHh4lZlw76JxKc3trhHta
-gcLgc4RKxr21zq2UlJSM]]></BinaryString>
-				<string name="Name">Terrain</string>
-				<BinaryString name="PhysicsGrid">AgMAAAAAAAAAAAAAAAA=</BinaryString>
-				<CoordinateFrame name="PivotOffset">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-					<R00>1</R00>
-					<R01>0</R01>
-					<R02>0</R02>
-					<R10>0</R10>
-					<R11>1</R11>
-					<R12>0</R12>
-					<R20>0</R20>
-					<R21>0</R21>
-					<R22>1</R22>
-				</CoordinateFrame>
-				<float name="Reflectance">0</float>
-				<float name="RightParamA">-0.5</float>
-				<float name="RightParamB">0.5</float>
-				<token name="RightSurface">0</token>
-				<token name="RightSurfaceInput">0</token>
-				<int name="RootPriority">0</int>
-				<Vector3 name="RotVelocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<BinaryString name="SmoothGrid">AQU=</BinaryString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<float name="TopParamA">-0.5</float>
-				<float name="TopParamB">0.5</float>
-				<token name="TopSurface">3</token>
-				<token name="TopSurfaceInput">0</token>
-				<float name="Transparency">0</float>
-				<Vector3 name="Velocity">
-					<X>0</X>
-					<Y>0</Y>
-					<Z>0</Z>
-				</Vector3>
-				<Color3 name="WaterColor">
-					<R>0.0500000007</R>
-					<G>0.330000013</G>
-					<B>0.360000014</B>
-				</Color3>
-				<float name="WaterReflectance">1</float>
-				<float name="WaterTransparency">0.300000012</float>
-				<float name="WaterWaveSize">0.150000006</float>
-				<float name="WaterWaveSpeed">10</float>
-				<Vector3 name="size">
-					<X>2044</X>
-					<Y>252</Y>
-					<Z>2044</Z>
-				</Vector3>
-			</Properties>
-		</Item>
-	</Item>
-	<Item class="SoundService" referent="6">
-		<Properties>
-			<token name="AmbientReverb">0</token>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<float name="DistanceFactor">3.32999992</float>
-			<float name="DopplerScale">1</float>
-			<string name="Name">SoundService</string>
-			<bool name="RespectFilteringEnabled">true</bool>
-			<float name="RolloffScale">1</float>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="NonReplicatedCSGDictionaryService" referent="RBXF7408F077A0D44FE96285F8B6E88CA4D">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">NonReplicatedCSGDictionaryService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="CSGDictionaryService" referent="RBXBA1728D6DFB64CD19FAD7D0F2CD6C953">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">CSGDictionaryService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="Chat" referent="RBXB2935675CAC8490FA5FC2EA5E0D767C5">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<bool name="BubbleChatEnabled">false</bool>
-			<bool name="LoadDefaultChat">true</bool>
-			<string name="Name">Chat</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="TimerService" referent="RBX5FADCD63D2B5430D94937C08EF252EA1">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">Instance</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="Players" referent="RBXDD2166850C23429CA8E204E50CB3FA45">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<bool name="CharacterAutoLoads">true</bool>
-			<int name="MaxPlayersInternal">12</int>
-			<string name="Name">Players</string>
-			<int name="PreferredPlayersInternal">0</int>
-			<float name="RespawnTime">5</float>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="ReplicatedFirst" referent="RBXBBC23CAC4EB346A499B82A11403DF620">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">ReplicatedFirst</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="TweenService" referent="RBX8152BD34000C4804B42BABDCBC7C73FD">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">TweenService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="PermissionsService" referent="RBX3C8C5CEE8E6F42AC84EFFEA391F9F874">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">PermissionsService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="PlayerEmulatorService" referent="RBXC03CE2A060BA42DFAD3D6952BEA2C8C9">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="DEPRECATED_SerializedEmulatedPolicyInfo"></string>
-			<string name="EmulatedCountryCode"></string>
-			<string name="EmulatedGameLocale"></string>
-			<string name="Name">PlayerEmulatorService</string>
-			<bool name="PlayerEmulationEnabled">false</bool>
-			<BinaryString name="SerializedEmulatedPolicyInfo"></BinaryString>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="StudioData" referent="RBX0E2431C29C5A4FF98445989BDD660EF2">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<int64 name="CommitInflightAuthorId">0</int64>
-			<string name="CommitInflightGuid"></string>
-			<int name="CommitInflightPlaceVersion">0</int>
-			<bool name="EnableScriptCollabByDefaultOnLoad">false</bool>
-			<string name="Name">StudioData</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<int64 name="SrcPlaceId">0</int64>
-			<int64 name="SrcUniverseId">0</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="StarterPlayer" referent="7">
-		<Properties>
-			<bool name="AllowCustomAnimations">true</bool>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<bool name="AutoJumpEnabled">true</bool>
-			<float name="CameraMaxZoomDistance">400</float>
-			<float name="CameraMinZoomDistance">0.5</float>
-			<token name="CameraMode">0</token>
-			<float name="CharacterJumpHeight">7.19999981</float>
-			<float name="CharacterJumpPower">50</float>
-			<float name="CharacterMaxSlopeAngle">89</float>
-			<bool name="CharacterUseJumpPower">true</bool>
-			<float name="CharacterWalkSpeed">16</float>
-			<token name="DevCameraOcclusionMode">0</token>
-			<token name="DevComputerCameraMovementMode">0</token>
-			<token name="DevComputerMovementMode">0</token>
-			<token name="DevTouchCameraMovementMode">0</token>
-			<token name="DevTouchMovementMode">0</token>
-			<bool name="EnableMouseLockOption">true</bool>
-			<int64 name="GameSettingsAssetIDFace">0</int64>
-			<int64 name="GameSettingsAssetIDHead">0</int64>
-			<int64 name="GameSettingsAssetIDLeftArm">0</int64>
-			<int64 name="GameSettingsAssetIDLeftLeg">0</int64>
-			<int64 name="GameSettingsAssetIDPants">0</int64>
-			<int64 name="GameSettingsAssetIDRightArm">0</int64>
-			<int64 name="GameSettingsAssetIDRightLeg">0</int64>
-			<int64 name="GameSettingsAssetIDShirt">0</int64>
-			<int64 name="GameSettingsAssetIDTeeShirt">0</int64>
-			<int64 name="GameSettingsAssetIDTorso">0</int64>
-			<token name="GameSettingsAvatar">1</token>
-			<token name="GameSettingsR15Collision">0</token>
-			<NumberRange name="GameSettingsScaleRangeBodyType">0 1 </NumberRange>
-			<NumberRange name="GameSettingsScaleRangeHead">0.95 1 </NumberRange>
-			<NumberRange name="GameSettingsScaleRangeHeight">0.9 1.05 </NumberRange>
-			<NumberRange name="GameSettingsScaleRangeProportion">0 1 </NumberRange>
-			<NumberRange name="GameSettingsScaleRangeWidth">0.7 1 </NumberRange>
-			<float name="HealthDisplayDistance">100</float>
-			<bool name="LoadCharacterAppearance">true</bool>
-			<token name="LoadCharacterLayeredClothing">0</token>
-			<string name="Name">StarterPlayer</string>
-			<float name="NameDisplayDistance">100</float>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-			<bool name="UserEmotesEnabled">true</bool>
-		</Properties>
-		<Item class="StarterPlayerScripts" referent="8">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">StarterPlayerScripts</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-			<Item class="LocalScript" referent="RBX77C05F91863D4AF29350A5A130BEF09B">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<bool name="Disabled">false</bool>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Runner</string>
-					<string name="ScriptGuid">{4B297C95-DA14-475A-ABBC-955927B2803C}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Test Runner
-    HawDevelopment
-    11/06/2021
---]]
-
-local TestEz = require(game.ReplicatedStorage.TestEz)
-
-local Tests = script.Parent:WaitForChild("Tests")
-
-TestEz.TestBootstrap:run(Tests:GetDescendants())
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Folder" referent="RBX3D4516EB7F8949989FDF42A7D794B432">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<string name="Name">Tests</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-		</Item>
-		<Item class="StarterCharacterScripts" referent="RBXDBCD733E3BA44B1796764333A8CE899C">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">StarterCharacterScripts</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-		</Item>
-	</Item>
-	<Item class="StarterPack" referent="RBXC5436B3418B94E4AB652F9734092FBC1">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">StarterPack</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="StarterGui" referent="RBX8DB9135BFBF049C8B41F25860C08C0C5">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">StarterGui</string>
-			<bool name="ResetPlayerGuiOnSpawn">true</bool>
-			<token name="ScreenOrientation">2</token>
-			<bool name="ShowDevelopmentGui">true</bool>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-			<token name="VirtualCursorMode">0</token>
-		</Properties>
-	</Item>
-	<Item class="LocalizationService" referent="RBX6B23F54CAC0043CA9806D6196DF06192">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">LocalizationService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="TeleportService" referent="RBX6E09FF7894674DCC9A93EBA0447BA445">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">Teleport Service</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="CollectionService" referent="RBX6607DBFFD1DA4CBB8D186F7A2A640FF1">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">CollectionService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="PhysicsService" referent="RBXA5CE0BFDBB4F4877B970E87BD2580054">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">PhysicsService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="Geometry" referent="RBX3AEE36F003794ACC8B65B3216C19DC7A">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">Geometry</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="InsertService" referent="RBXD093C99EAC704788844398D4F1FCF56F">
-		<Properties>
-			<bool name="AllowClientInsertModels">false</bool>
-			<bool name="AllowInsertFreeModels">false</bool>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">InsertService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-		<Item class="StringValue" referent="RBX5CA0F4796ADC4560B5EDB50E3103AD52">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">InsertionHash</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-				<string name="Value">{3776503D-0088-417E-B7D0-A92B94874205}</string>
-			</Properties>
-		</Item>
-	</Item>
-	<Item class="GamePassService" referent="RBX0DF1E0F173CB4B6286D32A96946D8DCE">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">GamePassService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="Debris" referent="RBX69E38E3B9F96484DAADC58291728CA42">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<int name="MaxItems">1000</int>
-			<string name="Name">Debris</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="CookiesService" referent="RBXF586DDED6DD34306BAA1E016F75CCAC1">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">CookiesService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="VRService" referent="RBX5356D908E616423888D769AA4FAE57DA">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">VRService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="ContextActionService" referent="RBX31CEA68AA89A44D196F3A8F8CB9AC218">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">ContextActionService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="ScriptService" referent="RBX852726AEF289453E8A848D2DEB071302">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">Instance</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="AssetService" referent="RBX950CE70B37824273BC4BDA6703775BCA">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">AssetService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="TouchInputService" referent="RBX5895D6E550A94C1BA6AE8E1CCFB74216">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">TouchInputService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="AnalyticsService" referent="RBXCBBBB029799F43B199381D523F325328">
-		<Properties>
-			<string name="ApiKey"></string>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">AnalyticsService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-		<Item class="ModuleScript" referent="RBX2B95071011094DE49154A954190317A5">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<Content name="LinkedSource"><null></null></Content>
-				<string name="Name">RobloxLSP_Settings</string>
-				<string name="ScriptGuid">{50C8024D-9D1B-4B96-B76A-CF05D4DDA29D}</string>
-				<ProtectedString name="Source"><![CDATA[return {
-	port = 27843,
-	startAutomatically = false,
-	exclude = {
-		-- game:GetService("Workspace")
-	}
-}]]></ProtectedString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-		</Item>
-	</Item>
-	<Item class="Selection" referent="RBXA5134CFE8DDB4D398CBDBD4BB97318F8">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">Selection</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="ServerScriptService" referent="4">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<bool name="LoadStringEnabled">false</bool>
-			<string name="Name">ServerScriptService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-		<Item class="Folder" referent="RBXE2AC8BFA808648439B1FCF5781E78A1B">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<string name="Name">Tests</string>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-			<Item class="ModuleScript" referent="RBX46B86CD8C689479A8400AD54E5879AB3">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Factory.spec</string>
-					<string name="ScriptGuid">{1D450A9B-C8EB-47E7-834D-A4570B734832}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Factory Tests
-    HawDevelopment
-    11/06/2021
---]]
-
-return function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-	local Factory = require(ReplicatedStorage.libs.Factory)
-	local t = require(ReplicatedStorage.libs.t)
-
-	local factoryEnum = {
-		Developer = 1,
-		Tester = 2,
-	}
-
-	local factories = {
-		Developer = function(tab, name, age)
-			tab.Name = name
-			tab.Age = age
-			tab.Profession = "Developer"
-		end,
-		Tester = function(tab, name, age)
-			tab.Name = name
-			tab.Age = age
-			tab.Profession = "Tester"
-		end,
-	}
-
-	describe("Factory.new", function()
-		it("should create a valid factory", function()
-			-- Enum, Table
-			local factory = Factory.new(factoryEnum, factories)
-
-			expect(factory.__factories).to.be.a("table")
-			expect(factory.__enum).to.be.a("table")
-
-			-- Factory should make a cope of input
-			expect(factory.__factoris).to.never.be.equal(factories)
-			expect(factory.__enum).to.never.be.equal(factoryEnum)
-
-			-- Should be callable
-			expect(getmetatable(factory).__call).to.be.a("function")
-		end)
-
-		it("should throw if given wrong arguments", function()
-			expect(function()
-				Factory.new(nil, nil)
-			end).to.be.throw()
-
-			expect(function()
-				Factory.new("Factory", 10)
-			end).to.be.throw()
-
-			expect(function()
-				Factory.new(game, function() end)
-			end).to.be.throw()
-		end)
-
-		it("should error if enum doesnt line up with factories", function()
-			expect(function()
-				Factory.new({
-					Developer = 1,
-					CEO = 2,
-				}, {
-					CEO = function() end,
-				})
-			end).to.be.throw()
-		end)
-
-		it("should be able to be created using __call", function()
-			local factory = Factory(factoryEnum, factories)
-
-			expect(factory).to.be.a("table")
-		end)
-	end)
-
-	describe("Factory.create", function()
-		local factory = Factory(factoryEnum, factories)
-
-		it("should create a valid class", function()
-			local class = factory.create(1, "HawDevelopment", 69)
-
-			expect(class.Name).to.be.equal("HawDevelopment")
-			expect(class.Age).to.be.equal(69)
-			expect(class.Profession).to.be.equal("Developer")
-		end)
-
-		it("should be able to use string as a type", function()
-			local class = factory.create("Developer", "HawDevelopment", 69)
-
-			expect(class.Name).to.be.equal("HawDevelopment")
-			expect(class.Age).to.be.equal(69)
-			expect(class.Profession).to.be.equal("Developer")
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				factory.create(nil, 10, {})
-			end).to.be.throw()
-
-			expect(function()
-				factory.create("yes", {}, "what")
-			end).to.be.throw()
-		end)
-
-		it("should comply with Factory rules", function()
-			local ruleFactory = Factory.new(factoryEnum, factories)
-			ruleFactory.rule({
-				Factory.Type.string,
-				t.number,
-			})
-
-			expect(function()
-				ruleFactory.create(1, 1, "10")
-			end).to.be.throw()
-
-			expect(function()
-				ruleFactory.create(1, "1", 10)
-			end).to.never.be.throw()
-		end)
-
-		it("should comply with Factory bases", function()
-			local baseFactory = Factory.new(factoryEnum, {
-				Developer = function() end,
-				Tester = function() end,
-			})
-
-			baseFactory.base({
-				Name = Factory.Argument(1),
-				Age = Factory.Argument(2),
-			})
-
-			local class = baseFactory.create(1, "HawDevelopment", 420)
-
-			expect(class.Name).to.be.equal("HawDevelopment")
-			expect(class.Age).to.be.equal(420)
-		end)
-	end)
-
-	describe("Factory.rule", function()
-		---@type Factory
-		local factory = Factory.new(factoryEnum, factories)
-
-		beforeAll(function()
-			factory.rule(nil)
-		end)
-
-		it("should set the rule", function()
-			local rule = {
-				Factory.Type.string,
-				Factory.Type.number,
-			}
-
-			factory.rule(rule)
-
-			expect(factory.__rule).to.be.a("table")
-			expect(factory.__rule).to.never.be.equal(rule)
-
-			factory.rule(nil)
-
-			expect(factory.__rule).to.be.equal(nil)
-		end)
-
-		it("should be able to be given nil", function()
-			expect(function()
-				factory.rule({})
-				factory.rule(nil)
-			end).never.to.be.throw()
-
-			expect(factory.__rule).to.be.equal(nil)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				factory.rule("Yes")
-			end).to.be.throw()
-
-			expect(function()
-				factory.rule(20)
-			end).to.be.throw()
-		end)
-
-		it("could be used with osyrisrblx/t module", function()
-			local ruleFactory = Factory.new(factoryEnum, factories)
-			ruleFactory.rule({
-				t.string,
-				t.number,
-			})
-
-			expect(function()
-				ruleFactory.create(1, 30, game)
-			end).to.be.throw()
-
-			expect(function()
-				ruleFactory.create(1, "HawDevelopment", 69)
-			end).to.never.be.throw()
-		end)
-	end)
-
-	describe("Factory.base", function()
-		local factory = Factory.new(factoryEnum, factories)
-
-		beforeAll(function()
-			factory.rule(nil)
-			factory.base(nil)
-		end)
-
-		it("should set the base", function()
-			local base = {
-				Name = Factory.Argument(1),
-				Age = Factory.Argument(2),
-				Iq = 120,
-			}
-
-			factory.base(base)
-
-			expect(factory.__base).to.be.a("table")
-			expect(factory.__base).to.never.be.equal(base)
-		end)
-
-		it("should be able to be given nil", function()
-			expect(function()
-				factory.base({})
-				factory.base(nil)
-			end).never.to.be.throw()
-
-			expect(factory.__base).to.be.equal(nil)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				factory.base("No")
-			end).to.be.throw()
-
-			expect(function()
-				factory.base(12)
-			end).to.be.throw()
-		end)
-	end)
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX6FFD4D9F5893460BB74169E8D7B5F33A">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Types</string>
-					<string name="ScriptGuid">{4E983BE1-BAF9-4781-979A-EF6211164818}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Just messing around here, trying to check Luau and Emmylua types
-    HawDevelopment
-    12/06/2021
---]]
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local Factory = require(ReplicatedStorage.libs.Factory)
-
--- Factory
-
----@type Factory
-local factory = Factory.new()
-
-Factory.Argument()
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBXE00BF4F4A43140BA97FC2320EF677756">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Singleton.spec</string>
-					<string name="ScriptGuid">{3FC0A21D-A258-4540-ACE6-262C96E8AB8E}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Singleton Tests
-    HawDevelopment
-    14/06/2021
---]]
-
-return function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-	local lib = require(ReplicatedStorage.libs)
-	local Singleton = require(lib.Singleton)
-
-	local function ObjectCreater()
-		return {
-			Name = "HawDevelopment",
-			Skill = "Scripting",
-			Iq = -10,
-		}
-	end
-
-	describe("Singleton.new", function()
-		it("should create a valid singleton", function()
-			local singleton
-			expect(function()
-				singleton = Singleton.new(ObjectCreater)
-			end).to.never.be.throw()
-
-			expect(singleton.__creator).to.be.equal(ObjectCreater)
-			expect(singleton.__obj).to.be.equal(nil)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				Singleton.new()
-			end).to.be.throw()
-
-			expect(function()
-				Singleton.new("Yes")
-			end).to.be.throw()
-
-			expect(function()
-				Singleton.new(420)
-			end).to.be.throw()
-		end)
-
-		it("should be able to be created using __call", function()
-			expect(function()
-				Singleton(ObjectCreater)
-			end).to.never.be.throw()
-		end)
-	end)
-
-	describe("Singleton.get", function()
-		local singleton
-		beforeEach(function()
-			singleton = Singleton.new(ObjectCreater)
-		end)
-
-		it("should return the singleton", function()
-			local ret
-			expect(function()
-				ret = singleton.get()
-			end).to.never.be.throw()
-
-			expect(ret).to.be.a("table")
-			expect(ret.Name).to.be.equal("HawDevelopment")
-			expect(ret.Iq).to.be.equal(-10)
-			expect(ret.Skill).to.be.equal("Scripting")
-		end)
-
-		it("should be able to be created using __call", function()
-			expect(function()
-				singleton(ObjectCreater)
-			end).to.never.be.throw()
-		end)
-	end)
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX88C43457AE2644159912197EC6687743">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Strategy.spec</string>
-					<string name="ScriptGuid">{B22173DB-837A-4C19-BCFA-64369113380D}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Strategy tests
-    HawDevelopment
-    23/06/2021
---]]
-
-return function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local lib = require(ReplicatedStorage.libs)
-
-	---@module Strategy
-	local Strategy = require(lib.Strategy)
-
-	local handles = {
-		Support = function(name)
-			return "Support " .. tostring(name)
-		end,
-		Ticket = function(name)
-			return "Ticket " .. tostring(name)
-		end,
-	}
-
-	describe("Strategy.new", function()
-		it("should return a valid strategy", function()
-			local strat = Strategy.new(handles, "Support")
-
-			expect(strat.__handles).to.be.a("table")
-			expect(strat.__strategy).to.be.a("function")
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				Strategy.new("Sup")
-			end).to.be.throw()
-
-			expect(function()
-				Strategy.new(69)
-			end).to.be.throw()
-		end)
-
-		it("should be able to be created using __call", function()
-			expect(function()
-				Strategy(handles)
-			end).to.never.be.throw()
-		end)
-	end)
-
-	describe("Strategy.set", function()
-		local strat
-		beforeEach(function()
-			strat = Strategy.new(handles)
-		end)
-
-		it("should set the current strategy", function()
-			-- Reset strategy
-			strat.__strategy = nil
-			strat.set("Ticket")
-
-			expect(strat.__strategy).to.be.a("function")
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				strat.set(game)
-			end).to.be.throw()
-
-			expect(function()
-				strat.set()
-			end).to.be.throw()
-
-			expect(function()
-				strat.set({})
-			end).to.be.throw()
-		end)
-
-		it("should error if strategy isnt found", function()
-			expect(function()
-				strat.set("Developer")
-			end).to.be.throw()
-		end)
-	end)
-
-	describe("Strategy.call", function()
-		local strat
-		beforeEach(function()
-			strat = Strategy.new(handles, 1)
-		end)
-
-		it("should call strategy and return its value", function()
-			-- Just to be sure
-			strat.set("Support")
-
-			local ret
-			expect(function()
-				ret = strat.call("1")
-			end).to.never.be.throw()
-
-			expect(ret).to.be.equal("Support 1")
-		end)
-
-		it("should error if no strategy is set", function()
-			strat.__strategy = nil
-			expect(function()
-				strat.call()
-			end).to.be.throw()
-		end)
-
-		it("should be able to be called using __call", function()
-			strat.set("Ticket")
-
-			local ret
-			expect(function()
-				ret = strat("1")
-			end).to.never.be.throw()
-
-			expect(ret).to.be.equal("Ticket 1")
-		end)
-	end)
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX7688968804DC4FFD8027422455C2757B">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Observer.spec</string>
-					<string name="ScriptGuid">{F3BD6F80-536E-4A9B-B86F-E027F1A40837}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Observer tests
-    HawDevelopment
-    24/06/2021
---]]
-
-return function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local lib = require(ReplicatedStorage.libs)
-	---@module Observer
-	local Observer = require(lib.Observer)
-
-	describe("Observer.new", function()
-		it("should create a valid observer", function()
-			local observer
-			expect(function()
-				observer = Observer.new()
-			end).to.never.be.throw()
-
-			expect(observer.__listeners).to.be.a("table")
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				Observer.new(game)
-			end).to.be.throw()
-
-			expect(function()
-				Observer.new("Yes")
-			end).to.be.throw()
-
-			expect(function()
-				Observer.new(420)
-			end).to.be.throw()
-		end)
-
-		it("should be able to be created using __call", function()
-			expect(function()
-				Observer()
-			end).to.never.be.throw()
-		end)
-	end)
-
-	describe("Observer.add", function()
-		---@type Observer
-		local observer
-
-		beforeEach(function()
-			observer = Observer.new()
-		end)
-
-		it("should add handler to listners", function()
-			expect(function()
-				observer.add(function() end)
-			end).to.never.be.throw()
-
-			expect(#observer.__listeners).to.be.equal(1)
-		end)
-
-		it("should return a function", function()
-			local func = observer.add(function() end)
-
-			expect(func).to.be.a("function")
-			expect(#observer.__listeners).to.be.equal(1)
-
-			func()
-
-			expect(#observer.__listeners).to.be.equal(0)
-		end)
-
-		it("should work with types", function()
-			observer.add(function() end, "Hello!")
-
-			expect(#observer.__listeners["Hello!"]).to.be.equal(1)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				observer.add("Yes", 1)
-			end).to.be.throw()
-
-			expect(function()
-				observer.add(10, game)
-			end).to.be.throw()
-
-			expect(function()
-				observer.add({})
-			end).to.be.throw()
-		end)
-	end)
-
-	describe("Observer.fire", function()
-		---@type Observer
-		local observer
-
-		beforeEach(function()
-			observer = Observer.new()
-		end)
-
-		it("should fire listners", function()
-			local res = false
-
-			observer.add(function()
-				res = true
-			end)
-			observer.fire()
-
-			expect(res).to.be.equal(true)
-		end)
-
-		it("should fire listners with types", function()
-			local res = false
-
-			observer.add(function()
-				res = true
-			end, "Hello!")
-			observer.fire("Hello!")
-
-			expect(res).to.be.equal(true)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				observer.fire({}, true)
-			end).to.be.throw()
-		end)
-	end)
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX3114639300554761AB008F0E4A2898BC">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">State.spec</string>
-					<string name="ScriptGuid">{D43D6EBE-254E-4B8A-A5AD-01833AB86153}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    State test
-    HawDevelopment
-    26/06/2021
---]]
-
-return function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local libs = require(ReplicatedStorage.libs)
-	local Observer = require(libs.Observer)
-	---@module State
-	local State = require(libs.State)
-
-	describe("State.new", function()
-		it("should return a valid state", function()
-			local state = State.new(true)
-
-			expect(state.__observer).to.be.a("table")
-			expect(state.__state).to.be.equal(true)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				State.new(nil, 10)
-			end).to.be.throw()
-
-			expect(function()
-				State.new(nil, game)
-			end).to.be.throw()
-		end)
-
-		it("should be able to be created using __call", function()
-			expect(function()
-				State()
-			end).to.never.be.throw()
-		end)
-	end)
-
-	describe("State.observer", function()
-		local state
-		beforeEach(function()
-			state = State.new()
-		end)
-
-		it("should set observer", function()
-			local observer = Observer.new()
-
-			state.observer(observer)
-			expect(state.__observer).to.be.equal(observer)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				State.new(true, "Sup")
-			end).to.be.throw()
-
-			expect(function()
-				State.new(true, 10)
-			end).to.be.throw()
-		end)
-	end)
-
-	describe("State.bind", function()
-		local state
-		beforeEach(function()
-			state = State.new()
-		end)
-
-		it("should bind a function", function()
-			expect(function()
-				state.bind(function()
-					print("Hello world!")
-				end)
-			end).to.never.be.throw()
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				state.bind("yes")
-			end).to.be.throw()
-
-			expect(function()
-				state.bind(function() end, workspace)
-			end).to.be.throw()
-		end)
-	end)
-
-	describe("State.set", function()
-		local state
-		beforeEach(function()
-			state = State.new()
-		end)
-
-		it("should set the state", function()
-			state.set(10)
-
-			expect(state.__state).to.be.equal(10)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				state.set(1, game)
-			end).to.be.throw()
-
-			expect(function()
-				state.set(1, false)
-			end).to.be.throw()
-		end)
-	end)
-
-	describe("State.get", function()
-		local state
-		beforeEach(function()
-			state = State.new()
-		end)
-
-		it("should return the state", function()
-			state.set(10)
-
-			expect(state.get()).to.be.equal(10)
-		end)
-	end)
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX19BD0A8233AE4E03B8126B576536EDF1">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Command.spec</string>
-					<string name="ScriptGuid">{30FD678A-C226-4010-AFFA-228A8DB8E286}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Command tests
-    HawDevelopment
-    26/06/2021
---]]
-
-return function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local libs = require(ReplicatedStorage.libs)
-	---@module Command
-	local Command = require(libs.Command)
-
-	local commands = {
-		Hey = function()
-			-- Hello!
-		end,
-		Bye = function()
-			-- Bye! :(
-		end,
-	}
-
-	describe("Command.new", function()
-		it("should return a valid command", function()
-			local command = Command.new()
-
-			expect(command.__commands).to.be.a("table")
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				Command.new(10)
-			end).to.be.throw()
-
-			expect(function()
-				Command.new(workspace)
-			end).to.be.throw()
-		end)
-
-		it("should be able to be created using __call", function()
-			expect(function()
-				Command()
-			end).to.never.be.throw()
-		end)
-	end)
-
-	describe("Command.add", function()
-		local command
-		beforeEach(function()
-			command = Command.new()
-		end)
-
-		it("should add a command", function()
-			command.add(commands.Hey, "Hey")
-			expect(command.__commands["Hey"]).to.be.ok()
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				command.add(true)
-			end).to.be.throw()
-
-			expect(function()
-				command.add(commands.Bye, 10)
-			end).to.be.throw()
-		end)
-	end)
-
-	describe("Command.execute", function()
-		local command
-		beforeEach(function()
-			command = Command.new()
-		end)
-
-		it("should execure a function", function()
-			local res
-			command.add(function()
-				res = true
-			end, "Test")
-
-			expect(function()
-				command.execute("Test")
-			end).to.never.be.throw()
-
-			expect(res).to.be.equal(true)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				command.execute(10)
-			end).to.be.throw()
-
-			expect(function()
-				command.execute(true)
-			end).to.be.throw()
-		end)
-	end)
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBXFE45B6DF3C8A4F65A3A7FEDCF7557184">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Chain.spec</string>
-					<string name="ScriptGuid">{577EBB59-F478-4066-BC30-340DC14AA5E5}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Chain tests
-    HawDevelopment
-    26/06/2021
---]]
-
-return function()
-	local ReplicatedStorage = game:GetService("ReplicatedStorage")
-	local libs = require(ReplicatedStorage.libs)
-	---@module Chain
-	local Chain = require(libs.Chain)
-
-	local chains = {
-		function()
-			return true
-		end,
-		function()
-			return false, "Error!"
-		end,
-	}
-
-	describe("Chain.new", function()
-		it("should return a valid Chain", function()
-			local Chain = Chain.new(chains)
-
-			expect(Chain.__chain).to.be.a("table")
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				Chain.new(13)
-			end).to.be.throw()
-
-			expect(function()
-				Chain.new(workspace)
-			end).to.be.throw()
-		end)
-
-		it("should be able to be created using __call", function()
-			expect(function()
-				Chain()
-			end).to.never.be.throw()
-		end)
-	end)
-
-	describe("Chain.add", function()
-		local chain
-		beforeEach(function()
-			chain = Chain.new(chains)
-		end)
-
-		it("should add a handler to the Chain", function()
-			chain.add(function() end, 1)
-			expect(#chain.__chain).to.be.equal(3)
-		end)
-
-		it("should error if given wrong arguments", function()
-			expect(function()
-				chain.add(true)
-			end).to.be.throw()
-
-			expect(function()
-				chain.add(function() end, "yes")
-			end).to.be.throw()
-		end)
-	end)
-
-	describe("Chain.execute", function()
-		local chain
-		beforeEach(function()
-			chain = Chain.new(chains)
-		end)
-
-		it("should execute the chain", function()
-			local res = true
-
-			expect(function()
-				res = chain.execute()
-			end).to.never.be.throw()
-
-			expect(res).to.be.equal(false)
-		end)
-	end)
-end
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-		</Item>
-		<Item class="Script" referent="RBX9B68FD11B2A8415CB6CCFF2ECE129F99">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<bool name="Disabled">false</bool>
-				<Content name="LinkedSource"><null></null></Content>
-				<string name="Name">Runner</string>
-				<string name="ScriptGuid">{08EEE841-EA92-4E8B-94BB-E71778C6EBD2}</string>
-				<ProtectedString name="Source"><![CDATA[--[[
-    Test Runner
-    HawDevelopment
-    11/06/2021
---]]
-
-local TestEz = require(game.ReplicatedStorage.TestEz)
-
-local Tests = script.Parent:WaitForChild("Tests")
-
-TestEz.TestBootstrap:run(Tests:GetDescendants())
-]]></ProtectedString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-		</Item>
-	</Item>
-	<Item class="ServerStorage" referent="RBX33A5E4D75AE548FBA7DA46780DCD012D">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">ServerStorage</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="ReplicatedStorage" referent="1">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">ReplicatedStorage</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-		<Item class="ModuleScript" referent="RBXACADE9C7E9F04BE09A2EEA2013E60B64">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<Content name="LinkedSource"><null></null></Content>
-				<string name="Name">TestEz</string>
-				<string name="ScriptGuid">{0BED92E5-EFD9-4461-AE45-A248899C6C3F}</string>
-				<ProtectedString name="Source"><![CDATA[local Expectation = require(script.Expectation)
+<roblox version="4">
+  <Item class="Lighting" referent="0">
+    <Properties>
+      <string name="Name">Lighting</string>
+      <Color3 name="Ambient">
+        <R>0</R>
+        <G>0</G>
+        <B>0</B>
+      </Color3>
+      <float name="Brightness">2</float>
+      <bool name="GlobalShadows">true</bool>
+      <bool name="Outlines">false</bool>
+      <token name="Technology">1</token>
+    </Properties>
+  </Item>
+  <Item class="ReplicatedStorage" referent="1">
+    <Properties>
+      <string name="Name">ReplicatedStorage</string>
+    </Properties>
+    <Item class="ModuleScript" referent="2">
+      <Properties>
+        <string name="Name">TestEz</string>
+        <string name="Source">local Expectation = require(script.Expectation)
 local TestBootstrap = require(script.TestBootstrap)
 local TestEnum = require(script.TestEnum)
 local TestPlan = require(script.TestPlan)
@@ -1776,17 +59,12 @@ local TestEZ = {
 	},
 }
 
-return TestEZ]]></ProtectedString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-			<Item class="ModuleScript" referent="RBX99F88C077AC941CFA6C8B72B086B62AD">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Context</string>
-					<string name="ScriptGuid">{63CD0235-89D7-42FB-900E-3FAF9B3E32D3}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+return TestEZ</string>
+      </Properties>
+      <Item class="ModuleScript" referent="3">
+        <Properties>
+          <string name="Name">Context</string>
+          <string name="Source"><![CDATA[--[[
 	The Context object implements a write-once key-value store. It also allows
 	for a new Context object to inherit the entries from an existing one.
 ]]
@@ -1812,18 +90,13 @@ function Context.new(parent)
 end
 
 return Context
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX199A05CFDB514C34BF416BF85AD1FCB2">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Expectation</string>
-					<string name="ScriptGuid">{DB2A0788-5304-4E79-824F-1DEB417C7020}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="4">
+        <Properties>
+          <string name="Name">Expectation</string>
+          <string name="Source"><![CDATA[--[[
 	Allows creation of expectation statements designed for behavior-driven
 	testing (BDD). See Chai (JS) or RSpec (Ruby) for examples of other BDD
 	frameworks.
@@ -2134,18 +407,13 @@ function Expectation:throw(messageSubstring)
 end
 
 return Expectation
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX524E24D9DB2F470F9905CBCB46197656">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">ExpectationContext</string>
-					<string name="ScriptGuid">{FC874A37-4AD3-4895-9A21-7B4C4601CE96}</string>
-					<ProtectedString name="Source"><![CDATA[local Expectation = require(script.Parent.Expectation)
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="5">
+        <Properties>
+          <string name="Name">ExpectationContext</string>
+          <string name="Source"><![CDATA[local Expectation = require(script.Parent.Expectation)
 local checkMatcherNameCollisions = Expectation.checkMatcherNameCollisions
 
 local function copy(t)
@@ -2183,18 +451,13 @@ function ExpectationContext:extend(config)
 end
 
 return ExpectationContext
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBXC469FB3EC56545EF86F818AEE5CA5CE6">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">LifecycleHooks</string>
-					<string name="ScriptGuid">{1A3C90D4-EB8E-4135-8AC9-A67718A73274}</string>
-					<ProtectedString name="Source"><![CDATA[local TestEnum = require(script.Parent.TestEnum)
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="6">
+        <Properties>
+          <string name="Name">LifecycleHooks</string>
+          <string name="Source"><![CDATA[local TestEnum = require(script.Parent.TestEnum)
 
 local LifecycleHooks = {}
 LifecycleHooks.__index = LifecycleHooks
@@ -2283,25 +546,17 @@ function LifecycleHooks:_getHooksOfType(nodes, key)
 end
 
 return LifecycleHooks
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="Folder" referent="RBX87ABA8BB9987433A93802C14A10617E6">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<string name="Name">Reporters</string>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-				<Item class="ModuleScript" referent="RBXF9036A273434464CBF04B3144DF844A4">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">TeamCityReporter</string>
-						<string name="ScriptGuid">{6C36588C-000D-40BC-9311-0C0B292202DE}</string>
-						<ProtectedString name="Source"><![CDATA[local TestService = game:GetService("TestService")
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="Folder" referent="7">
+        <Properties>
+          <string name="Name">Reporters</string>
+        </Properties>
+        <Item class="ModuleScript" referent="8">
+          <Properties>
+            <string name="Name">TeamCityReporter</string>
+            <string name="Source">local TestService = game:GetService("TestService")
 
 local TestEnum = require(script.Parent.Parent.TestEnum)
 
@@ -2402,18 +657,13 @@ function TeamCityReporter.report(results)
 	end
 end
 
-return TeamCityReporter]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBXC8F9620BD96B41AAA59F014D9EB0FC9E">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">TextReporter</string>
-						<string name="ScriptGuid">{7E125A11-1A38-44A3-A4D5-AAA24739E7EB}</string>
-						<ProtectedString name="Source"><![CDATA[--[[
+return TeamCityReporter</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="9">
+          <Properties>
+            <string name="Name">TextReporter</string>
+            <string name="Source">--[[
 	The TextReporter uses the results from a completed test to output text to
 	standard output and TestService.
 ]]
@@ -2433,7 +683,7 @@ local UNKNOWN_STATUS_SYMBOL = "?"
 local TextReporter = {}
 
 local function compareNodes(a, b)
-	return a.planNode.phrase:lower() < b.planNode.phrase:lower()
+	return a.planNode.phrase:lower() &lt; b.planNode.phrase:lower()
 end
 
 local function reportNode(node, buffer, level)
@@ -2518,18 +768,13 @@ function TextReporter.report(results)
 	end
 end
 
-return TextReporter]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-				<Item class="ModuleScript" referent="RBX0B7B636C2CB645868E886FDD5FF5A8DD">
-					<Properties>
-						<BinaryString name="AttributesSerialize"></BinaryString>
-						<Content name="LinkedSource"><null></null></Content>
-						<string name="Name">TextReporterQuiet</string>
-						<string name="ScriptGuid">{FA65CBC6-911C-4BBF-99D8-16C4F809373B}</string>
-						<ProtectedString name="Source"><![CDATA[--[[
+return TextReporter</string>
+          </Properties>
+        </Item>
+        <Item class="ModuleScript" referent="10">
+          <Properties>
+            <string name="Name">TextReporterQuiet</string>
+            <string name="Source">--[[
 	Copy of TextReporter that doesn't output successful tests.
 
 	This should be temporary, it's just a workaround to make CI environments
@@ -2625,19 +870,14 @@ function TextReporterQuiet.report(results)
 	end
 end
 
-return TextReporterQuiet]]></ProtectedString>
-						<int64 name="SourceAssetId">-1</int64>
-						<BinaryString name="Tags"></BinaryString>
-					</Properties>
-				</Item>
-			</Item>
-			<Item class="ModuleScript" referent="RBX78F1A570A9164807977F1D57CC17C964">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">TestBootstrap</string>
-					<string name="ScriptGuid">{03D85F16-9125-4368-B97C-15FD9011DA26}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+return TextReporterQuiet</string>
+          </Properties>
+        </Item>
+      </Item>
+      <Item class="ModuleScript" referent="11">
+        <Properties>
+          <string name="Name">TestBootstrap</string>
+          <string name="Source">--[[
 	Provides an interface to quickly run and report tests from a given object.
 ]]
 
@@ -2783,18 +1023,13 @@ function TestBootstrap:run(roots, reporter, otherOptions)
 	return results
 end
 
-return TestBootstrap]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX08EA717EE9C74599B0416E32F74C0BB3">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">TestEnum</string>
-					<string name="ScriptGuid">{61347227-3256-44A3-BC20-AEC975F5F600}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+return TestBootstrap</string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="12">
+        <Properties>
+          <string name="Name">TestEnum</string>
+          <string name="Source">--[[
 	Constants used throughout the testing framework.
 ]]
 
@@ -2821,18 +1056,13 @@ TestEnum.NodeModifier = {
 	Focus = "Focus"
 }
 
-return TestEnum]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX08B0975AB89C40679D9A470A09B0C3EC">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">TestPlan</string>
-					<string name="ScriptGuid">{834C5053-CA48-4EB6-A615-F1FD901A6D4E}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+return TestEnum</string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="13">
+        <Properties>
+          <string name="Name">TestPlan</string>
+          <string name="Source"><![CDATA[--[[
 	Represents a tree of tests that have been loaded but not necessarily
 	executed yet.
 
@@ -3136,18 +1366,13 @@ function TestPlan:findNodes(callback)
 end
 
 return TestPlan
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX7949DA5CFA8C4AD9BE8E00F1E7A1F897">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">TestPlanner</string>
-					<string name="ScriptGuid">{2FD77A9D-2489-47C8-8FA3-ACA9BEF5746D}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="14">
+        <Properties>
+          <string name="Name">TestPlanner</string>
+          <string name="Source">--[[
 	Turns a series of specification functions into a test plan.
 
 	Uses a TestPlanBuilder to keep track of the state of the tree being built.
@@ -3176,7 +1401,7 @@ function TestPlanner.createPlan(modulesList, testNamePattern, extraEnvironment)
 	local plan = TestPlan.new(testNamePattern, extraEnvironment)
 
 	table.sort(modulesList, function(a, b)
-		return a.pathStringForSorting < b.pathStringForSorting
+		return a.pathStringForSorting &lt; b.pathStringForSorting
 	end)
 
 	for _, module in ipairs(modulesList) do
@@ -3186,18 +1411,13 @@ function TestPlanner.createPlan(modulesList, testNamePattern, extraEnvironment)
 	return plan
 end
 
-return TestPlanner]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBXE44CE63BEBFF4FEA97FAF8DACAD37409">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">TestResults</string>
-					<string name="ScriptGuid">{16C6A3C5-27BB-4700-A477-9555F6008CDE}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+return TestPlanner</string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="15">
+        <Properties>
+          <string name="Name">TestResults</string>
+          <string name="Source">--[[
 	Represents a tree of test results.
 
 	Each node in the tree corresponds directly to a node in a corresponding
@@ -3308,18 +1528,13 @@ function TestResults:visualize(root, level)
 	return table.concat(buffer, "\n")
 end
 
-return TestResults]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX98405149EF1D4D5C8B69D41756D01A95">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">TestRunner</string>
-					<string name="ScriptGuid">{9EE0F748-0934-4658-9C18-7C4F6BD0AA43}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+return TestResults</string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="16">
+        <Properties>
+          <string name="Name">TestRunner</string>
+          <string name="Source"><![CDATA[--[[
 	Contains the logic to run a test plan and gather test results from it.
 
 	TestRunner accepts a TestPlan object, executes the planned tests, and
@@ -3507,18 +1722,13 @@ function TestRunner.runPlanNode(session, planNode, lifecycleHooks)
 end
 
 return TestRunner
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBXA8572B35A12B4D3280BCDA9C3286CBB9">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">TestSession</string>
-					<string name="ScriptGuid">{6D8CAA11-7E1A-4817-BA5A-AA780C23B172}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="17">
+        <Properties>
+          <string name="Name">TestSession</string>
+          <string name="Source"><![CDATA[--[[
 	Represents the state relevant while executing a test plan.
 
 	Used by TestRunner to produce a TestResults object.
@@ -3761,19 +1971,14 @@ function TestSession:setStatusFromChildren()
 end
 
 return TestSession
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-		</Item>
-		<Item class="ModuleScript" referent="RBXBA6EADAD06F9435FB1252ADABD75F484">
-			<Properties>
-				<BinaryString name="AttributesSerialize"></BinaryString>
-				<Content name="LinkedSource"><null></null></Content>
-				<string name="Name">libs</string>
-				<string name="ScriptGuid">{442D2829-147F-47FB-A718-0D0A4D470AA4}</string>
-				<ProtectedString name="Source"><![CDATA[return {
+]]></string>
+        </Properties>
+      </Item>
+    </Item>
+    <Item class="ModuleScript" referent="18">
+      <Properties>
+        <string name="Name">lib</string>
+        <string name="Source"><![CDATA[return {
 	Factory = script.Factory,
 	Singleton = script.Singleton,
 	Strategy = script.Strategy,
@@ -3782,17 +1987,181 @@ return TestSession
 	Command = script.Command,
 	Chain = script.Chain,
 }
-]]></ProtectedString>
-				<int64 name="SourceAssetId">-1</int64>
-				<BinaryString name="Tags"></BinaryString>
-			</Properties>
-			<Item class="ModuleScript" referent="RBX7B9246F5D1F246B6ACBFE77CE818CA33">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Factory</string>
-					<string name="ScriptGuid">{92DA59F1-FBCF-4988-96F0-E6A9071C39FD}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+]]></string>
+      </Properties>
+      <Item class="ModuleScript" referent="19">
+        <Properties>
+          <string name="Name">Chain</string>
+          <string name="Source"><![CDATA[--[[
+    Chain class
+    HawDevelopment
+    26/06/2021
+--]]
+
+local t = require(script.Parent.t)
+
+---@class Chain
+local Chain = {}
+Chain.__index = Chain
+
+--- Creates a new Chain
+---@param handles table<string | number, fun(any): boolean> | nil
+---@param shouldWarn boolean
+function Chain.new(chain, shouldWarn)
+	assert(t.union(t.table, t.none)(chain))
+	chain = chain or {}
+
+	for index, val in pairs(chain) do
+		if type(index) ~= "number" then
+			error("Chain indexes can only be numbers!", 2)
+		end
+
+		if type(val) ~= "function" then
+			error("Chain values can only be functions", 2)
+		end
+	end
+
+	local self = setmetatable({}, Chain)
+
+	self.__chain = chain
+
+	if shouldWarn then
+		self.__warn = shouldWarn
+	else
+		self.__warn = false
+	end
+
+	return self
+end
+
+--- Sets the current Chain
+---@param handler fun(any): boolean
+---@param index number | nil @Index of handler in chain, defaults to last index plus one
+function Chain:add(handler, index)
+	assert(t.callback(handler))
+	assert(t.union(t.number, t.none)(index))
+	index = index or #self.__chain + 1
+
+	table.insert(self.__chain, index, handler)
+	return self
+end
+
+--- Execures the current Chain
+---@vararg any
+---@return boolean
+function Chain:execute(...)
+	for i, handle in ipairs(self.__chain) do
+		local ret, err = handle(...)
+
+		if ret == false then
+			if err and self.__warn then
+				warn(err)
+			else
+				warn(("Error cought in chain on index %s"):format(i))
+			end
+
+			return ret
+		end
+	end
+
+	return true
+end
+
+Chain.__index = function(self, index)
+	if type(Chain[index]) == "function" then
+		return function(...)
+			return Chain[index](self, ...)
+		end
+	else
+		return Chain[index]
+	end
+end
+Chain.__call = function(self, ...)
+	return self.fire(...)
+end
+
+return setmetatable(Chain, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="20">
+        <Properties>
+          <string name="Name">Command</string>
+          <string name="Source"><![CDATA[--[[
+    Command class
+    HawDevelopment
+    26/06/2021
+--]]
+
+local t = require(script.Parent.t)
+local Observer = require(script.Parent.Observer)
+
+local t_type = t.union(t.string, t.none)
+
+---@class Command
+local Command = {}
+Command.__index = Command
+
+--- Creates a new command
+---@param commands table<string, fun(any): any> | nil
+function Command.new(commands)
+	assert(t.union(t.table, t.none)(commands))
+	local self = setmetatable({}, Command)
+
+	self.__commands = commands or {}
+
+	return self
+end
+
+--- Adds a new command
+---@param command fun(any): any
+---@param name string
+function Command:add(command, name)
+	assert(t.callback(command))
+	assert(t.string(name))
+	self.__commands[name] = command
+end
+
+--- Executes command with given name
+---@param name string
+---@vararg any
+---@return any
+function Command:execute(name, ...)
+	assert(t.string(name))
+	assert(self.__commands[name] ~= nil, ("Command with name %s could not be found"):format(name))
+
+	return self.__commands[name](...)
+end
+
+Command.__index = function(self, index)
+	if type(Command[index]) == "function" then
+		return function(...)
+			return Command[index](self, ...)
+		end
+	else
+		return Command[index]
+	end
+end
+Command.__call = function(self, ...)
+	return self.set(...)
+end
+
+return setmetatable(Command, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="21">
+        <Properties>
+          <string name="Name">Factory</string>
+          <string name="Source"><![CDATA[--[[
     Factory Class
     HawDevelopment
     11/06/2021
@@ -3963,277 +2332,13 @@ return setmetatable(Factory, {
 		return _.new(...)
 	end,
 })
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX3693FE3FD3234EE8B45A6CC2D0399769">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Types</string>
-					<string name="ScriptGuid">{7A75A005-C2E7-475B-B68D-8776240F2D8B}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Types
-    HawDevelopment
-    12/06/2021
-    
-    Design from osyrisrblx/t
---]]
-
----@module Types
-local Types = {}
-
-local function Primitive(typeName)
-	return function(value)
-		local valueType = type(value)
-		if valueType == typeName then
-			return true
-		else
-			return false
-		end
-	end
-end
-
-Types["string"] = Primitive("string")
-Types["boolean"] = Primitive("boolean")
-Types["number"] = Primitive("number")
-Types["nil"] = Primitive("nil")
-Types["table"] = Primitive("table")
-Types["thread"] = Primitive("thread")
-Types["function"] = Primitive("function")
-Types["userdata"] = Primitive("userdata")
-Types["vector"] = Primitive("vector")
-
-return Types
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX13534B7015AC4726B0B40E63A6B51A2A">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Singleton</string>
-					<string name="ScriptGuid">{64FEAFE9-5514-4DC7-AA0E-9808C1091CE2}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Singleton Class
-    HawDevelopment
-    14/06/2021
---]]
-
-local t = require(script.Parent.t)
-
----class @Singleton
-local Singleton = {}
-Singleton.__index = Singleton
-
---- Creates a new singleton
----@param handle fun() | table
----@return Singleton
-function Singleton.new(handle)
-	assert(t.union(t.callback, t.table)(handle))
-
-	if type(handle) == "table" then
-		assert(type(handle.new) == "function", "Expected class, got table")
-	end
-
-	local self = setmetatable({}, Singleton)
-
-	self.__creator = handle
-
-	return self
-end
-
---- Gets or Creates object from the handler
----@return any
-function Singleton:get()
-	if not self.__obj then
-		local ret
-
-		if type(self.__creator) == "table" then
-			ret = self.__creator.new()
-		else
-			ret = self.__creator()
-		end
-
-		self.__obj = ret
-	end
-
-	return self.__obj
-end
-
-Singleton.__index = function(self, index)
-	if type(Singleton[index]) == "function" then
-		return function(...)
-			return Singleton[index](self, ...)
-		end
-	else
-		return Singleton[index]
-	end
-end
-Singleton.__call = function(self, ...)
-	return self.get(...)
-end
-
-return setmetatable(Singleton, {
-	__call = function(self, ...)
-		return self.new(...)
-	end,
-})
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBXAA6F4B7A36B2469D8C8E8B91A1D2C90A">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Strategy</string>
-					<string name="ScriptGuid">{1FB08F7C-B5AD-43BD-97D7-D84A5EEFB36E}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Strategy class
-    HawDevelopment
-    23/06/2021
---]]
-local t = require(script.Parent.t)
-
----@class Strategy
-local Strategy = {}
-Strategy.__index = Strategy
-
---- Creates a new Strategy
----@param handles table<string | number, fun(any): any>
----@param start number | nil
-function Strategy.new(handles, start)
-	assert(t.table(handles))
-
-	local self = setmetatable({}, Strategy)
-
-	self.__handles = handles
-	if start then
-		self.__strategy = handles[start]
-	else
-		_, self.__strategy = next(handles)
-	end
-
-	return self
-end
-
---- Adds a new handler to the strategy
----@param handler fun(any): any
----@param name string
-function Strategy:add(handler, name)
-	assert(t.callback(handler))
-	assert(t.string(name))
-
-	self.__handles[name] = handler
-end
---- Sets the current Strategy
----@param name string @The name of strategy to set
----@return nil
-function Strategy:set(name)
-	assert(t.union(t.string, t.number)(name))
-
-	if not self.__handles[name] then
-		return error(("Strategy named %s could not be found"):format(tostring(name)), 2)
-	end
-
-	self.__strategy = self.__handles[name]
-end
-
---- Calls the current set strategy, of none is found it errors
----@vararg any
----@return any
-function Strategy:call(...)
-	assert(self.__strategy ~= nil, "Strategy not set")
-
-	return self.__strategy(...)
-end
-
-Strategy.__index = function(self, index)
-	if type(Strategy[index]) == "function" then
-		return function(...)
-			return Strategy[index](self, ...)
-		end
-	else
-		return Strategy[index]
-	end
-end
-Strategy.__call = function(self, ...)
-	return self.call(...)
-end
-
-return setmetatable(Strategy, {
-	__call = function(self, ...)
-		return self.new(...)
-	end,
-})
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX41CE45F9CC214BD7A484A41CB8123DC2">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Symbol</string>
-					<string name="ScriptGuid">{6DC8813B-0C61-413D-AA52-B1EDA9EDEB7D}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Symbol Class
-    HawDevelopment
-    24/06/2021
---]]
-
----@class Symbol
-local Symbol = {}
-
---- Creates a new symbol
----@param name string @The name of the symbol
----@return Symbol
-function Symbol.named(name)
-	assert(type(name) == "string", "Symbols must be created using a string name!")
-
-	local self = newproxy(true)
-
-	local wrappedName = ("Symbol(%s)"):format(name)
-
-	getmetatable(self).__tostring = function()
-		return wrappedName
-	end
-
-	return self
-end
-
---- Creates an unnamed symbol
----@return Symbol
-function Symbol.unnamed()
-	local self = newproxy(true)
-
-	getmetatable(self).__tostring = function()
-		return "Unnamed Symbol"
-	end
-
-	return self
-end
-
-return Symbol
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX56422C9115FE47619D70226E4663E021">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Observer</string>
-					<string name="ScriptGuid">{DB817D81-6A71-44BB-A5A9-BC0149C4D616}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="22">
+        <Properties>
+          <string name="Name">Observer</string>
+          <string name="Source"><![CDATA[--[[
     Observer
     HawDevelopment
     24/06/2021
@@ -4324,18 +2429,373 @@ return setmetatable(Observer, {
 		return self.new(...)
 	end,
 })
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX8396BDA7AC5B478F8ED632D43A7C41D5">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">t</string>
-					<string name="ScriptGuid">{36E81A9F-C7B6-44EC-8998-EADAB80C3FD3}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="23">
+        <Properties>
+          <string name="Name">Singleton</string>
+          <string name="Source"><![CDATA[--[[
+    Singleton Class
+    HawDevelopment
+    14/06/2021
+--]]
+
+local t = require(script.Parent.t)
+
+---class @Singleton
+local Singleton = {}
+Singleton.__index = Singleton
+
+--- Creates a new singleton
+---@param handle fun() | table
+---@return Singleton
+function Singleton.new(handle)
+	assert(t.union(t.callback, t.table)(handle))
+
+	if type(handle) == "table" then
+		assert(type(handle.new) == "function", "Expected class, got table")
+	end
+
+	local self = setmetatable({}, Singleton)
+
+	self.__creator = handle
+
+	return self
+end
+
+--- Gets or Creates object from the handler
+---@return any
+function Singleton:get()
+	if not self.__obj then
+		local ret
+
+		if type(self.__creator) == "table" then
+			ret = self.__creator.new()
+		else
+			ret = self.__creator()
+		end
+
+		self.__obj = ret
+	end
+
+	return self.__obj
+end
+
+--- Destroys the current set object
+function Singleton:destroy()
+	if self.__obj then
+		if type(self.__obj) == "table" and self.__obj.Destroy then
+			self.__obj:Destroy()
+		end
+		self.__obj = nil
+	end
+end
+
+Singleton.__index = function(self, index)
+	if type(Singleton[index]) == "function" then
+		return function(...)
+			return Singleton[index](self, ...)
+		end
+	else
+		return Singleton[index]
+	end
+end
+Singleton.__call = function(self, ...)
+	return self.get(...)
+end
+
+return setmetatable(Singleton, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="24">
+        <Properties>
+          <string name="Name">State</string>
+          <string name="Source"><![CDATA[--[[
+    State class
+    HawDevelopment
+    26/06/2021
+--]]
+
+local t = require(script.Parent.t)
+local Observer = require(script.Parent.Observer)
+
+local t_type = t.union(t.string, t.none)
+
+---@class State
+local State = {}
+State.__index = State
+
+--- Creates a new state
+---@param default any | nil
+---@param observer Observer | nil
+function State.new(default, observer)
+	assert(t.union(t.table, t.none)(observer))
+	local self = setmetatable({}, State)
+
+	self.__state = default
+	self.__observer = observer or Observer.new()
+
+	return self
+end
+
+--- Sets state observer
+---@param observer Observer
+function State:observer(observer)
+	assert(t.table(observer))
+	self.__observer = observer
+end
+
+--- Adds a callback to state obsever
+---@param callback fun(state: any) | "function(state) end"
+---@param type string | nil
+function State:bind(callback, type)
+	assert(t.callback(callback))
+	assert(t_type(type))
+	self.__observer.add(callback, type)
+end
+
+---@return table
+local function Mix(tab1, tab2)
+	for i, v in pairs(tab2) do
+		tab1[i] = b
+	end
+	return tab1
+end
+
+--- Sets the state
+---@param state any
+---@type string | nil
+function State:set(state, type)
+	assert(t.any(state))
+	assert(t_type(type))
+
+	if typeof(state) == "table" then
+		setmetatable(
+			state,
+			Mix(getmetatable(state) or {}, {
+				__newindex = function()
+					error("State is read only!", 2)
+				end,
+			})
+		)
+	end
+
+	self.__observer.fire(type or "all", state)
+	self.__state = state
+end
+
+--- Gets the state
+---@return any
+function State:get()
+	return self.__state
+end
+
+State.__tostring = function(self)
+	return tostring(self.__state)
+end
+
+State.__index = function(self, index)
+	if type(State[index]) == "function" then
+		return function(...)
+			return State[index](self, ...)
+		end
+	else
+		return State[index]
+	end
+end
+State.__call = function(self, ...)
+	return self.set(...)
+end
+
+return setmetatable(State, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="25">
+        <Properties>
+          <string name="Name">Strategy</string>
+          <string name="Source"><![CDATA[--[[
+    Strategy class
+    HawDevelopment
+    23/06/2021
+--]]
+local t = require(script.Parent.t)
+
+---@class Strategy
+local Strategy = {}
+Strategy.__index = Strategy
+
+--- Creates a new Strategy
+---@param handles table<string | number, fun(any): any>
+---@param start number | nil
+function Strategy.new(handles, start)
+	assert(t.table(handles))
+
+	local self = setmetatable({}, Strategy)
+
+	self.__handles = handles or {}
+	if start then
+		self.__strategy = handles[start]
+	else
+		_, self.__strategy = next(handles)
+	end
+
+	return self
+end
+
+--- Adds a new handler to the strategy
+---@param handler fun(any): any
+---@param name string
+function Strategy:add(handler, name)
+	assert(t.callback(handler))
+	assert(t.string(name))
+
+	self.__handles[name] = handler
+end
+--- Sets the current Strategy
+---@param name string @The name of strategy to set
+---@return nil
+function Strategy:set(name)
+	assert(t.union(t.string, t.table)(name))
+
+	-- For state objects
+	name = tostring(name)
+
+	if not self.__handles[name] then
+		return error(("Strategy named %s could not be found"):format(tostring(name)), 2)
+	end
+
+	self.__strategy = self.__handles[name]
+end
+
+--- Calls the current set strategy, of none is found it errors
+---@vararg any
+---@return any
+function Strategy:call(...)
+	assert(self.__strategy ~= nil, "Strategy not set")
+
+	return self.__strategy(...)
+end
+
+Strategy.__index = function(self, index)
+	if type(Strategy[index]) == "function" then
+		return function(...)
+			return Strategy[index](self, ...)
+		end
+	else
+		return Strategy[index]
+	end
+end
+Strategy.__call = function(self, ...)
+	return self.call(...)
+end
+
+return setmetatable(Strategy, {
+	__call = function(self, ...)
+		return self.new(...)
+	end,
+})
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="26">
+        <Properties>
+          <string name="Name">Symbol</string>
+          <string name="Source"><![CDATA[--[[
+    Symbol Class
+    HawDevelopment
+    24/06/2021
+--]]
+
+---@class Symbol
+local Symbol = {}
+
+--- Creates a new symbol
+---@param name string @The name of the symbol
+---@return Symbol
+function Symbol.named(name)
+	assert(type(name) == "string", "Symbols must be created using a string name!")
+
+	local self = newproxy(true)
+
+	local wrappedName = ("Symbol(%s)"):format(name)
+
+	getmetatable(self).__tostring = function()
+		return wrappedName
+	end
+
+	return self
+end
+
+--- Creates an unnamed symbol
+---@return Symbol
+function Symbol.unnamed()
+	local self = newproxy(true)
+
+	getmetatable(self).__tostring = function()
+		return "Unnamed Symbol"
+	end
+
+	return self
+end
+
+return Symbol
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="27">
+        <Properties>
+          <string name="Name">Types</string>
+          <string name="Source"><![CDATA[--[[
+    Types
+    HawDevelopment
+    12/06/2021
+    
+    Design from osyrisrblx/t
+--]]
+
+---@module Types
+local Types = {}
+
+local function Primitive(typeName)
+	return function(value)
+		local valueType = type(value)
+		if valueType == typeName then
+			return true
+		else
+			return false
+		end
+	end
+end
+
+Types["string"] = Primitive("string")
+Types["boolean"] = Primitive("boolean")
+Types["number"] = Primitive("number")
+Types["nil"] = Primitive("nil")
+Types["table"] = Primitive("table")
+Types["thread"] = Primitive("thread")
+Types["function"] = Primitive("function")
+Types["userdata"] = Primitive("userdata")
+Types["vector"] = Primitive("vector")
+
+return Types
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="28">
+        <Properties>
+          <string name="Name">t</string>
+          <string name="Source"><![CDATA[--[[
 	t: a runtime typechecker for Roblox
 	HawDevelopment
 	24/06/2021
@@ -5525,387 +3985,1033 @@ do
 end
 
 return t
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX4C680388922E49D9A27C00E8B4220DD0">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">State</string>
-					<string name="ScriptGuid">{6389AD77-AFF6-4E72-B1B0-D606D6F9C9AC}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    State class
+]]></string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+  <Item class="ServerScriptService" referent="29">
+    <Properties>
+      <string name="Name">ServerScriptService</string>
+    </Properties>
+    <Item class="Script" referent="30">
+      <Properties>
+        <string name="Name">Runner</string>
+        <string name="Source"><![CDATA[--[[
+    Test Runner
+    HawDevelopment
+    11/06/2021
+--]]
+
+local TestEz = require(game.ReplicatedStorage.TestEz)
+
+local Tests = script.Parent:WaitForChild("Tests")
+
+TestEz.TestBootstrap:run(Tests:GetDescendants())
+]]></string>
+      </Properties>
+    </Item>
+    <Item class="Folder" referent="31">
+      <Properties>
+        <string name="Name">Tests</string>
+      </Properties>
+      <Item class="ModuleScript" referent="32">
+        <Properties>
+          <string name="Name">Chain.spec</string>
+          <string name="Source"><![CDATA[--[[
+    Chain tests
     HawDevelopment
     26/06/2021
 --]]
 
-local t = require(script.Parent.t)
-local Observer = require(script.Parent.Observer)
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local lib = require(ReplicatedStorage.lib)
+	---@module Chain
+	local Chain = require(lib.Chain)
 
-local t_type = t.union(t.string, t.none)
+	local chains = {
+		function()
+			return true
+		end,
+		function()
+			return false, "Error!"
+		end,
+	}
 
----@class State
-local State = {}
-State.__index = State
+	describe("Chain.new", function()
+		it("should return a valid Chain", function()
+			local Chain = Chain.new(chains)
 
---- Creates a new state
----@param default any | nil
----@param observer Observer | nil
-function State.new(default, observer)
-	assert(t.union(t.table, t.none)(observer))
-	local self = setmetatable({}, State)
+			expect(Chain.__chain).to.be.a("table")
+		end)
 
-	self.__state = default
-	self.__observer = observer or Observer.new()
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Chain.new(13)
+			end).to.be.throw()
 
-	return self
+			expect(function()
+				Chain.new(workspace)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Chain()
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Chain.add", function()
+		local chain
+		beforeEach(function()
+			chain = Chain.new(chains)
+		end)
+
+		it("should add a handler to the Chain", function()
+			chain.add(function() end, 1)
+			expect(#chain.__chain).to.be.equal(3)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				chain.add(true)
+			end).to.be.throw()
+
+			expect(function()
+				chain.add(function() end, "yes")
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Chain.execute", function()
+		local chain
+		beforeEach(function()
+			chain = Chain.new(chains)
+		end)
+
+		it("should execute the chain", function()
+			local res = true
+
+			expect(function()
+				res = chain.execute()
+			end).to.never.be.throw()
+
+			expect(res).to.be.equal(false)
+		end)
+	end)
 end
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="33">
+        <Properties>
+          <string name="Name">Command.spec</string>
+          <string name="Source"><![CDATA[--[[
+    Command tests
+    HawDevelopment
+    26/06/2021
+--]]
 
---- Sets state observer
----@param observer Observer
-function State:observer(observer)
-	assert(t.table(observer))
-	self.__observer = observer
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local lib = require(ReplicatedStorage.lib)
+	---@module Command
+	local Command = require(lib.Command)
+
+	local commands = {
+		Hey = function()
+			-- Hello!
+		end,
+		Bye = function()
+			-- Bye! :(
+		end,
+	}
+
+	describe("Command.new", function()
+		it("should return a valid command", function()
+			local command = Command.new()
+
+			expect(command.__commands).to.be.a("table")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Command.new(10)
+			end).to.be.throw()
+
+			expect(function()
+				Command.new(workspace)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Command()
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Command.add", function()
+		local command
+		beforeEach(function()
+			command = Command.new()
+		end)
+
+		it("should add a command", function()
+			command.add(commands.Hey, "Hey")
+			expect(command.__commands["Hey"]).to.be.ok()
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				command.add(true)
+			end).to.be.throw()
+
+			expect(function()
+				command.add(commands.Bye, 10)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Command.execute", function()
+		local command
+		beforeEach(function()
+			command = Command.new()
+		end)
+
+		it("should execure a function", function()
+			local res
+			command.add(function()
+				res = true
+			end, "Test")
+
+			expect(function()
+				command.execute("Test")
+			end).to.never.be.throw()
+
+			expect(res).to.be.equal(true)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				command.execute(10)
+			end).to.be.throw()
+
+			expect(function()
+				command.execute(true)
+			end).to.be.throw()
+		end)
+	end)
 end
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="34">
+        <Properties>
+          <string name="Name">Factory.spec</string>
+          <string name="Source"><![CDATA[--[[
+    Factory Tests
+    HawDevelopment
+    11/06/2021
+--]]
 
---- Adds a callback to state obsever
----@param callback fun(state: any) | "function(state) end"
----@param type string | nil
-function State:bind(callback, type)
-	assert(t.callback(callback))
-	assert(t_type(type))
-	self.__observer.add(callback)
-end
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
----@return table
-local function Mix(tab1, tab2)
-	for i, v in pairs(tab2) do
-		tab1[i] = b
-	end
-	return tab1
-end
+	local lib = require(ReplicatedStorage.lib)
+	local Factory = require(lib.Factory)
+	local t = require(ReplicatedStorage.lib.t)
 
---- Sets the state
----@param state any
----@type string | nil
-function State:set(state, type)
-	assert(t.any(state))
-	assert(t_type(type))
+	local factoryEnum = {
+		Developer = 1,
+		Tester = 2,
+	}
 
-	if typeof(state) == "table" then
-		setmetatable(
-			state,
-			Mix(getmetatable(state) or {}, {
-				__newindex = function()
-					error("State is read only!", 2)
-				end,
+	local factories = {
+		Developer = function(tab, name, age)
+			tab.Name = name
+			tab.Age = age
+			tab.Profession = "Developer"
+		end,
+		Tester = function(tab, name, age)
+			tab.Name = name
+			tab.Age = age
+			tab.Profession = "Tester"
+		end,
+	}
+
+	describe("Factory.new", function()
+		it("should create a valid factory", function()
+			-- Enum, Table
+			local factory = Factory.new(factoryEnum, factories)
+
+			expect(factory.__factories).to.be.a("table")
+			expect(factory.__enum).to.be.a("table")
+
+			-- Factory should make a cope of input
+			expect(factory.__factoris).to.never.be.equal(factories)
+			expect(factory.__enum).to.never.be.equal(factoryEnum)
+
+			-- Should be callable
+			expect(getmetatable(factory).__call).to.be.a("function")
+		end)
+
+		it("should throw if given wrong arguments", function()
+			expect(function()
+				Factory.new(nil, nil)
+			end).to.be.throw()
+
+			expect(function()
+				Factory.new("Factory", 10)
+			end).to.be.throw()
+
+			expect(function()
+				Factory.new(game, function() end)
+			end).to.be.throw()
+		end)
+
+		it("should error if enum doesnt line up with factories", function()
+			expect(function()
+				Factory.new({
+					Developer = 1,
+					CEO = 2,
+				}, {
+					CEO = function() end,
+				})
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			local factory = Factory(factoryEnum, factories)
+
+			expect(factory).to.be.a("table")
+		end)
+	end)
+
+	describe("Factory.create", function()
+		local factory = Factory(factoryEnum, factories)
+
+		it("should create a valid class", function()
+			local class = factory.create(1, "HawDevelopment", 69)
+
+			expect(class.Name).to.be.equal("HawDevelopment")
+			expect(class.Age).to.be.equal(69)
+			expect(class.Profession).to.be.equal("Developer")
+		end)
+
+		it("should be able to use string as a type", function()
+			local class = factory.create("Developer", "HawDevelopment", 69)
+
+			expect(class.Name).to.be.equal("HawDevelopment")
+			expect(class.Age).to.be.equal(69)
+			expect(class.Profession).to.be.equal("Developer")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				factory.create(nil, 10, {})
+			end).to.be.throw()
+
+			expect(function()
+				factory.create("yes", {}, "what")
+			end).to.be.throw()
+		end)
+
+		it("should comply with Factory rules", function()
+			local ruleFactory = Factory.new(factoryEnum, factories)
+			ruleFactory.rule({
+				Factory.Type.string,
+				t.number,
 			})
-		)
+
+			expect(function()
+				ruleFactory.create(1, 1, "10")
+			end).to.be.throw()
+
+			expect(function()
+				ruleFactory.create(1, "1", 10)
+			end).to.never.be.throw()
+		end)
+
+		it("should comply with Factory bases", function()
+			local baseFactory = Factory.new(factoryEnum, {
+				Developer = function() end,
+				Tester = function() end,
+			})
+
+			baseFactory.base({
+				Name = Factory.Argument(1),
+				Age = Factory.Argument(2),
+			})
+
+			local class = baseFactory.create(1, "HawDevelopment", 420)
+
+			expect(class.Name).to.be.equal("HawDevelopment")
+			expect(class.Age).to.be.equal(420)
+		end)
+	end)
+
+	describe("Factory.rule", function()
+		---@type Factory
+		local factory = Factory.new(factoryEnum, factories)
+
+		beforeAll(function()
+			factory.rule(nil)
+		end)
+
+		it("should set the rule", function()
+			local rule = {
+				Factory.Type.string,
+				Factory.Type.number,
+			}
+
+			factory.rule(rule)
+
+			expect(factory.__rule).to.be.a("table")
+			expect(factory.__rule).to.never.be.equal(rule)
+
+			factory.rule(nil)
+
+			expect(factory.__rule).to.be.equal(nil)
+		end)
+
+		it("should be able to be given nil", function()
+			expect(function()
+				factory.rule({})
+				factory.rule(nil)
+			end).never.to.be.throw()
+
+			expect(factory.__rule).to.be.equal(nil)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				factory.rule("Yes")
+			end).to.be.throw()
+
+			expect(function()
+				factory.rule(20)
+			end).to.be.throw()
+		end)
+
+		it("could be used with osyrisrblx/t module", function()
+			local ruleFactory = Factory.new(factoryEnum, factories)
+			ruleFactory.rule({
+				t.string,
+				t.number,
+			})
+
+			expect(function()
+				ruleFactory.create(1, 30, game)
+			end).to.be.throw()
+
+			expect(function()
+				ruleFactory.create(1, "HawDevelopment", 69)
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Factory.base", function()
+		local factory = Factory.new(factoryEnum, factories)
+
+		beforeAll(function()
+			factory.rule(nil)
+			factory.base(nil)
+		end)
+
+		it("should set the base", function()
+			local base = {
+				Name = Factory.Argument(1),
+				Age = Factory.Argument(2),
+				Iq = 120,
+			}
+
+			factory.base(base)
+
+			expect(factory.__base).to.be.a("table")
+			expect(factory.__base).to.never.be.equal(base)
+		end)
+
+		it("should be able to be given nil", function()
+			expect(function()
+				factory.base({})
+				factory.base(nil)
+			end).never.to.be.throw()
+
+			expect(factory.__base).to.be.equal(nil)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				factory.base("No")
+			end).to.be.throw()
+
+			expect(function()
+				factory.base(12)
+			end).to.be.throw()
+		end)
+	end)
+end
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="35">
+        <Properties>
+          <string name="Name">Observer.spec</string>
+          <string name="Source"><![CDATA[--[[
+    Observer tests
+    HawDevelopment
+    24/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local lib = require(ReplicatedStorage.lib)
+	---@module Observer
+	local Observer = require(lib.Observer)
+
+	describe("Observer.new", function()
+		it("should create a valid observer", function()
+			local observer
+			expect(function()
+				observer = Observer.new()
+			end).to.never.be.throw()
+
+			expect(observer.__listeners).to.be.a("table")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Observer.new(game)
+			end).to.be.throw()
+
+			expect(function()
+				Observer.new("Yes")
+			end).to.be.throw()
+
+			expect(function()
+				Observer.new(420)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Observer()
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Observer.add", function()
+		---@type Observer
+		local observer
+
+		beforeEach(function()
+			observer = Observer.new()
+		end)
+
+		it("should add handler to listners", function()
+			expect(function()
+				observer.add(function() end)
+			end).to.never.be.throw()
+
+			expect(#observer.__listeners).to.be.equal(1)
+		end)
+
+		it("should return a function", function()
+			local func = observer.add(function() end)
+
+			expect(func).to.be.a("function")
+			expect(#observer.__listeners).to.be.equal(1)
+
+			func()
+
+			expect(#observer.__listeners).to.be.equal(0)
+		end)
+
+		it("should work with types", function()
+			observer.add(function() end, "Hello!")
+
+			expect(#observer.__listeners["Hello!"]).to.be.equal(1)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				observer.add("Yes", 1)
+			end).to.be.throw()
+
+			expect(function()
+				observer.add(10, game)
+			end).to.be.throw()
+
+			expect(function()
+				observer.add({})
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Observer.fire", function()
+		---@type Observer
+		local observer
+
+		beforeEach(function()
+			observer = Observer.new()
+		end)
+
+		it("should fire listners", function()
+			local res = false
+
+			observer.add(function()
+				res = true
+			end)
+			observer.fire()
+
+			expect(res).to.be.equal(true)
+		end)
+
+		it("should fire listners with types", function()
+			local res = false
+
+			observer.add(function()
+				res = true
+			end, "Hello!")
+			observer.fire("Hello!")
+
+			expect(res).to.be.equal(true)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				observer.fire({}, true)
+			end).to.be.throw()
+		end)
+	end)
+end
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="36">
+        <Properties>
+          <string name="Name">Singleton.spec</string>
+          <string name="Source"><![CDATA[--[[
+    Singleton Tests
+    HawDevelopment
+    14/06/2021
+--]]
+
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+	local lib = require(ReplicatedStorage.lib)
+	local Singleton = require(lib.Singleton)
+
+	local function ObjectCreater()
+		return {
+			Name = "HawDevelopment",
+			Skill = "Scripting",
+			Iq = -10,
+		}
 	end
 
-	self.__observer.fire(type or "all", state)
-	self.__state = state
-end
+	describe("Singleton.new", function()
+		it("should create a valid singleton", function()
+			local singleton
+			expect(function()
+				singleton = Singleton.new(ObjectCreater)
+			end).to.never.be.throw()
 
---- Gets the state
----@return any
-function State:get()
-	return self.__state
-end
+			expect(singleton.__creator).to.be.equal(ObjectCreater)
+			expect(singleton.__obj).to.be.equal(nil)
+		end)
 
-State.__index = function(self, index)
-	if type(State[index]) == "function" then
-		return function(...)
-			return State[index](self, ...)
-		end
-	else
-		return State[index]
-	end
-end
-State.__call = function(self, ...)
-	return self.set(...)
-end
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Singleton.new()
+			end).to.be.throw()
 
-return setmetatable(State, {
-	__call = function(self, ...)
-		return self.new(...)
-	end,
-})
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX9532CC1E6F87405BA8EA647316FEB988">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Command</string>
-					<string name="ScriptGuid">{63BAEE7E-B874-43F1-8DAC-709FD443DB6D}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Command class
+			expect(function()
+				Singleton.new("Yes")
+			end).to.be.throw()
+
+			expect(function()
+				Singleton.new(420)
+			end).to.be.throw()
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				Singleton(ObjectCreater)
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Singleton.get", function()
+		local singleton
+		beforeEach(function()
+			singleton = Singleton.new(ObjectCreater)
+		end)
+
+		it("should return the singleton", function()
+			local ret
+			expect(function()
+				ret = singleton.get()
+			end).to.never.be.throw()
+
+			expect(ret).to.be.a("table")
+			expect(ret.Name).to.be.equal("HawDevelopment")
+			expect(ret.Iq).to.be.equal(-10)
+			expect(ret.Skill).to.be.equal("Scripting")
+		end)
+
+		it("should be able to be created using __call", function()
+			expect(function()
+				singleton(ObjectCreater)
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("Singleton.destroy", function()
+		local singleton
+		beforeEach(function()
+			singleton = Singleton.new(ObjectCreater)
+		end)
+
+		it("should destroy the current object", function()
+			local ret
+			expect(function()
+				ret = singleton.get()
+			end).to.never.be.throw()
+
+			singleton.destroy()
+			expect(singleton.__obj).to.be.equal(nil)
+
+			expect(singleton.get()).to.never.be.equal(ret)
+		end)
+	end)
+end
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="37">
+        <Properties>
+          <string name="Name">State.spec</string>
+          <string name="Source"><![CDATA[--[[
+    State test
     HawDevelopment
     26/06/2021
 --]]
 
-local t = require(script.Parent.t)
-local Observer = require(script.Parent.Observer)
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local lib = require(ReplicatedStorage.lib)
+	local Observer = require(lib.Observer)
+	---@module State
+	local State = require(lib.State)
 
-local t_type = t.union(t.string, t.none)
+	describe("State.new", function()
+		it("should return a valid state", function()
+			local state = State.new(true)
 
----@class Command
-local Command = {}
-Command.__index = Command
+			expect(state.__observer).to.be.a("table")
+			expect(state.__state).to.be.equal(true)
+		end)
 
---- Creates a new command
----@param commands table<string, fun(any): any> | nil
-function Command.new(commands)
-	assert(t.union(t.table, t.none)(commands))
-	local self = setmetatable({}, Command)
+		it("should error if given wrong arguments", function()
+			expect(function()
+				State.new(nil, 10)
+			end).to.be.throw()
 
-	self.__commands = commands or {}
+			expect(function()
+				State.new(nil, game)
+			end).to.be.throw()
+		end)
 
-	return self
+		it("should be able to be created using __call", function()
+			expect(function()
+				State()
+			end).to.never.be.throw()
+		end)
+	end)
+
+	describe("State.observer", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should set observer", function()
+			local observer = Observer.new()
+
+			state.observer(observer)
+			expect(state.__observer).to.be.equal(observer)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				State.new(true, "Sup")
+			end).to.be.throw()
+
+			expect(function()
+				State.new(true, 10)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("State.bind", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should bind a function", function()
+			expect(function()
+				state.bind(function()
+					print("Hello world!")
+				end)
+			end).to.never.be.throw()
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				state.bind("yes")
+			end).to.be.throw()
+
+			expect(function()
+				state.bind(function() end, workspace)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("State.set", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should set the state", function()
+			state.set(10)
+
+			expect(state.__state).to.be.equal(10)
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				state.set(1, game)
+			end).to.be.throw()
+
+			expect(function()
+				state.set(1, false)
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("State.get", function()
+		local state
+		beforeEach(function()
+			state = State.new()
+		end)
+
+		it("should return the state", function()
+			state.set(10)
+
+			expect(state.get()).to.be.equal(10)
+		end)
+	end)
 end
-
---- Adds a new command
----@param command fun(any): any
----@param name string
-function Command:add(command, name)
-	assert(t.callback(command))
-	assert(t.string(name))
-	self.__commands[name] = command
-end
-
---- Executes command with given name
----@param name string
-function Command:execute(name, ...)
-	assert(t.string(name))
-	assert(self.__commands[name] ~= nil, ("Command with name %s could not be found"):format(name))
-
-	self.__commands[name](...)
-end
-
-Command.__index = function(self, index)
-	if type(Command[index]) == "function" then
-		return function(...)
-			return Command[index](self, ...)
-		end
-	else
-		return Command[index]
-	end
-end
-Command.__call = function(self, ...)
-	return self.set(...)
-end
-
-return setmetatable(Command, {
-	__call = function(self, ...)
-		return self.new(...)
-	end,
-})
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-			<Item class="ModuleScript" referent="RBX02F0E580BB1042148E59EA351CC1F142">
-				<Properties>
-					<BinaryString name="AttributesSerialize"></BinaryString>
-					<Content name="LinkedSource"><null></null></Content>
-					<string name="Name">Chain</string>
-					<string name="ScriptGuid">{369AFF3A-AA80-4E2C-9A4B-092082785D63}</string>
-					<ProtectedString name="Source"><![CDATA[--[[
-    Chain class
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="38">
+        <Properties>
+          <string name="Name">Strategy.spec</string>
+          <string name="Source"><![CDATA[--[[
+    Strategy tests
     HawDevelopment
-    26/06/2021
+    23/06/2021
 --]]
 
-local t = require(script.Parent.t)
+return function()
+	local ReplicatedStorage = game:GetService("ReplicatedStorage")
+	local lib = require(ReplicatedStorage.lib)
 
----@class Chain
-local Chain = {}
-Chain.__index = Chain
+	---@module Strategy
+	local Strategy = require(lib.Strategy)
 
---- Creates a new Chain
----@param handles table<string | number, fun(any): boolean> | nil
----@param shouldWarn boolean
-function Chain.new(chain, shouldWarn)
-	assert(t.union(t.table, t.none)(chain))
-	chain = chain or {}
+	local handles = {
+		Support = function(name)
+			return "Support " .. tostring(name)
+		end,
+		Ticket = function(name)
+			return "Ticket " .. tostring(name)
+		end,
+	}
 
-	for index, val in pairs(chain) do
-		if type(index) ~= "number" then
-			error("Chain indexes can only be numbers!", 2)
-		end
+	describe("Strategy.new", function()
+		it("should return a valid strategy", function()
+			local strat = Strategy.new(handles, "Support")
 
-		if type(val) ~= "function" then
-			error("Chain values can only be functions", 2)
-		end
-	end
+			expect(strat.__handles).to.be.a("table")
+			expect(strat.__strategy).to.be.a("function")
+		end)
 
-	local self = setmetatable({}, Chain)
+		it("should error if given wrong arguments", function()
+			expect(function()
+				Strategy.new("Sup")
+			end).to.be.throw()
 
-	self.__chain = chain
+			expect(function()
+				Strategy.new(69)
+			end).to.be.throw()
+		end)
 
-	if shouldWarn then
-		self.__warn = shouldWarn
-	else
-		self.__warn = true
-	end
+		it("should be able to be created using __call", function()
+			expect(function()
+				Strategy(handles)
+			end).to.never.be.throw()
+		end)
+	end)
 
-	return self
+	describe("Strategy.set", function()
+		local strat
+		beforeEach(function()
+			strat = Strategy.new(handles)
+		end)
+
+		it("should set the current strategy", function()
+			-- Reset strategy
+			strat.__strategy = nil
+			strat.set("Ticket")
+
+			expect(strat.__strategy).to.be.a("function")
+		end)
+
+		it("should error if given wrong arguments", function()
+			expect(function()
+				strat.set(game)
+			end).to.be.throw()
+
+			expect(function()
+				strat.set()
+			end).to.be.throw()
+
+			expect(function()
+				strat.set({})
+			end).to.be.throw()
+		end)
+
+		it("should error if strategy isnt found", function()
+			expect(function()
+				strat.set("Developer")
+			end).to.be.throw()
+		end)
+	end)
+
+	describe("Strategy.call", function()
+		local strat
+		beforeEach(function()
+			strat = Strategy.new(handles, 1)
+		end)
+
+		it("should call strategy and return its value", function()
+			-- Just to be sure
+			strat.set("Support")
+
+			local ret
+			expect(function()
+				ret = strat.call("1")
+			end).to.never.be.throw()
+
+			expect(ret).to.be.equal("Support 1")
+		end)
+
+		it("should error if no strategy is set", function()
+			strat.__strategy = nil
+			expect(function()
+				strat.call()
+			end).to.be.throw()
+		end)
+
+		it("should be able to be called using __call", function()
+			strat.set("Ticket")
+
+			local ret
+			expect(function()
+				ret = strat("1")
+			end).to.never.be.throw()
+
+			expect(ret).to.be.equal("Ticket 1")
+		end)
+	end)
 end
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="39">
+        <Properties>
+          <string name="Name">Types</string>
+          <string name="Source"><![CDATA[--[[
+    Just messing around here, trying to check Luau and Emmylua types
+    HawDevelopment
+    12/06/2021
+--]]
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
---- Sets the current Chain
----@param handler fun(any): boolean
----@param index number | nil @Index of handler in chain, defaults to last index plus one
-function Chain:add(handler, index)
-	assert(t.callback(handler))
-	assert(t.union(t.number, t.none)(index))
-	index = index or #self.__chain + 1
+local Factory = require(ReplicatedStorage.lib.Factory)
 
-	table.insert(self.__chain, index, handler)
-	return self
-end
+-- Factory
 
---- Execures the current Chain
----@vararg any
----@return boolean
-function Chain:execute(...)
-	for i, handle in ipairs(self.__chain) do
-		local ret, err = handle(...)
+---@type Factory
+local factory = Factory.new()
 
-		if ret == false then
-			if err and self.__warn then
-				warn(err)
-			else
-				warn(("Error cought in chain on index %s"):format(i))
-			end
+Factory.Argument()
+]]></string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+  <Item class="SoundService" referent="40">
+    <Properties>
+      <string name="Name">SoundService</string>
+      <bool name="RespectFilteringEnabled">true</bool>
+    </Properties>
+  </Item>
+  <Item class="StarterPlayer" referent="41">
+    <Properties>
+      <string name="Name">StarterPlayer</string>
+    </Properties>
+    <Item class="StarterPlayerScripts" referent="42">
+      <Properties>
+        <string name="Name">StarterPlayerScripts</string>
+      </Properties>
+      <Item class="LocalScript" referent="43">
+        <Properties>
+          <string name="Name">Runner</string>
+          <string name="Source"><![CDATA[--[[
+    Test Runner
+    HawDevelopment
+    11/06/2021
+--]]
 
-			return ret
-		end
-	end
+local TestEz = require(game.ReplicatedStorage.TestEz)
 
-	return true
-end
+local Tests = script.Parent:WaitForChild("Tests")
 
-Chain.__index = function(self, index)
-	if type(Chain[index]) == "function" then
-		return function(...)
-			return Chain[index](self, ...)
-		end
-	else
-		return Chain[index]
-	end
-end
-Chain.__call = function(self, ...)
-	return self.fire(...)
-end
-
-return setmetatable(Chain, {
-	__call = function(self, ...)
-		return self.new(...)
-	end,
-})
-]]></ProtectedString>
-					<int64 name="SourceAssetId">-1</int64>
-					<BinaryString name="Tags"></BinaryString>
-				</Properties>
-			</Item>
-		</Item>
-	</Item>
-	<Item class="LuaWebService" referent="RBXE58E87B5761041CDA8695462DB425915">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">Instance</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="Lighting" referent="0">
-		<Properties>
-			<Color3 name="Ambient">
-				<R>0</R>
-				<G>0</G>
-				<B>0</B>
-			</Color3>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<float name="Brightness">2</float>
-			<Color3 name="ColorShift_Bottom">
-				<R>0</R>
-				<G>0</G>
-				<B>0</B>
-			</Color3>
-			<Color3 name="ColorShift_Top">
-				<R>0</R>
-				<G>0</G>
-				<B>0</B>
-			</Color3>
-			<float name="EnvironmentDiffuseScale">0</float>
-			<float name="EnvironmentSpecularScale">0</float>
-			<float name="ExposureCompensation">0</float>
-			<Color3 name="FogColor">
-				<R>0.75</R>
-				<G>0.75</G>
-				<B>0.75</B>
-			</Color3>
-			<float name="FogEnd">100000</float>
-			<float name="FogStart">0</float>
-			<float name="GeographicLatitude">41.7332993</float>
-			<bool name="GlobalShadows">true</bool>
-			<string name="Name">Lighting</string>
-			<Color3 name="OutdoorAmbient">
-				<R>0.5</R>
-				<G>0.5</G>
-				<B>0.5</B>
-			</Color3>
-			<bool name="Outlines">false</bool>
-			<float name="ShadowSoftness">0.5</float>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-			<token name="Technology">1</token>
-			<string name="TimeOfDay">14:00:00</string>
-		</Properties>
-	</Item>
-	<Item class="LanguageService" referent="RBX1BB4051A295B48C5B39818D0063F3C6F">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<string name="Name">LanguageService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="HttpService" referent="RBX9E2880094A9A45248C075FE7A32EA969">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<bool name="HttpEnabled">false</bool>
-			<string name="Name">HttpService</string>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-		</Properties>
-	</Item>
-	<Item class="TestService" referent="RBX18F875EE4622414A90798774F69E4379">
-		<Properties>
-			<BinaryString name="AttributesSerialize"></BinaryString>
-			<bool name="AutoRuns">true</bool>
-			<string name="Description"></string>
-			<bool name="ExecuteWithStudioRun">false</bool>
-			<bool name="Is30FpsThrottleEnabled">true</bool>
-			<bool name="IsPhysicsEnvironmentalThrottled">true</bool>
-			<bool name="IsSleepAllowed">true</bool>
-			<string name="Name">TestService</string>
-			<int name="NumberOfPlayers">0</int>
-			<double name="SimulateSecondsLag">0</double>
-			<int64 name="SourceAssetId">-1</int64>
-			<BinaryString name="Tags"></BinaryString>
-			<double name="Timeout">10</double>
-		</Properties>
-	</Item>
-	<SharedStrings>
-		<SharedString md5="yuZpQdnvvUBOTYh1jqZ2cA=="></SharedString>
-	</SharedStrings>
+TestEz.TestBootstrap:run(Tests:GetDescendants())
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="Folder" referent="44">
+        <Properties>
+          <string name="Name">Tests</string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+  <Item class="Workspace" referent="45">
+    <Properties>
+      <string name="Name">Workspace</string>
+      <bool name="FilteringEnabled">true</bool>
+    </Properties>
+  </Item>
 </roblox>
