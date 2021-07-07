@@ -902,7 +902,7 @@ Contains:</p>
 <li>State</li>
 <li>Strategy</li>
 </ul>
-<p>All patterns are classes. When calling a method you should use <code>:</code> instead use <code>.</code></p>
+<p>All patterns are classes. When calling a method you should use <code>.</code> instead of <code>:</code></p>
 <div class="highlight"><pre><span></span><code><span class="c1">-- DONT</span>
 <span class="n">chain</span><span class="p">:</span><span class="n">add</span><span class="p">()</span>
 <span class="n">state</span><span class="p">:</span><span class="n">set</span><span class="p">()</span>
@@ -915,14 +915,13 @@ Contains:</p>
 </code></pre></div>
 
 <h2 id="chain">Chain</h2>
-<p>First, you add handlers to the chain. Each handler should return a boolean if it succeeds.
-Then when executing, it calls each handler one step at a time. If any returns false, it will warn.</p>
-<p>Chain or chain of responsibility is used often for checking and auth.</p>
+<p>First, add handlers to the chain. Each handler should return a boolean if it succeeds.
+Then when executing, it calls each handler one step at a time. If one returns false, it will warn and stop.</p>
+<p>Chain or chain of responsibility is used often for auth and guard statements.</p>
 <h3 id="chainnew"><code>Chain.new</code></h3>
 <p><code>Chain.new(chain: {[number]: function}?, shouldWarn: boolean?): Chain</code></p>
 <p>Creates a new chain.
-shouldWarn is for when a chain fails, if set to true it will warn. Defualts to false.</p>
-<p>A Chain can be made like this:</p>
+if shouldWarn is set to true it will warn on fail. Defualts to false.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Chain</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Chain</span><span class="p">)</span>
 
@@ -937,7 +936,8 @@ shouldWarn is for when a chain fails, if set to true it will warn. Defualts to f
 
 <h3 id="chainadd"><code>Chain.add</code></h3>
 <p><code>Chain.add(handler: function, index: number?): self</code></p>
-<p>Adds a new handler to the chain.</p>
+<p>Adds a new handler to the chain.
+The handler function should return a boolean.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Chain</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Chain</span><span class="p">)</span>
 
@@ -952,7 +952,7 @@ shouldWarn is for when a chain fails, if set to true it will warn. Defualts to f
 
 <h3 id="chainexecute"><code>Chain.execute</code></h3>
 <p><code>Chain.execute(...any): boolean</code></p>
-<p>Executes the current chain, warns if any handler returns false.</p>
+<p>Executes the current chain, returns false on fail.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Chain</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Chain</span><span class="p">)</span>
 
@@ -973,10 +973,11 @@ shouldWarn is for when a chain fails, if set to true it will warn. Defualts to f
 </code></pre></div>
 
 <h2 id="command">Command</h2>
-<p>Register some functions and then later call them by name. It can be very helpful when having lots of functions bound to one object.</p>
+<p>Register functions and then later call them by name. Use when you have lots of functions bound to one object.</p>
 <h3 id="commandnew"><code>Command.new</code></h3>
 <p><code>Command.new(commands: {[string]: function}?): Command</code></p>
-<p>Creates a new command.</p>
+<p>Creates a new command.
+Command handlers are just a regular function.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Command</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Command</span><span class="p">)</span>
 
@@ -1020,7 +1021,7 @@ shouldWarn is for when a chain fails, if set to true it will warn. Defualts to f
 </code></pre></div>
 
 <h2 id="factory">Factory</h2>
-<p>Create a enum with corresponding name and function.
+<p>Create an enum with corresponding name and function, and start creating classes at your will.
 This is what a defualt factory looks like:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Factory</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Factory</span><span class="p">)</span>
@@ -1044,7 +1045,8 @@ This is what a defualt factory looks like:</p>
 
 <h3 id="factorynew"><code>Factory.new</code></h3>
 <p><code>Factory.new(enum: {[string]: number}, factories: {[string]: function}): Factory</code></p>
-<p>Creates a new factory</p>
+<p>Creates a new factory
+Factory functions should only modify the table given to them.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Factory</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Factory</span><span class="p">)</span>
 
@@ -1069,7 +1071,7 @@ This is what a defualt factory looks like:</p>
 
 <h3 id="factorycreate"><code>Factory.create</code></h3>
 <p><code>Factory.create(type: string | number, ...any)</code></p>
-<p>Creates a new class from callback with given name or enum index.</p>
+<p>Creates a new class, using the specified function.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Factory</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Factory</span><span class="p">)</span>
 
@@ -1094,7 +1096,7 @@ This is what a defualt factory looks like:</p>
 
 <h3 id="factoryrule"><code>Factory.rule</code></h3>
 <p><code>Factory.rule(rule: {[number]: function}?)</code></p>
-<p>Sets the current rules, useful when you dont want to check arguments your self.
+<p>Sets the current rules, useful when having lots of similar agruments.
 The rules are just a table, each index will be called with argument of that index and should return true or false.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Factory</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Factory</span><span class="p">)</span>
@@ -1132,7 +1134,8 @@ The rules are just a table, each index will be called with argument of that inde
 
 <h3 id="factorybase"><code>Factory.base</code></h3>
 <p><code>Factory.base(base: {[string]: any})</code></p>
-<p>Sets the current base. A base is just the base class of any class created. You can also use <code>Factory.Argument</code> for setting arguments given.</p>
+<p>Sets the current base.
+A base is just the base class of any class created. You can also use <code>Factory.Argument</code> for linking arguments to the base.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Factory</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Factory</span><span class="p">)</span>
 
@@ -1155,8 +1158,8 @@ The rules are just a table, each index will be called with argument of that inde
 </code></pre></div>
 
 <h2 id="observer">Observer</h2>
-<p>You probably know signals. Observers work mostly in the same way, the only difference is that you have many "watchers" bound and you can many underlying types.
-Types are like sub observer. So this is what a observer could look like:</p>
+<p>You probably know Signals. Observers work mostly in the same way, the only difference is that you have many "watchers" bound to one observer, and you can have many underlying types.
+Types are like sub observer. So this is what a regular observer could look like:</p>
 <ul>
 <li>function</li>
 <li>function</li>
@@ -1168,7 +1171,8 @@ Types are like sub observer. So this is what a observer could look like:</p>
 </ul>
 <h3 id="observernew">Observer.new</h3>
 <p><code>Observer.new(watcher: {[any]: function}?): Observer</code></p>
-<p>Creates a new observer.</p>
+<p>Creates a new observer.
+A watcher is a function that will be called when the observer is fires.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Observer</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Observer</span><span class="p">)</span>
 
@@ -1198,7 +1202,7 @@ Types are like sub observer. So this is what a observer could look like:</p>
 
 <h3 id="observerfire">Observer.fire</h3>
 <p><code>Observer.fire(type: string | "All" | nil, ...any)</code></p>
-<p>Fires observer, if a type is given that isnt "All" it will only call watchers in that type.</p>
+<p>Fires the observer, if a type is given that isnt "All" it will only call watchers of that type.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Observer</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Observer</span><span class="p">)</span>
 
@@ -1218,12 +1222,12 @@ Types are like sub observer. So this is what a observer could look like:</p>
 </code></pre></div>
 
 <h2 id="singleton">Singleton</h2>
-<p>Would ever need more than one round? Using singleton you can create one class and then use it all over your program, no need to check if it exists.
+<p>Would you need more than one round? Using singleton you can create one class and then use it all over your program, no need to check if it exists.
 It doesn't create the class before you call the get method for the first time.</p>
 <h3 id="singletonnew">Singleton.new</h3>
 <p><code>Singleton.new(constructor: function | table): Singleton</code></p>
 <p>Creates a new singleton.
-The constructor can be a function or a class with a <code>.new</code> funtion.</p>
+The constructor can be a function or a class with a <code>.new</code> function, should return the value to be set as the singleton value.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Singleton</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Singleton</span><span class="p">)</span>
 
@@ -1242,7 +1246,7 @@ The constructor can be a function or a class with a <code>.new</code> funtion.</
 
 <h3 id="singletonget">Singleton.get</h3>
 <p><code>Singleton.get(): any</code></p>
-<p>Gets the current storring class of the singleton, if it hasnt been created it will call the constructor.</p>
+<p>Gets the current storring object of the singleton, if it hasnt been created it will call the constructor.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Singleton</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Singleton</span><span class="p">)</span>
 
@@ -1280,11 +1284,11 @@ The constructor can be a function or a class with a <code>.new</code> funtion.</
 </code></pre></div>
 
 <h2 id="state">State</h2>
-<p>Sometimes it can be hard to manage player state. If you have ever sat down and written if statements for hours, this is for you.</p>
+<p>Sometimes it can be hard to manage player state.</p>
 <h3 id="statenew">State.new</h3>
 <p><code>State.new(defualt: any?, observer: Observer): State</code></p>
 <p>Creates a new state.
-If an obsever is given, it will be used instead of creating a new one.</p>
+If an obsever is given, it will be used instead of creating a new one. The observer of the state will be called when a new state has been set.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">State</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">State</span><span class="p">)</span>
 
@@ -1332,8 +1336,8 @@ If an obsever is given, it will be used instead of creating a new one.</p>
 
 <h3 id="stateset">State.set</h3>
 <p><code>State.set(state: any, type: string?)</code></p>
-<p>Sets the current state, it will also call the current observer with the new state.
-If a type is given, it will only call functions bound to that type.</p>
+<p>Sets the current state.
+It will also call the current observer with the new state. If a type is given, it will only call functions bound to that type in the observer.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">State</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">State</span><span class="p">)</span>
 
@@ -1358,11 +1362,12 @@ If a type is given, it will only call functions bound to that type.</p>
 </code></pre></div>
 
 <h2 id="strategy">Strategy</h2>
-<p>Have you ever had different changing selections that require a specific function? With Strategy you register functions with a specific name, the later set the strategy and when it's called it will execute the function with the corresponding name.
-Especially useful for changing powers.</p>
+<p>Have you ever had different changing selections that require a specific function? With Strategy you register functions with a specific name, then later set it as the strategy and then execute the function at will.
+Especially useful for changing powers and abilities.</p>
 <h3 id="strategynew">Strategy.new</h3>
-<p><code>Strategy.new(handles: {[string]: function}, start: string): Strategy</code></p>
-<p>Creates a new strategy. If start isnt given it will defualt to the first index.</p>
+<p><code>Strategy.new(handles: {[string]: function}, start: string?): Strategy</code></p>
+<p>Creates a new strategy.
+If start is given it will set the index to it.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Strategy</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Strategy</span><span class="p">)</span>
 
@@ -1379,7 +1384,7 @@ Especially useful for changing powers.</p>
 
 <h3 id="strategyadd">Strategy.add</h3>
 <p><code>Strategy.add(handler: function, name: string)</code></p>
-<p>Adds a handler to the list of handlers in the strategy.</p>
+<p>Adds the handler to the list of handlers in the strategy.</p>
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="n">lib</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">path</span><span class="p">.</span><span class="n">to</span><span class="p">.</span><span class="n">lib</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">Strategy</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="n">lib</span><span class="p">.</span><span class="n">Strategy</span><span class="p">)</span>
 

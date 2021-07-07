@@ -387,8 +387,8 @@
                   <h1>Getting Started</h1>
                 
                 <h2 id="basics">Basics</h2>
-<p>Ro-Lib has java-script-like syntax. It's divided up into smaller sub-modules that are easy to use. It has a lot of modules, so that will be at least one that's useful for you.</p>
-<p>If you are still unsure here's something for you.</p>
+<p>Ro-Lib has java-script-like syntax. Ro-Lib is divided up into smaller sub-modules that are modular and easy to use.
+Heres a quik example of some Ro-Lib code improvements.</p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Bad code</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kd">local</span> <span class="kr">function</span> <span class="nf">FistAttack</span><span class="p">()</span>
     <span class="c1">-- ...</span>
@@ -444,7 +444,7 @@
 </div>
 </div>
 <h2 id="patterns">Patterns</h2>
-<p>Ro-Lib has every pattern you would want, and there's a lot. So here's a list with all patterns and their uses.</p>
+<p>Ro-Lib has every pattern you need. It can be hard finding the right pattern, so heres all the patterns with their uses.</p>
 <table>
 <thead>
 <tr>
@@ -456,52 +456,50 @@
 <tbody>
 <tr>
 <td>Chain</td>
-<td>Chain allows you to pass checks along a chain</td>
-<td>Good for auth and checking inputs</td>
+<td>Chain, pass checks along a chain</td>
+<td>Good for auth and guard statements</td>
 </tr>
 <tr>
 <td>Command</td>
-<td>Command allows you to register and call functions</td>
-<td>Works weel for enemy systeams and components</td>
+<td>Command, register and call functions</td>
+<td>Works well for enemy systems and components</td>
 </tr>
 <tr>
 <td>Factory</td>
-<td>Factory is used when for constructing classes</td>
-<td>When you have need to create many classes</td>
+<td>Factory, constructing classes</td>
+<td>Creating lots of classes</td>
 </tr>
 <tr>
 <td>Observer</td>
-<td>Observer can be used instead of querying</td>
-<td>Makes events a lot better to use</td>
+<td>Observer, observe instead of querying</td>
+<td>Signal data structures</td>
 </tr>
 <tr>
 <td>Singleton</td>
-<td>Singletong for when you only need one instance of a class</td>
-<td>Useful for services, when you only wanr one instance</td>
+<td>Singleton, create only one object</td>
+<td>Only creating one of a kind object</td>
 </tr>
 <tr>
 <td>State</td>
-<td>State can be used for changing and reactive variables</td>
-<td>When you have constantly changing values</td>
+<td>State, changing and reactive variables</td>
+<td>Changing values, or for things out of scope</td>
 </tr>
 <tr>
 <td>Strategy</td>
-<td>Strategy when you have a family of callbacks to pick</td>
-<td>Best with abilityis, works will with Command and Factory</td>
+<td>Strategy, family of callbacks to pick</td>
+<td>Abilities and weapons</td>
 </tr>
 </tbody>
 </table>
 <h2 id="examples">Examples</h2>
-<p>It's maybe hard to figure out when to use which patterns, so here are some examples to help.</p>
-<details class="example"><summary>Ability</summary><p>When making abilities it can be best if they are modular and short. Here's it best to use Strategy and Factory to construct and use abilities.</p>
+<p>Heres some examples for when to use the patterns.</p>
+<details class="example"><summary>Ability</summary><p>When making abilities it's best if they are modular and short. Here's it's best to use Strategy and Factory to construct and use abilities.</p>
 </details>
-<details class="example"><summary>Placement System</summary><p>Placement systems can have lots of functionality and controls. So it can be hard managing them all. But using Observer to listen for events and Command to execute them can make it much easier.</p>
+<details class="example"><summary>Placement System</summary><p>Placement systems can have a lot of functionality and controls. So it can be difficult to manage them all. Here it's best to use Observer for listening for events and Command to executing them.</p>
 </details>
-<details class="example"><summary>Admin auth</summary><p>For auth, the chain of responsibility (scary name) is the best choice. The chain can help clear up if statements.</p>
+<details class="example"><summary>Admin auth</summary><p>Auth can have many if statements. It's here Chain really shines, helping clear up hundred lines of if statements.</p>
 </details>
-<details class="example"><summary>Button state</summary><p>Of course, you should use state for state management.</p>
-</details>
-<details class="example"><summary>Round manager</summary><p>You should use singleton for round management, you wouldn't want two have to manager or two rounds in the same place.</p>
+<details class="example"><summary>Button state</summary><p>State should be reactive, use State.</p>
 </details>
                 
               
