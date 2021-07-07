@@ -12,7 +12,7 @@ Contains:
 * State
 * Strategy
 
-All patterns are classes. When calling a method you should use `:` instead use `.`
+All patterns are classes. When calling a method you should use `.` instead of `:`
 
 ``` lua
 -- DONT
@@ -28,19 +28,17 @@ Strategy()
 
 ## Chain
 
-First, you add handlers to the chain. Each handler should return a boolean if it succeeds.
-Then when executing, it calls each handler one step at a time. If any returns false, it will warn.
+First, add handlers to the chain. Each handler should return a boolean if it succeeds.
+Then when executing, it calls each handler one step at a time. If one returns false, it will warn and stop.
 
-Chain or chain of responsibility is used often for checking and auth.
+Chain or chain of responsibility is used often for auth and guard statements.
 
 ### `Chain.new`
 
 `Chain.new(chain: {[number]: function}?, shouldWarn: boolean?): Chain`
 
 Creates a new chain.
-shouldWarn is for when a chain fails, if set to true it will warn. Defualts to false.
-
-A Chain can be made like this:
+if shouldWarn is set to true it will warn on fail. Defualts to false.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -60,6 +58,7 @@ local chain2 = Chain({
 `Chain.add(handler: function, index: number?): self`
 
 Adds a new handler to the chain.
+The handler function should return a boolean.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -78,7 +77,7 @@ end)
 
 `Chain.execute(...any): boolean`
 
-Executes the current chain, warns if any handler returns false.
+Executes the current chain, returns false on fail.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -102,13 +101,14 @@ print(res) -> false
 
 ## Command
 
-Register some functions and then later call them by name. It can be very helpful when having lots of functions bound to one object.
+Register functions and then later call them by name. Use when you have lots of functions bound to one object.
 
 ### `Command.new`
 
 `Command.new(commands: {[string]: function}?): Command`
 
 Creates a new command.
+Command handlers are just a regular function.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -163,7 +163,7 @@ command.execute("Hello", "Hello world!")
 
 ## Factory
 
-Create a enum with corresponding name and function.
+Create an enum with corresponding name and function, and start creating classes at your will.
 This is what a defualt factory looks like:
 
 ``` lua
@@ -193,6 +193,7 @@ local factory = Factory.new(enum, funcs)
 `Factory.new(enum: {[string]: number}, factories: {[string]: function}): Factory`
 
 Creates a new factory
+Factory functions should only modify the table given to them.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -221,7 +222,7 @@ Factory.new(enum, funcs)
 
 `Factory.create(type: string | number, ...any)`
 
-Creates a new class from callback with given name or enum index.
+Creates a new class, using the specified function.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -250,7 +251,7 @@ factory.create(2) -> {Name = "Moderator"}
 
 `Factory.rule(rule: {[number]: function}?)`
 
-Sets the current rules, useful when you dont want to check arguments your self.
+Sets the current rules, useful when having lots of similar agruments.
 The rules are just a table, each index will be called with argument of that index and should return true or false.
 
 ``` lua
@@ -292,7 +293,8 @@ factory.create(1, "Berezaa")
 
 `Factory.base(base: {[string]: any})`
 
-Sets the current base. A base is just the base class of any class created. You can also use `Factory.Argument` for setting arguments given.
+Sets the current base.
+A base is just the base class of any class created. You can also use `Factory.Argument` for linking arguments to the base.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -318,8 +320,8 @@ factory.create(1, "HawDevelopment") -> {Name = "HawDevelopment", Age = 13, Skill
 
 ## Observer
 
-You probably know signals. Observers work mostly in the same way, the only difference is that you have many "watchers" bound and you can many underlying types.
-Types are like sub observer. So this is what a observer could look like:
+You probably know Signals. Observers work mostly in the same way, the only difference is that you have many "watchers" bound to one observer, and you can have many underlying types.
+Types are like sub observer. So this is what a regular observer could look like:
 
 * function
 * function
@@ -332,6 +334,7 @@ Types are like sub observer. So this is what a observer could look like:
 `Observer.new(watcher: {[any]: function}?): Observer`
 
 Creates a new observer.
+A watcher is a function that will be called when the observer is fires.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -369,7 +372,7 @@ observer.add(function() end, "Sub")
 
 `Observer.fire(type: string | "All" | nil, ...any)`
 
-Fires observer, if a type is given that isnt "All" it will only call watchers in that type.
+Fires the observer, if a type is given that isnt "All" it will only call watchers of that type.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -392,7 +395,7 @@ observer.fire("Sub") -- "2" will print
 
 ## Singleton
 
-Would ever need more than one round? Using singleton you can create one class and then use it all over your program, no need to check if it exists.
+Would you need more than one round? Using singleton you can create one class and then use it all over your program, no need to check if it exists.
 It doesn't create the class before you call the get method for the first time.
 
 
@@ -401,7 +404,7 @@ It doesn't create the class before you call the get method for the first time.
 `Singleton.new(constructor: function | table): Singleton`
 
 Creates a new singleton.
-The constructor can be a function or a class with a `.new` funtion.
+The constructor can be a function or a class with a `.new` function, should return the value to be set as the singleton value.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -424,7 +427,7 @@ Singleton({
 
 `Singleton.get(): any`
 
-Gets the current storring class of the singleton, if it hasnt been created it will call the constructor.
+Gets the current storring object of the singleton, if it hasnt been created it will call the constructor.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -469,14 +472,14 @@ print(ret == singleton.get()) -> false
 
 ## State
 
-Sometimes it can be hard to manage player state. If you have ever sat down and written if statements for hours, this is for you.
+Sometimes it can be hard to manage player state.
 
 ### State.new
 
 `State.new(defualt: any?, observer: Observer): State`
 
 Creates a new state.
-If an obsever is given, it will be used instead of creating a new one.
+If an obsever is given, it will be used instead of creating a new one. The observer of the state will be called when a new state has been set.
 
 
 ``` lua
@@ -537,8 +540,8 @@ state.set("Number 2!", "Function 2") -- prints "Number 2!"
 
 `State.set(state: any, type: string?)`
 
-Sets the current state, it will also call the current observer with the new state.
-If a type is given, it will only call functions bound to that type.
+Sets the current state.
+It will also call the current observer with the new state. If a type is given, it will only call functions bound to that type in the observer.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -570,14 +573,15 @@ print(state.get() == "Whats up?") -> true
 
 ## Strategy
 
-Have you ever had different changing selections that require a specific function? With Strategy you register functions with a specific name, the later set the strategy and when it's called it will execute the function with the corresponding name.
-Especially useful for changing powers.
+Have you ever had different changing selections that require a specific function? With Strategy you register functions with a specific name, then later set it as the strategy and then execute the function at will.
+Especially useful for changing powers and abilities.
 
 ### Strategy.new
 
-`Strategy.new(handles: {[string]: function}, start: string): Strategy`
+`Strategy.new(handles: {[string]: function}, start: string?): Strategy`
 
-Creates a new strategy. If start isnt given it will defualt to the first index.
+Creates a new strategy.
+If start is given it will set the index to it.
 
 ``` lua
 local lib = require(path.to.lib)
@@ -598,7 +602,7 @@ Strategy({
 
 `Strategy.add(handler: function, name: string)`
 
-Adds a handler to the list of handlers in the strategy.
+Adds the handler to the list of handlers in the strategy.
 
 ``` lua
 local lib = require(path.to.lib)
